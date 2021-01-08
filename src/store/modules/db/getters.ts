@@ -13,13 +13,13 @@ type DbGetterCtx<T> = (
   rootGetters: any
 ) => T;
 export interface DbGetters extends GetterTree<typeof dbState, RootState> {
-  collection: DbGetterCtx<Realm.Services.MongoDBDatabase['collection'] | null>;
+  collection: DbGetterCtx<Realm.Services.MongoDBDatabase['collection'] | null | undefined>;
   functions: DbGetterCtx<Realm.DefaultFunctionsFactory & Realm.BaseFunctionsFactory>;
 }
 export const getters: DbGetters = {
   collection: (_state, _gets, rootState, rootGetters) => {
     return rootGetters[`auth/${AuthGetters.getUser}`]
-      ? rootState.realmApp.app.services.mongodb('mongodb-atlas').db('Primary').collection
+      ? rootState.realmApp.app.currentUser?.mongoClient('mongodb-atlas').db('Primary').collection
       : null;
   },
   functions: (_state, _gets, rootState) => {
