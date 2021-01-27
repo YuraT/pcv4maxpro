@@ -1,14 +1,8 @@
-import { Stitch, RemoteMongoClient, RemoteMongoDatabase } from 'mongodb-stitch-browser-sdk';
-import Database from '@/@types/database';
-import { User } from '../../../@types/user.d';
-
-const client = Stitch.initializeDefaultAppClient(process.env.VUE_APP_REALM_ID);
+import { User } from '../../../generated/graphql';
 
 const state: {
   user: User | null;
-  db: RemoteMongoDatabase;
 } = {
-  user: null,
-  db: client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db(Database.Primary)
+  user: null
 };
 export default state;

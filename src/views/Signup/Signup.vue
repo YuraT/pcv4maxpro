@@ -18,6 +18,7 @@
             single-line
             outlined
             full-width
+            dark
           ></v-text-field>
         </validation-provider>
         <div class="signup__confirmpassword text-subtitle-2">Password</div>
@@ -32,23 +33,31 @@
             single-line
             outlined
             full-width
+            dark
           ></v-text-field>
         </validation-provider>
 
         <v-checkbox
           v-model="terms"
           class="signup__conditions"
-          color="green"
+          color="white"
           single-line
           outlined
           full-width
+          dark
         >
           <template v-slot:label>
-            <div>
+            <div class="signup__conditions-text">
               I agree to the following
-              <a href="https://www.iubenda.com/terms-and-conditions/32542296">Terms & Conditions</a>
+              <a
+                class="login__forgotlink"
+                href="https://www.iubenda.com/terms-and-conditions/32542296"
+                >Terms & Conditions</a
+              >
               and
-              <a href="https://www.iubenda.com/privacy-policy/32542296">Privacy Policy.</a>
+              <a class="login__forgotlink" href="https://www.iubenda.com/privacy-policy/32542296"
+                >Privacy Policy.</a
+              >
             </div>
           </template>
         </v-checkbox>
@@ -57,33 +66,41 @@
           class="signup__signupbuttons text-h6 font-weight-black"
           depressed
           color="green"
+          x-large
           :disabled="invalid || !terms"
           :loading="loading"
           @click="submit"
         >
           Signup
         </v-btn>
-        <v-alert v-if="msg" :type="type">{{ msg }}</v-alert>
+        <v-alert v-if="msg" class="signup__alert" :type="type">{{ msg }}</v-alert>
       </validation-observer>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { reactive, toRefs } from '@vue/composition-api';
-import { useAuthActions } from '@/store';
+import { reactive, toRefs, ref } from '@vue/composition-api';
+import { useAuthActions, useDbState } from '@/store';
 
 export default {
   name: 'Signup',
   components: {},
-
-  setup() {
+  beforeRouteEnter(to, from, next) {
+    const { user } = useDbState(['user']);
+    if (!user.value) next();
+    else next({ name: 'portfolio' });
+  },
+  setup(props, { root }) {
+    const dialog = ref(false);
     // * Signup main
+    const param = root.$route.query.email ? (root.$route.query.email as string) : '';
     const state = reactive({
       email: '',
       password: '',
       terms: false
     });
+    state.email = param;
     // * UI handling
     const ui = reactive({
       msg: '',
@@ -105,8 +122,7 @@ export default {
       }
       ui.loading = false;
     }
-
-    return { ...toRefs(state), submit, ...toRefs(ui) };
+    return { ...toRefs(state), submit, ...toRefs(ui), dialog };
   },
   methods: {}
 };
@@ -121,6 +137,21 @@ export default {
 }
 
 .signup {
+  &__dialog {
+    text-align: center;
+    padding: 25px;
+  }
+
+  &__dialog-title {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__dialog-button {
+    margin: 20px;
+  }
+
   &__navbar {
     display: flex;
   }
@@ -166,11 +197,13 @@ export default {
   &__body {
     display: flex;
     justify-content: center;
+    font-family: Raleway;
   }
   &__title {
     color: #6eba7f;
     margin-top: 144px;
     margin-bottom: 56.5px;
+    font-family: Raleway;
   }
 }
 
@@ -191,9 +224,6 @@ export default {
     margin-top: 10px;
     margin-bottom: 4.5px;
     color: #ffffff;
-  }
-  &__input {
-    color: #d4d4d4;
   }
   &__lastname {
     margin-bottom: 4.5px;
@@ -217,6 +247,14 @@ export default {
     }
   }
 
+  &__conditions-text {
+    font-size: 11px;
+    color: #ffffff;
+    & a.login__forgotlink {
+      color: #ffffff;
+    }
+  }
+
   &__signupbuttons {
     width: 100%;
     &.theme--light.v-btn {
@@ -226,12 +264,10 @@ export default {
       margin-bottom: 0px 0px, 100px;
     }
   }
-}
 
-@media only screen and (max-width: 600px) {
-  // .signup {
-  //   &__header {
-  //   }
-  // }
+  &__alert {
+    margin-top: 25px;
+    font-size: 11.5px !important;
+  }
 }
 </style>

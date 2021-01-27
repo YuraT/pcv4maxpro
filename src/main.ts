@@ -1,23 +1,35 @@
 import Vue from 'vue';
-import VueCompositionAPI from '@vue/composition-api';
+import './installCompositionApi';
+import './store/watchers';
 import { ValidationObserver, ValidationProvider } from '@/validation';
+
+import VueApollo from 'vue-apollo';
+import provider from '@/vue-apollo';
+import VueMask from 'v-mask';
+import * as Layouts from './layouts';
 import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
-import { createProvider } from './vue-apollo';
 import '@mdi/font/css/materialdesignicons.css';
 
-Vue.use(VueCompositionAPI);
+Vue.use(VueApollo);
 
 Vue.config.productionTip = false;
+
+Vue.component('default-layout', Layouts.Default);
+Vue.component('no-nav-layout', Layouts.NoNav);
+Vue.component('landing-layout', Layouts.Landing);
 Vue.component('ValidationProvider', ValidationProvider);
 Vue.component('ValidationObserver', ValidationObserver);
+
+Vue.use(VueMask);
+Vue.use(VueApollo);
 new Vue({
+  apolloProvider: provider,
   router,
   store,
   vuetify,
-  provide: createProvider(),
   render: h => h(App)
 }).$mount('#app');

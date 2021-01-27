@@ -4,14 +4,13 @@
   </div>
 </template>
 <script lang="ts">
-import { ref } from '@vue/composition-api';
-import { PropType } from 'vue';
+import { ref, defineComponent } from '@vue/composition-api';
 import { useToolActions } from '@/store';
 
-export default {
+export default defineComponent({
   props: {
     callback: {
-      type: Function as PropType<(...args) => Promise<any>>,
+      type: Function,
       required: true
     },
     linearLoader: {
@@ -25,7 +24,6 @@ export default {
     const process =
       // setLinearLoader({
       async () => {
-        console.log('processing');
         loading.value = true;
         try {
           await (props.callback as Function)();
@@ -46,5 +44,5 @@ export default {
         : process
     };
   }
-};
+});
 </script>

@@ -1,4 +1,4 @@
-import BSON from 'bson';
+import * as BSON from 'bson';
 
 export enum UserTypes {
   student,
@@ -7,16 +7,16 @@ export enum UserTypes {
 }
 export interface User {
   _id: BSON.ObjectID;
-  firstName?: string;
-  lastName?: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  userTypes: string[];
   phone?: string;
   birthday?: Date;
   gender?: string;
   culture?: string;
   terms?: boolean;
   verifiedPhone?: Date;
-  userTypes?: string[];
   participantProgram_ids?: BSON.ObjectID[];
   stakeholderProgram_ids?: BSON.ObjectID[];
   organizerProgram_ids?: BSON.ObjectID[];

@@ -1,16 +1,13 @@
-FROM node:12.18.2
-RUN apt-get update -y && apt-get upgrade -y 
-RUN apt-get install rsync -y
-# Create and define the node_modules's cache directory.
-RUN mkdir /usr/src/cache
-WORKDIR /usr/src/cache
-
-# Install the application's dependencies into the node_modules's cache directory.
-COPY package*.json ./
-# RUN yarn global add @vue/cli
-RUN yarn 
+# This dockerfile is meant for in-container development
+FROM node:14.15.1
 # Create and define the application's working directory.
 WORKDIR /usr/src/app
+
+# Install the application's dependencies into the node_modules's cache directory.
+COPY [ "package.json", "yarn.lock", "./" ]
+# RUN yarn global add @vue/cli
+RUN yarn 
+
 COPY . .
 EXPOSE 8080
 

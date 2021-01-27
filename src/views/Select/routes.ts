@@ -4,7 +4,7 @@ import * as Program from './views';
 const routes: Array<RouteConfig> = [
   {
     path: '/select',
-    name: 'Select',
+    name: 'select',
     component: Program.Select
   }
 ];

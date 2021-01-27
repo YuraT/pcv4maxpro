@@ -2,7 +2,12 @@
   <div style="width: 100%">
     <div v-if="tile" class="tile">
       <div class="pc-program-card">
-        <div class="pc-program-card__image"></div>
+        <div class="pc-program-card__image">
+          <!-- <v-img
+            src="https://picsum.photos/510/300?random"
+            class="pc-program-card__completed"
+          ></v-img> -->
+        </div>
         <div class="pc-program-card__content">
           <h5 class="pc-program-card__title">Program Name</h5>
           <!-- <a href="#" class="pc-program-card__button w-button">Results</a> -->
@@ -13,7 +18,7 @@
     </div>
     <div v-else class="pc-program-card">
       <div class="pc-program-card__image">
-        <span></span>
+        <v-img src="https://picsum.photos/510/300?random" class="pc-program-card__image"></v-img>
       </div>
       <div class="pc-program-card__content">
         <h5 class="pc-program-card__title">Program Name</h5>
@@ -23,7 +28,9 @@
 
           <v-progress-linear class="green lighten-1" rounded green height="9"></v-progress-linear>
           <!-- </div> -->
-          <v-btn outlined light class="pc-program-card__button w-button">Checkout</v-btn>
+          <div class="pc-program-card__outline">
+            <v-btn outlined light class="pc-program-card__button w-button">Checkout</v-btn>
+          </div>
           <!-- <a href="#" class="pc-program-card__button w-button">Checkout</a> -->
         </div>
       </div>
@@ -45,7 +52,7 @@
   }
   &__image {
     width: 100%;
-    height: 200px;
+    height: 210px;
     max-width: 300px;
     min-width: 0px;
     background-color: #dbdbdb;
@@ -67,6 +74,7 @@
     font-weight: 800;
     color: #6fba7f;
   }
+
   &__actions {
     display: -webkit-box;
     display: -webkit-flex;
@@ -107,6 +115,10 @@
     text-decoration: none;
     font-family: Raleway;
     font-weight: 900;
+    &:hover {
+      color: #fff;
+      background-color: #404142;
+    }
   }
   &__progress-bar {
     height: 10px;
@@ -128,9 +140,11 @@
 
     &__image {
       max-width: 100%;
-      width: 100%;
       height: 200px;
       background-color: #dbdbdb;
+    }
+    &__completed {
+      width: 1220px;
     }
     &__content {
       display: -webkit-box;

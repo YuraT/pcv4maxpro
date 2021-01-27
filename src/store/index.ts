@@ -1,11 +1,12 @@
 import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
 import { createNamespacedHelpers } from 'vuex-composition-helpers';
+import { StripeActions } from './modules/stripe/actions';
+import { DbGetters } from './modules/db/getters';
 import { DbActions } from './modules/db/actions';
 import { AuthGetters } from './modules/auth/getters';
 import { AuthActions } from './modules/auth/actions';
 import { FileStorageActions } from './modules/fileStorage/actions';
-import { RealmAppGetters } from './modules/realmApp/getters';
 import { ToolActions } from './modules/tools/actions';
 import { ToolGetters } from './modules/tools/getters';
 import auth from './modules/auth';
@@ -19,6 +20,9 @@ import realmAppState from './modules/realmApp/state';
 import fileStorageState from './modules/fileStorage/state';
 import authState from './modules/auth/state';
 import dbState from './modules/db/state';
+import { mutations as dbMutations } from './modules/db/mutations';
+import stripe from './modules/stripe';
+import stripeState from './modules/stripe/state';
 
 Vue.use(Vuex);
 // * Declare a vuex store w/out a root state
@@ -30,11 +34,12 @@ const store: StoreOptions<RootState> = {
     realmApp,
     tools,
     fileStorage,
-    db
+    db,
+    stripe
   }
 };
 const vuexStore = new Vuex.Store<RootState>(store);
-export default vuexStore;
+
 export const {
   useState: useToolState,
   useGetters: useToolGetters,
@@ -46,7 +51,7 @@ export const {
   useGetters: useRealmAppGetters,
   useMutations: useRealmAppMutations,
   useActions: useRealmAppActions
-} = createNamespacedHelpers<typeof realmAppState, RealmAppGetters, any, any>(vuexStore, 'realmApp');
+} = createNamespacedHelpers<typeof realmAppState, any, any, any>(vuexStore, 'realmApp');
 export const {
   useState: useFileStorageState,
   useGetters: useFileStorageGetters,
@@ -67,4 +72,14 @@ export const {
   useGetters: useDbGetters,
   useMutations: useDbMutations,
   useActions: useDbActions
-} = createNamespacedHelpers<typeof dbState, any, DbActions, any>(vuexStore, 'db');
+} = createNamespacedHelpers<typeof dbState, DbGetters, DbActions, typeof dbMutations>(
+  vuexStore,
+  'db'
+);
+export const {
+  useState: useStripeState,
+  useGetters: useStripeGetters,
+  useMutations: useStripeMutations,
+  useActions: useStripeActions
+} = createNamespacedHelpers<typeof stripeState, any, StripeActions, any>(vuexStore, 'stripe');
+export default vuexStore;

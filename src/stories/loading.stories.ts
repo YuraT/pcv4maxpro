@@ -11,18 +11,18 @@ const Template: Story = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { Loading,Navbar },
   template: `
-    <Loading v-slot="{loading,process}" :callback="callback"> 
+    <Loading v-slot="{loading,process}" :callback="callback">
     <Navbar :loading="linearLoader && loading"></Navbar>
       <v-btn :loading="loading" @click="process"> click me
-      </v-btn> 
+      </v-btn>
     </Loading>
   `
 });
 
 export const useLoader = Template.bind({})
-useLoader.args = {
-  linearLoader:false,
-  callback: () => new Promise((resolve)=>{
-    setTimeout(()=>resolve(),2000)
-  })
-}
+// useLoader.args = {
+//   linearLoader:false,
+//   callback: () => new Promise((resolve)=>{
+//     setTimeout(()=>resolve(),2000)
+//   })
+// }

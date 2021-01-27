@@ -14,8 +14,6 @@ export interface FileStorageActions extends ActionTree<typeof fileStorageState, 
   uploadItem: <T extends File>(
     ctx: FileStorageActionCtx,
     payload: {
-      folder: string;
-      fileName: string;
       item: T;
     }
   ) => Promise<ManagedUpload.SendData>;
@@ -25,14 +23,14 @@ export interface FileStorageActions extends ActionTree<typeof fileStorageState, 
   ) => Promise<S3.DeleteObjectOutput>;
 }
 export const actions: FileStorageActions = {
-  uploadItem({ state, commit }, { folder, fileName, item }) {
-    console.log('uploading item');
+  uploadItem({ state, commit }, { item }) {
     return new Promise((resolve, reject) => {
       state.bucket.upload(
         {
           Bucket: state.BUCKET,
-          Key: folder + fileName,
+          Key: `${Date.now()}_${item.name}`,
           Body: item,
+          ContentType: item.type,
           ACL: 'public-read'
         },
         (err, data) => {

@@ -1,7 +1,8 @@
 version: "3.8"
 services: 
   program:
-    build: .
+    build: . #enable this when modifyingh dependencies
+    # image: juxsta/pcv4maxpro:latest
     container_name: program
     environment: 
     - NODE_ENV=development
@@ -12,14 +13,15 @@ services:
     - .env
     volumes: 
     - ./:/usr/src/app:cached
+    - /usr/src/app/node_modules
     ports:
-    - 8080:8080
+    - 8091:8080
     stdin_open: true
-    tty: true
-    command: sh /usr/src/app/entrypoint.sh
-  service:
+    tty: true 
+    command: ["yarn","serve"]
+  storybook:
     build: .
-    container_name: program
+    container_name: storybook
     environment: 
     - NODE_ENV=development
     - CHOKIDAR_USEPOLLING=true
@@ -30,7 +32,7 @@ services:
     volumes: 
     - ./:/usr/src/app:cached
     ports:
-    - 8080:8080
+    - 6006:6006
     stdin_open: true
     tty: true
     command: yarn storybook:serve
