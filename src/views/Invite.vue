@@ -2297,6 +2297,44 @@ export default {
         user: 'teacher',
         password: 'doolittle',
         video: 'ioeLlpe07wA'
+      },
+
+      // ROUND 12
+
+      Cognixion: {
+        user: 'employer',
+        password: 'ar',
+        video: 'MxMWCet9dfA'
+      },
+
+      'Turner Construction': {
+        user: 'employer',
+        password: 'shop',
+        video: '39npDknYw6s'
+      },
+
+      'Enel X': {
+        user: 'employer',
+        password: 'community',
+        video: '_LEx5cgXjVo'
+      },
+
+      'Evolve Manufacturing': {
+        user: 'employer',
+        password: 'mfg',
+        video: 'PcSvvAwx3jE'
+      },
+
+      Notion: {
+        user: 'employer',
+        password: 'nextgenusers',
+        video: 'rklfTZxgo8I'
+      },
+
+      'House Kombucha': {
+        user: 'employer',
+        password: 'hearts',
+        video: '-NgD62nDu2A'
       }
     };
     const pass = ref('');

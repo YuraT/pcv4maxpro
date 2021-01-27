@@ -1,7 +1,7 @@
 version: "3.8"
 services: 
   program:
-    build: . #enable this when modifying dependencies
+    build: . #enable this when modifyingh dependencies
     # image: juxsta/pcv4maxpro:latest
     container_name: program
     environment: 
@@ -13,11 +13,11 @@ services:
     - .env
     volumes: 
     - ./:/usr/src/app:cached
-    - usr/src/app/node_modules
+    - /usr/src/app/node_modules
     ports:
-    - 8080:8080
+    - 8091:8080
     stdin_open: true
-    tty: true
+    tty: true 
     command: ["yarn","serve"]
   storybook:
     build: .

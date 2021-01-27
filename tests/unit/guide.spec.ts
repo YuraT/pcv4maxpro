@@ -1,5 +1,3 @@
-// import functions from '@/views/Guide/guide';
-
 describe('guide sequence', () => {
   it('has two elements');
 });

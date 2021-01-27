@@ -129,7 +129,7 @@
                     @click="activeStep = n + 1"
                   >
                     <div class="guide-bar__timeline-item">
-                      Research
+                      {{ timeline[n - 1] }}
                       <div>
                         <v-btn
                           class="guide-bar__timeline-item-setup"
@@ -150,7 +150,7 @@
           <!-- STUDENT VIEW -->
           <!-- <div class="guide-bar__actions">
             <div class="guide-bar__actions-list">
-              <v-icon v-for="action in actions" :key="action.icon" color="black">
+              <v-icon v-for="action in actions" :key="action.icon" dark @click="logThis(action.fn)">
                 {{ 'mdi-' + action.icon }}
               </v-icon>
             </div>
@@ -169,15 +169,33 @@
 </template>
 
 <script lang="ts">
-import { ref } from '@vue/composition-api';
+import { ref, reactive, defineComponent, computed } from '@vue/composition-api';
 
-export default {
+export default defineComponent({
   name: 'Bar',
-  setup() {
+  props: {
+    timeline: {
+      required: true,
+      type: Array
+    },
+    value: {
+      required: true,
+      type: Number
+    }
+  },
+  setup(props, ctx) {
+    function logThis(val: string) {
+      console.log(val);
+    }
     const vertical = ref(true);
     const expand = ref(true); // open or closed sidebar
-    const steps = ref(15); // number of lines
-    const activeStep = ref(1); // open line
+    const steps = ref(props.timeline.length); // number of lines
+    const activeStep = computed({
+      get: () => props.value + 1,
+      set: newPage => {
+        ctx.emit('input', newPage - 2);
+      }
+    });
     const actions = ref([
       {
         icon: 'account-group',
@@ -249,9 +267,9 @@ export default {
         ]
       }
     });
-    return { steps, expand, activeStep, sequence, actions, vertical };
+    return { steps, expand, activeStep, sequence, actions, logThis, vertical };
   }
-};
+});
 </script>
 
 <style lang="scss">
