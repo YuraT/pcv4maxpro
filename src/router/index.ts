@@ -15,19 +15,17 @@ import { useAuthGetters } from '@/store';
 import ErrorLogin from '@/views/ErrorLogin.vue';
 import apolloProvider from '@/vue-apollo';
 import Landing from '@/views/Landing.vue';
-import { routes as SelectRoutes } from '../views/Select';
+import { CreateProgramRoutes } from '../views/CreateProgram';
 import { routes as ManageProgramRoutes } from '../views/ManageProgram';
 import { UserQueryInput, User } from '../generated/graphql';
-import { routes as SetupProgram } from '../views/SetupProgram';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
-  ...SelectRoutes,
+  ...CreateProgramRoutes,
   ...GuideRoutes,
   ...ManageProgramRoutes,
   ...PortfolioRoutes,
-  ...SetupProgram,
   {
     path: '/timeline',
     name: 'timeline',

@@ -1,25 +1,8 @@
 <template>
   <div class="select__entire-body">
-    <div class="select__stepper">
-      <v-stepper class="select__timeline" alt-labels>
-        <v-stepper-header>
-          <v-stepper-step step="1" non-linear>Select</v-stepper-step>
-
-          <v-divider></v-divider>
-
-          <v-stepper-step color="#F79960" step="2" non-linear>Setup</v-stepper-step>
-
-          <v-divider></v-divider>
-
-          <v-stepper-step step="">Publish</v-stepper-step>
-        </v-stepper-header>
-      </v-stepper>
-    </div>
-
-    <div class="select__toplabels" stepper-elevation="0"></div>
-    <div class="select__title">Choose Template</div>
+    <v-subheader class="select__title">Choose Template</v-subheader>
     <div class="select__cards">
-      <pc-select-card v-for="item in items" :key="item.title">
+      <pc-select-card>
         <template v-slot:title>{{ item.title }}</template>
       </pc-select-card>
     </div>
@@ -101,23 +84,23 @@ export default {
 
   &__stepper {
     width: 50%;
-    // align-items: center;
-    // justify-content: center;
-    // text-align: center;
+    //   // align-items: center;
+    //   // justify-content: center;
+    //   // text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5vh;
   }
 
-  &__cards {
-    margin-left: 220px;
-    margin-top: 11px;
-    display: grid;
-    grid-template-columns: repeat(1, 475px);
-    grid-template-rows: repeat(2, 375px);
-    grid-column-gap: 47px;
-    grid-row-gap: 43px;
-  }
+  // &__cards {
+  //   // margin-left: 220px;
+  //   margin-top: 11px;
+  //   // display: grid;
+  //   // grid-template-columns: repeat(1, 475px);
+  //   grid-template-rows: repeat(2, 375px);
+  //   grid-column-gap: 47px;
+  //   grid-row-gap: 43px;
+  // }
 }
 
 //to swich between the grid for diff width of the screen for 786px
