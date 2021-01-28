@@ -6,10 +6,16 @@
     "editor.formatOnSave": false
   },
   "eslint.validate": [
-    "javascript","typescript","vue","html"
+    "javascript",
+    "typescript",
+    "vue",
+    "html"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
   "vetur.validation.template": false,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
 }

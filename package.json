@@ -17,6 +17,7 @@
     "@emotion/styled-base": "^10.0.31",
     "@mdi/font": "^5.5.55",
     "@storybook/vue": "^6.0.21",
+    "@storybook/addon-knobs": "6.0.21",
     "@stripe/stripe-js": "^1.9.0",
     "@types/bson": "^4.0.3",
     "@types/lodash": "^4.14.161",
@@ -29,6 +30,7 @@
     "apollo-link-context": "^1.0.20",
     "apollo-link-http": "^1.5.17",
     "aws-sdk": "^2.747.0",
+    "axios": "^0.20.0",
     "babel-jest": "26.3.0",
     "bson": "^4.2.2",
     "core-js": "^3.6.5",
@@ -80,6 +82,7 @@
     "vue-filepond": "^6.0.3",
     "vue-property-decorator": "^8.4.2",
     "vue-router": "^3.4.5",
+    "vuedraggable": "^2.24.3",
     "vuetify": "^2.3.10",
     "vuex": "^3.4.0",
     "vuex-composition-helpers": "^1.0.19",
@@ -97,7 +100,6 @@
     "@storybook/addon-actions": "6.0.21",
     "@storybook/addon-controls": "^6.0.21",
     "@storybook/addon-docs": "^6.0.21",
-    "@storybook/addon-knobs": "6.0.21",
     "@storybook/addon-links": "6.0.21",
     "@storybook/addon-viewport": "^6.0.21",
     "@storybook/addons": "^6.0.21",
@@ -125,7 +127,7 @@
     "flush-promises": "^1.0.2",
     "husky": ">=4",
     "lint-staged": ">=10",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
@@ -141,6 +143,6 @@
     }
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.ts": "eslint --cache --fix"
   }
 }

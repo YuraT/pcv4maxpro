@@ -82,7 +82,7 @@
           class="ml-1 mr-1"
           :content="10"
           :value="10"
-          color="purple lighten-2"
+          color="purple"
           overlap
           offset-x="15"
           offset-y="20"

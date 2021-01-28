@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { MutationTree } from 'vuex';
 import fileStorageState from './state';
 

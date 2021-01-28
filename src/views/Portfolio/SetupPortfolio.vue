@@ -120,7 +120,6 @@ export default {
             })
             .then(({ data }) => {
               if (user.userTypes?.every(type => data[type!])) {
-                console.log('working');
                 next({
                   name: 'portfolio'
                 });

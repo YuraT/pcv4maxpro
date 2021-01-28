@@ -157,37 +157,35 @@ export default {
     const transferEmail = ref('');
     const transferQuantity = ref(0);
     const processTransfer = async () => {
-      console.log(
-        await mutate({
-          mutation: gql`
-            mutation transferTokens(
-              $senderId: ObjectId!
-              $recipientEmail: String!
-              $tokenIds: [ObjectId!]
-            ) {
-              sendTokensMutation(
-                input: {
-                  token_ids: $tokenIds
-                  sender_id: $senderId
-                  recipient_email: $recipientEmail
-                }
-              ) {
-                recipient {
-                  firstName
-                  lastName
-                }
-                timestamp
-                tokensSent
+      await mutate({
+        mutation: gql`
+          mutation transferTokens(
+            $senderId: ObjectId!
+            $recipientEmail: String!
+            $tokenIds: [ObjectId!]
+          ) {
+            sendTokensMutation(
+              input: {
+                token_ids: $tokenIds
+                sender_id: $senderId
+                recipient_email: $recipientEmail
               }
+            ) {
+              recipient {
+                firstName
+                lastName
+              }
+              timestamp
+              tokensSent
             }
-          `,
-          variables: {
-            recipientEmail: transferEmail.value,
-            senderId: id.value,
-            tokenIds: tokens.value.map(token => token._id).slice(0, transferQuantity.value)
           }
-        })
-      );
+        `,
+        variables: {
+          recipientEmail: transferEmail.value,
+          senderId: id.value,
+          tokenIds: tokens.value.map(token => token._id).slice(0, transferQuantity.value)
+        }
+      });
     };
     return {
       transferState,

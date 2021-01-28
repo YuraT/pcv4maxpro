@@ -15,7 +15,5 @@ export interface ToolGetters extends GetterTree<typeof toolState, RootState> {
   getLinearLoading: AuthGetterCtx<boolean>;
 }
 export const getters: GetterTree<typeof toolState, RootState> = {
-  getLinearLoading: state => {
-    return state.navLinearLoading;
-  }
+  getLinearLoading: state => state.navLinearLoading
 };

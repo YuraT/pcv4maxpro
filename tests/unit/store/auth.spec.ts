@@ -9,7 +9,7 @@ describe('Auth Module', () => {
     expect(store.state.realmApp.app.currentUser).toBe(null);
   });
   it('Can login a user', async () => {
-    await store.dispatch(`auth/loginUser`);
+    await store.dispatch('auth/loginUser');
     expect(authActions.loginUser).toHaveBeenCalled();
   });
 });

@@ -72,7 +72,6 @@ export const actions: DbActions = {
   },
   async getProductInfos({ getters }, { priceId }) {
     const res = await getters.functions.callFunction('getProductInfo', priceId);
-    console.log(res);
     if (res.statusCode === 500) throw res.body;
     return res;
   }

@@ -1,11 +1,11 @@
 import { RouteConfig } from 'vue-router';
-import Select from './Select.vue';
+import Setup from './setupprogram.vue';
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/select',
-    name: 'select',
-    component: Select
+    path: '/setup-program',
+    name: 'Setup',
+    component: Setup
   }
 ];
 

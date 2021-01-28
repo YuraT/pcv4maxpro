@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import { ref } from '@vue/composition-api';
-import { PCSelectCard } from '../components';
+import { PCSelectCard } from './components';
 
 export default {
   name: 'Select',
