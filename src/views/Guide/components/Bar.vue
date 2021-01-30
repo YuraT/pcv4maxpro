@@ -108,7 +108,7 @@
       <v-expand-x-transition>
         <div v-show="expand" class="guide-bar__container">
           <!-- <div class="guide-bar__highlight" /> -->
-          <div class="guide-bar__title">Lawrence Berkeley National Laboratory</div>
+          <div class="guide-bar__title">{{ title }}</div>
           <!-- <v-avatar color="grey"></v-avatar> -->
           <!-- ORGANIZER SETUP MODE -->
           <div class="guide-bar__cta2">
@@ -169,7 +169,7 @@
 </template>
 
 <script lang="ts">
-import { ref, reactive, defineComponent, computed } from '@vue/composition-api';
+import { ref, defineComponent, computed } from '@vue/composition-api';
 
 export default defineComponent({
   name: 'Bar',
@@ -181,6 +181,9 @@ export default defineComponent({
     value: {
       required: true,
       type: Number
+    },
+    title: {
+      default: 'Your New Program'
     }
   },
   setup(props, ctx) {

@@ -1,8 +1,8 @@
 <template>
   <div class="select__entire-body">
-    <v-subheader class="select__title">Choose Template</v-subheader>
+    <v-subheader class="select__title mx-auto">Choose Template</v-subheader>
     <div class="select__cards">
-      <pc-select-card>
+      <pc-select-card class="mx-auto" @license="createProgram">
         <template v-slot:title>{{ item.title }}</template>
       </pc-select-card>
     </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { ref } from '@vue/composition-api';
+import { useDbGetters, useAuthGetters } from '@/store';
 import { PCSelectCard } from './components';
 
 export default {
@@ -18,16 +18,21 @@ export default {
   components: {
     'pc-select-card': PCSelectCard
   },
-  setup() {
-    const items = ref([
-      { title: 'Detail', image: 'https://picsum.photos/510/300?random' },
-      { title: 'Manage', image: 'https://picsum.photos/510/300?random' },
-      { title: 'Participant', image: 'https://picsum.photos/510/300?random' },
-      { title: 'Detail', image: 'https://picsum.photos/510/300?random' },
-      { title: 'Manage', image: 'https://picsum.photos/510/300?random' },
-      { title: 'Participant', image: 'https://picsum.photos/510/300?random' }
-    ]);
-    return { items };
+  setup(_props, ctx) {
+    const { collection } = useDbGetters(['collection']);
+    const { getObjectId } = useAuthGetters(['getObjectId']);
+    async function createProgram() {
+      await collection.value!('Program')
+        .insertOne({
+          organizers: [getObjectId.value],
+          dateCreated: new Date(),
+          licensed: false
+        })
+        .then(result => {
+          ctx.root.$router.push({ name: 'guide', params: { programId: result.insertedId } });
+        });
+    }
+    return { createProgram };
   }
 };
 </script>

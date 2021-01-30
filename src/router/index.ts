@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import Login from '@/views/Login';
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import { routes as GuideRoutes } from '@/views/Guide';
+import { GuideRoutes } from '@/views/Guide';
 
 import { routes as PortfolioRoutes } from '@/views/Portfolio';
 import Signup from '@/views/Signup';

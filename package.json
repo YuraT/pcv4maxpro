@@ -16,8 +16,8 @@
   "dependencies": {
     "@emotion/styled-base": "^10.0.31",
     "@mdi/font": "^5.5.55",
-    "@storybook/vue": "^6.0.21",
     "@storybook/addon-knobs": "6.0.21",
+    "@storybook/vue": "^6.0.21",
     "@stripe/stripe-js": "^1.9.0",
     "@types/bson": "^4.0.3",
     "@types/lodash": "^4.14.161",
@@ -46,6 +46,7 @@
     "developer-adk-present": "^1.0.4",
     "developer-adk-research": "^1.0.0",
     "developer-adk-rfp": "^1.0.0",
+    "developer-adk-setup": "^0.1.2",
     "developer-adk-teamcommunity": "^1.0.3",
     "developer-adk-train": "^1.0.0",
     "emotion-theming": "^10.0.27",

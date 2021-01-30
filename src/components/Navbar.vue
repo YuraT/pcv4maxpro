@@ -58,7 +58,7 @@
         outlined
         color="white"
         :ripple="false"
-        @click="$router.push({ name: 'select' })"
+        @click="$router.push({ name: 'createprogram' })"
       >
         <span class="font-weight-black">Create a Program</span>
       </v-btn>

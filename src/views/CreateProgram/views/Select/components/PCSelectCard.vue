@@ -24,7 +24,9 @@
       </div>
 
       <div class="pc-select__title-head-right">
-        <v-btn class="" x-large outlined color="grey" rounded depressed>License</v-btn>
+        <v-btn class="" x-large outlined color="grey" rounded depressed @click="$emit('license')"
+          >License</v-btn
+        >
       </div>
     </v-card-text>
 
@@ -74,21 +76,6 @@
         ></v-img
       ></v-avatar>
     </v-card-text>
-
-    <!-- <v-card-text class="pc-select__title-head">
-        <div class="pc-select__title-head-left">
-          <span class="pc-select__price-tag">$0</span>
-        </div>
-        <div class="pc-select__title-head-right">
-          <v-btn class="ml-auto mr-auto" x-large outlined color="grey" depressed>Checkout</v-btn>
-        </div>
-      </v-card-text> -->
-
-    <!-- <div class="pc-select__title text-h4 font-weight-bold">
-        <slot name="title"> Program Name </slot>
-      </div> -->
-
-    <!-- <v-btn class="pc-select__button" color="black" text depressed :ripple="false"> Select </v-btn> -->
   </v-card>
 </template>
 
