@@ -22,13 +22,15 @@
           <!-- <v-icon large color="grey lighten-1" class="guide__lock" @click="prevPage"
             >mdi-lock-open</v-icon
           > -->
-          <v-icon large color="green" class="guide__lock">mdi-check-circle</v-icon>
+          <v-icon large color="green" class="guide__lock" @click="prevPage"
+            >mdi-check-circle</v-icon
+          >
         </div>
 
         <!-- <component :is="currentUnit" v-if="programDoc" v-model="programDoc" @save="updateProgram" /> -->
         <div class="guide__activities">
           <div class="guide__setupbutton">
-            <v-btn small depressed dark color="orange">Setup Mode</v-btn>
+            <v-btn small depressed dark color="#dedede">Setup Mode</v-btn>
           </div>
           <component
             :is="currentUnit"
@@ -41,7 +43,9 @@
         <div class="guide__locks guide__locks--right locked">
           <!-- STUDENT VIEW -->
           <!-- <v-icon large color="red" class="guide__lock">mdi-lock</v-icon> -->
-          <v-icon large color="orange" class="guide__lock">mdi-progress-wrench</v-icon>
+          <v-icon large color="orange" class="guide__lock" @click="nextPage"
+            >mdi-progress-wrench</v-icon
+          >
           <!-- <v-icon large color="grey lighten-1" class="guide__lock" @click="nextPage"
             >mdi-lock-open</v-icon
           > -->
@@ -60,14 +64,14 @@ import { computed, defineComponent, ref, Ref } from '@vue/composition-api';
 // import interact from 'developer-adk-interact/src/Module/Module.vue';
 // import rfp from 'developer-adk-rfp/src/Module/Module.vue';
 // import team from 'developer-adk-teamcommunity/src/Module/Module.vue';
-// import train from 'developer-adk-train/src/Module/Module.vue';
-// import research from 'developer-adk-research/src/Module/Module.vue';
+import train from 'developer-adk-train/src/Module/Module.vue';
+import research from 'developer-adk-research/src/Module/Module.vue';
 // import practice from 'developer-adk-practice/src/Module/Module.vue';
 // import ideate from 'developer-adk-ideate/src/Module/Module.vue';
 // import pitches from 'developer-adk-pitches/src/Module/Module.vue';
 // import present from 'developer-adk-present/src/Module/Module.vue';
 // import interview from 'developer-adk-interview/src/Module/Module.vue';
-// import offer from 'developer-adk-offer/src/Module/Module.vue';
+import offer from 'developer-adk-offer/src/Module/Module.vue';
 // eslint-disable-next-line import/no-unresolved
 import setup from 'developer-adk-setup/src/Module/Module.vue';
 // import JoinForm from 'developer-adk-joinform/src/App.vue';
@@ -80,29 +84,29 @@ export default defineComponent({
   components: {
     'guide-bar': Bar,
     Loading,
-    setup
+    setup,
     // Forum,
     // interact
     // demo
     // autoapply,
     // rfp,
     // team,
-    // train
-    // research,
+    train,
+    research,
     // practice,
     // ideate,
     // pitches,
     // present,
     // interview,
-    // offer
+    offer
   },
   setup(_props, ctx) {
     const adks = ref([
-      'setup'
-      // 'rfp',
+      'setup',
+      // 'rfp'
       // 'team',
-      // 'train',
-      // 'research',
+      'train',
+      'research',
       // 'pracitce',
       // 'ideate',
       // 'pitches',
@@ -111,7 +115,7 @@ export default defineComponent({
       // 'present',
       // 'autoapply',
       // 'interview',
-      // 'offer'
+      'offer'
     ]);
     const currentPage = ref(0);
     const currentUnit = computed(() => adks.value[currentPage.value]);
@@ -183,7 +187,7 @@ export default defineComponent({
     height: 100vh;
     // display: flex;
     position: relative;
-    border: 12px solid orange;
+    border: 12px solid #dedede;
   }
   &activities {
     overflow: scroll;

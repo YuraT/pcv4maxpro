@@ -60,8 +60,8 @@ export default {
   .v-stepper__step__step {
     border: 2px solid #e0e0e0;
     // background: #e0e0e0;
-    width: 42px;
-    height: 42px;
+    // width: 42px;
+    // height: 42px;
   }
 }
 .select {
