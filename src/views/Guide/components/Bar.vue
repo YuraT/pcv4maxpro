@@ -13,7 +13,7 @@
         </v-tooltip>
       </div>
 
-      <div>
+      <!-- <div>
         <v-tooltip right color="black">
           <template v-slot:activator="{ on, attrs }"
             ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
@@ -22,7 +22,7 @@
           </template>
           <span>Notifications </span>
         </v-tooltip>
-      </div>
+      </div> -->
 
       <v-divider />
       <div>
@@ -36,7 +36,7 @@
         </v-tooltip>
       </div>
 
-      <div>
+      <!-- <div>
         <v-tooltip right color="black">
           <template v-slot:activator="{ on, attrs }"
             ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
@@ -45,9 +45,9 @@
           </template>
           <span>Monitor Program</span>
         </v-tooltip>
-      </div>
+      </div> -->
 
-      <div>
+      <!-- <div>
         <v-tooltip right color="black">
           <template v-slot:activator="{ on, attrs }"
             ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
@@ -56,9 +56,9 @@
           </template>
           <span>Manage Participants</span>
         </v-tooltip>
-      </div>
+      </div> -->
 
-      <div>
+      <!-- <div>
         <v-tooltip right color="black">
           <template v-slot:activator="{ on, attrs }"
             ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
@@ -67,7 +67,7 @@
           </template>
           <span>Manage Stakeholders</span>
         </v-tooltip>
-      </div>
+      </div> -->
 
       <v-divider />
 
@@ -93,7 +93,7 @@
         </v-tooltip>
       </div>
 
-      <div>
+      <!-- <div>
         <v-tooltip right color="black">
           <template v-slot:activator="{ on, attrs }"
             ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
@@ -102,7 +102,7 @@
           </template>
           <span>Explore Programs</span>
         </v-tooltip>
-      </div>
+      </div> -->
     </div>
     <v-card class="program-card">
       <v-expand-x-transition>

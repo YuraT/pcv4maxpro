@@ -19,27 +19,32 @@
           <v-icon large color="grey lighten-1" class="guide__lock">mdi-chevron-left</v-icon>
           <!-- STUDENT VIEW -->
           <!-- <v-icon large color="green" class="guide__lock">mdi-lock-open</v-icon> -->
-          <v-icon large color="grey lighten-1" class="guide__lock" @click="prevPage"
+          <!-- <v-icon large color="grey lighten-1" class="guide__lock" @click="prevPage"
             >mdi-lock-open</v-icon
-          >
-          <!-- <v-icon large color="green" class="guide__lock">mdi-check-circle</v-icon> -->
+          > -->
+          <v-icon large color="green" class="guide__lock">mdi-check-circle</v-icon>
         </div>
-        <!-- <component :is="currentUnit" v-if="programDoc" v-model="programDoc" @save="updateProgram" /> -->
-        <component
-          :is="currentUnit"
-          v-if="programDoc"
-          :value="programDoc"
-          @input="programDoc = $event"
-          @save="updateProgram"
-        />
 
+        <!-- <component :is="currentUnit" v-if="programDoc" v-model="programDoc" @save="updateProgram" /> -->
+        <div class="guide__activities">
+          <div class="guide__setupbutton">
+            <v-btn small depressed dark color="orange">Setup Mode</v-btn>
+          </div>
+          <component
+            :is="currentUnit"
+            v-if="programDoc"
+            :value="programDoc"
+            @input="programDoc = $event"
+            @save="updateProgram"
+          />
+        </div>
         <div class="guide__locks guide__locks--right locked">
           <!-- STUDENT VIEW -->
           <!-- <v-icon large color="red" class="guide__lock">mdi-lock</v-icon> -->
-          <!-- <v-icon large color="orange" class="guide__lock">mdi-progress-wrench</v-icon> -->
-          <v-icon large color="grey lighten-1" class="guide__lock" @click="nextPage"
+          <v-icon large color="orange" class="guide__lock">mdi-progress-wrench</v-icon>
+          <!-- <v-icon large color="grey lighten-1" class="guide__lock" @click="nextPage"
             >mdi-lock-open</v-icon
-          >
+          > -->
           <v-icon large color="grey lighten-1" class="guide__lock">mdi-chevron-right</v-icon>
         </div>
       </div>
@@ -162,7 +167,7 @@ export default defineComponent({
 .guide__ {
   &container {
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
     display: flex;
     // border: 12px solid #000000;
     background-color: transparent;
@@ -175,12 +180,38 @@ export default defineComponent({
   }
   &page {
     width: 100%;
-    height: fit-content;
-    display: flex;
+    height: 100vh;
+    // display: flex;
     position: relative;
+    border: 12px solid orange;
+  }
+  &activities {
+    overflow: scroll;
+    width: 100%;
+    height: 97vh;
+    // margin: none;
+    // justify-content: center !important;
+    // align-items: center !important;
+  }
+
+  &setupbutton {
+    // text-align: center;
+    // padding-left: auto;
+    // padding-right: auto;
+    // justify-content: center !important;
+    // align-items: center !important;
+    // margin: 25px;
+    position: fixed;
+    background-color: transparent;
+    padding-top: 25px;
+    padding-left: 25px;
+    // margin-left: auto !important;
+    // margin-right: auto !important;
+    // margin-right: 300px;
+    z-index: 1;
   }
   &locks {
-    height: 95vh;
+    height: 97vh;
     width: 70px;
     position: absolute;
     display: flex;

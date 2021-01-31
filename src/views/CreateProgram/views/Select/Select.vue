@@ -1,6 +1,6 @@
 <template>
   <div class="select__entire-body">
-    <v-subheader class="select__title mx-auto">Choose Template</v-subheader>
+    <!-- <v-subheader class="select__title mx-auto">Choose program template</v-subheader> -->
     <div class="select__cards">
       <pc-select-card class="mx-auto" @license="createProgram">
         <template v-slot:title>{{ item.title }}</template>
@@ -75,10 +75,13 @@ export default {
     font-family: Raleway;
     font-weight: 800;
     color: black;
-    font-size: 35px;
-    margin-top: 10vh;
-    margin-left: 220px;
+    font-size: 30px;
+    margin-top: 5vh;
+    // margin-left: 220px;
     max-width: 500px;
+    // text-align: center;
+    justify-content: center;
+    // align-items: center;
   }
 
   &__timeline {
@@ -112,10 +115,12 @@ export default {
 @media only screen and (min-width: 1024px) and (max-width: 1440px) {
   .select {
     &__cards {
-      margin-top: 50px;
+      // margin-top: 50px;
       display: grid;
-      grid-template-columns: repeat(2, 475px);
-      grid-template-rows: repeat(2, 1000px);
+      justify-content: center;
+      align-items: center;
+      grid-template-columns: repeat(1, 475px);
+      grid-template-rows: repeat(1, 1000px);
       grid-column-gap: 47px;
       grid-row-gap: 43px;
     }
@@ -126,11 +131,13 @@ export default {
 @media only screen and (max-width: 1024px) {
   .select {
     &__cards {
-      margin-left: 10px;
-      margin-top: 50px;
+      // margin-left: 10px;
+      // margin-top: 50px;
       display: grid;
+      justify-content: center;
+      align-items: center;
       grid-template-columns: repeat(1, 475px);
-      grid-template-rows: repeat(2, 375px);
+      grid-template-rows: repeat(1, 375px);
       grid-column-gap: 47px;
       grid-row-gap: 43px;
     }
