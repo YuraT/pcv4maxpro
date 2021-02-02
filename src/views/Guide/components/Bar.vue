@@ -461,6 +461,8 @@ $stepper-step-step-height: 50px;
     // margin-bottom: 25px;
     font-size: 18px;
     text-align: left !important;
+    // align-items: start;
+    // justify-content: start;
   }
   &__stepper {
     // display: flex;

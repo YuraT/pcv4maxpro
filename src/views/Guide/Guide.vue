@@ -14,7 +14,12 @@
         />
         <guide-bar v-else v-model="currentPage" :timeline="adks" />
       </div>
+
       <div class="guide__page">
+        <div class="guide__setupbutton">
+          <v-btn small depressed dark color="orange">Setup Mode</v-btn>
+        </div>
+
         <div class="guide__locks guide__locks--left unlocked">
           <v-icon large color="grey lighten-1" class="guide__lock">mdi-chevron-left</v-icon>
           <!-- STUDENT VIEW -->
@@ -29,9 +34,6 @@
 
         <!-- <component :is="currentUnit" v-if="programDoc" v-model="programDoc" @save="updateProgram" /> -->
         <div class="guide__activities">
-          <div class="guide__setupbutton">
-            <v-btn small depressed dark color="#dedede">Setup Mode</v-btn>
-          </div>
           <component
             :is="currentUnit"
             v-if="programDoc"
@@ -187,7 +189,7 @@ export default defineComponent({
     height: 100vh;
     // display: flex;
     position: relative;
-    border: 12px solid #dedede;
+    border: 12px solid orange;
   }
   &activities {
     overflow: scroll;
@@ -200,19 +202,33 @@ export default defineComponent({
 
   &setupbutton {
     // text-align: center;
-    // padding-left: auto;
-    // padding-right: auto;
+    // padding-left: 45%;
+    // padding-right: 45%;
     // justify-content: center !important;
     // align-items: center !important;
     // margin: 25px;
-    position: fixed;
+    // position: absolute;
+    // position: relative;
+    // display: flex;
+    // display: grid;
     background-color: transparent;
-    padding-top: 25px;
-    padding-left: 25px;
-    // margin-left: auto !important;
-    // margin-right: auto !important;
+    // padding-top: 25px;
+    // padding-left: 25px;
+    // margin-left: 45%;
+    // margin-right: 45%;
+    // margin-top: 2%;
+    // display: block;
+    // margin: 0 auto;
     // margin-right: 300px;
+    // right: 50;
     z-index: 1;
+    // right: 15px;
+    // left: 45%;
+    // right: 45%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   &locks {
     height: 97vh;
