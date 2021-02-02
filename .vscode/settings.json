@@ -18,4 +18,7 @@
   "eslint.codeAction.showDocumentation": {
     "enable": true
   },
+  "files.associations": {
+    "*.yaml": "home-assistant"
+  },
 }

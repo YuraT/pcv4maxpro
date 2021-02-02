@@ -37,9 +37,8 @@
           <component
             :is="currentUnit"
             v-if="programDoc"
-            :value="programDoc"
-            @input="programDoc = $event"
-            @save="updateProgram"
+            v-model="programDoc"
+            :license-program="licenseProgram"
           />
         </div>
         <div class="guide__locks guide__locks--right locked">
@@ -59,7 +58,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, Ref } from '@vue/composition-api';
+import { computed, defineComponent, ref, Ref, watch, watchEffect } from '@vue/composition-api';
 // import Forum from 'developer-adk-interact';
 // import demo from 'developer-adk-demo/src/Module/Module.vue';
 // import autoapply from 'developer-adk-autoapply/src/Module/Module.vue';
@@ -78,7 +77,7 @@ import offer from 'developer-adk-offer/src/Module/Module.vue';
 import setup from 'developer-adk-setup/src/Module/Module.vue';
 // import JoinForm from 'developer-adk-joinform/src/App.vue';
 import Loading from '@/components/Loading.vue';
-import { useDbGetters } from '@/store';
+import { useDbGetters, useStripeActions } from '@/store';
 import { ObjectId } from 'bson';
 import Bar from './components/Bar.vue';
 
@@ -103,6 +102,7 @@ export default defineComponent({
     offer
   },
   setup(_props, ctx) {
+    // ADK navigation Logic
     const adks = ref([
       'setup',
       // 'rfp'
@@ -119,7 +119,15 @@ export default defineComponent({
       // 'interview',
       'offer'
     ]);
-    const currentPage = ref(0);
+    const currentPage = computed({
+      get: () => parseInt(ctx.root.$route.params.page, 10),
+      set: newPage => {
+        ctx.root.$router.push({
+          path: ctx.root.$route.path,
+          params: { programId: ctx.root.$route.params.programId, page: newPage.toString() }
+        });
+      }
+    });
     const currentUnit = computed(() => adks.value[currentPage.value]);
     function nextPage() {
       currentPage.value += 1;
@@ -129,32 +137,59 @@ export default defineComponent({
       currentPage.value -= 1;
       if (currentPage.value < 0) currentPage.value = 0;
     }
+    watchEffect(() => {
+      const maxLength = adks.value.length - 1;
+      if (currentPage.value >= maxLength) {
+        currentPage.value = maxLength;
+      }
+      if (currentPage.value < 0) {
+        currentPage.value = 0;
+      }
+    });
     // Layout
     // Program Data Logic
     const { collection } = useDbGetters(['collection']);
-
-    const programDoc: Ref<any> = ref(null);
-    async function fetchProgram() {
-      programDoc.value = await collection.value!('Program').findOne({
-        _id: new ObjectId(ctx.root.$route.params.programId)
-      });
-      // initialize Properties
-      programDoc.value = {
-        adks: [
-          {
-            name: 'RFP'
-          }
-        ],
-        ...programDoc.value
-      };
-    }
-    async function updateProgram() {
-      await collection.value!('Program').findOneAndUpdate(
+    const programDoc: Ref<{
+      data: Record<string, any>; // Gives access to Document
+      update: () => Promise<any>; // Gives access to update Method
+      changeStream: any; // Gives access to mongodb Collection Changestream
+    }> = ref({
+      data: {},
+      update: async () => null,
+      changeStream: undefined
+    });
+    programDoc.value.update = async () => {
+      return collection.value!('Program').findOneAndUpdate(
         {
           _id: new ObjectId(ctx.root.$route.params.programId)
         },
-        programDoc
+        programDoc.value.data
       );
+    };
+    async function fetchProgram() {
+      programDoc.value.data = await collection.value!('Program').findOne({
+        _id: new ObjectId(ctx.root.$route.params.programId)
+      });
+      // initialize Properties
+      programDoc.value.data = {
+        adks: [],
+        ...programDoc.value.data
+      };
+    }
+    // Checkout Session Logic
+    const { createCheckoutSession } = useStripeActions(['createCheckoutSession']);
+    const licensePriceId = 'price_1IENzxLnkQGEgDQncNKPhwPr';
+    const cancelUrl = window.location.href; // Bring them back to the setupprogram
+    async function licenseProgram() {
+      await programDoc.value.update();
+      return createCheckoutSession({
+        lineItems: [{ priceId: licensePriceId, quantity: 1 }],
+        cancelUrl,
+        successUrl: window.location.href.replace(/.$/, '1'), // change page to 1 i.e. setup
+        metadata: {
+          programId: ctx.root.$route.params.programId
+        }
+      });
     }
     return {
       currentUnit,
@@ -164,7 +199,7 @@ export default defineComponent({
       adks,
       fetchProgram,
       programDoc,
-      updateProgram
+      licenseProgram
     };
   }
 });
