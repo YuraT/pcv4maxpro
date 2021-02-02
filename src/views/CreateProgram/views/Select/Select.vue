@@ -29,7 +29,10 @@ export default {
           licensed: false
         })
         .then(result => {
-          ctx.root.$router.push({ name: 'guide', params: { programId: result.insertedId } });
+          ctx.root.$router.push({
+            name: 'guide',
+            params: { programId: result.insertedId, page: '0' }
+          });
         });
     }
     return { createProgram };

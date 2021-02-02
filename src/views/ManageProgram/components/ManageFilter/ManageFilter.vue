@@ -38,15 +38,14 @@
   </div>
 </template>
 <script lang="ts">
-import { PropType } from 'vue';
-import { computed, ref } from '@vue/composition-api';
+import { computed, defineComponent, ref } from '@vue/composition-api';
 import filterChips from './const';
 
-export default {
+export default defineComponent({
   props: {
     value: {
-      type: Array as PropType<string[]>,
-      default: () => []
+      type: Array as () => string[],
+      default: []
     }
   },
   setup(props, { emit }) {
@@ -64,5 +63,5 @@ export default {
       filterChips
     };
   }
-};
+});
 </script>

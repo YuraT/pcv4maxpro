@@ -14,6 +14,7 @@ export interface StripeActions extends ActionTree<typeof stripeState, RootState>
       lineItems: { priceId: string; quantity: number }[];
       successUrl?: string;
       cancelUrl: string;
+      metadata?: Record<string, string>;
     }
   ) => Promise<{
     error: StripeError;
@@ -24,7 +25,10 @@ export interface StripeActions extends ActionTree<typeof stripeState, RootState>
   ) => Promise<any>;
 }
 export const actions: StripeActions = {
-  async createCheckoutSession({ state, rootState }, { lineItems, successUrl, cancelUrl }) {
+  async createCheckoutSession(
+    { state, rootState },
+    { lineItems, successUrl, cancelUrl, metadata }
+  ) {
     return fetch(
       process.env.NODE_ENV === 'production'
         ? process.env.VUE_APP_STRIPE_CHECKOUT_PROD
@@ -42,16 +46,15 @@ export const actions: StripeActions = {
           })),
           successUrl,
           cancelUrl,
-          customerId: rootState.db.user?.stripeId
+          customerId: rootState.db.user?.stripeId,
+          metadata
         })
       }
-    )
-      .then(response => {
-        return response.json();
-      })
-      .then(async session => {
-        return (await state.stripePromise)!.redirectToCheckout({ sessionId: session.id });
-      });
+    ).then(async response => {
+      const session = await response.json();
+      if (response.status === 400) throw session.error.raw.message;
+      return (await state.stripePromise)!.redirectToCheckout({ sessionId: session.id });
+    });
   },
   async createInvoice({ rootState }, { lineItems }) {
     return fetch(
