@@ -19,25 +19,35 @@
           <v-icon large color="grey lighten-1" class="guide__lock">mdi-chevron-left</v-icon>
           <!-- STUDENT VIEW -->
           <!-- <v-icon large color="green" class="guide__lock">mdi-lock-open</v-icon> -->
-          <v-icon large color="grey lighten-1" class="guide__lock" @click="prevPage"
+          <!-- <v-icon large color="grey lighten-1" class="guide__lock" @click="prevPage"
             >mdi-lock-open</v-icon
+          > -->
+          <v-icon large color="green" class="guide__lock" @click="prevPage"
+            >mdi-check-circle</v-icon
           >
-          <!-- <v-icon large color="green" class="guide__lock">mdi-check-circle</v-icon> -->
         </div>
-        <component
-          :is="currentUnit"
-          v-if="programDoc"
-          v-model="programDoc"
-          :license-program="licenseProgram"
-        />
 
+        <!-- <component :is="currentUnit" v-if="programDoc" v-model="programDoc" @save="updateProgram" /> -->
+        <div class="guide__activities">
+          <div class="guide__setupbutton">
+            <v-btn small depressed dark color="#dedede">Setup Mode</v-btn>
+          </div>
+          <component
+            :is="currentUnit"
+            v-if="programDoc"
+            v-model="programDoc"
+            :license-program="licenseProgram"
+          />
+        </div>
         <div class="guide__locks guide__locks--right locked">
           <!-- STUDENT VIEW -->
           <!-- <v-icon large color="red" class="guide__lock">mdi-lock</v-icon> -->
-          <!-- <v-icon large color="orange" class="guide__lock">mdi-progress-wrench</v-icon> -->
-          <v-icon large color="grey lighten-1" class="guide__lock" @click="nextPage"
-            >mdi-lock-open</v-icon
+          <v-icon large color="orange" class="guide__lock" @click="nextPage"
+            >mdi-progress-wrench</v-icon
           >
+          <!-- <v-icon large color="grey lighten-1" class="guide__lock" @click="nextPage"
+            >mdi-lock-open</v-icon
+          > -->
           <v-icon large color="grey lighten-1" class="guide__lock">mdi-chevron-right</v-icon>
         </div>
       </div>
@@ -53,14 +63,14 @@ import { computed, defineComponent, ref, Ref, watch, watchEffect } from '@vue/co
 // import interact from 'developer-adk-interact/src/Module/Module.vue';
 // import rfp from 'developer-adk-rfp/src/Module/Module.vue';
 // import team from 'developer-adk-teamcommunity/src/Module/Module.vue';
-// import train from 'developer-adk-train/src/Module/Module.vue';
-// import research from 'developer-adk-research/src/Module/Module.vue';
+import train from 'developer-adk-train/src/Module/Module.vue';
+import research from 'developer-adk-research/src/Module/Module.vue';
 // import practice from 'developer-adk-practice/src/Module/Module.vue';
 // import ideate from 'developer-adk-ideate/src/Module/Module.vue';
 // import pitches from 'developer-adk-pitches/src/Module/Module.vue';
 // import present from 'developer-adk-present/src/Module/Module.vue';
 // import interview from 'developer-adk-interview/src/Module/Module.vue';
-// import offer from 'developer-adk-offer/src/Module/Module.vue';
+import offer from 'developer-adk-offer/src/Module/Module.vue';
 // eslint-disable-next-line import/no-unresolved
 import setup from 'developer-adk-setup/src/Module/Module.vue';
 // import JoinForm from 'developer-adk-joinform/src/App.vue';
@@ -73,30 +83,30 @@ export default defineComponent({
   components: {
     'guide-bar': Bar,
     Loading,
-    setup
+    setup,
     // Forum,
     // interact
     // demo
     // autoapply,
     // rfp,
     // team,
-    // train
-    // research,
+    train,
+    research,
     // practice,
     // ideate,
     // pitches,
     // present,
     // interview,
-    // offer
+    offer
   },
   setup(_props, ctx) {
     // ADK navigation Logic
     const adks = ref([
-      'setup'
-      // 'rfp',
+      'setup',
+      // 'rfp'
       // 'team',
-      // 'train',
-      // 'research',
+      'train',
+      'research',
       // 'pracitce',
       // 'ideate',
       // 'pitches',
@@ -105,7 +115,7 @@ export default defineComponent({
       // 'present',
       // 'autoapply',
       // 'interview',
-      // 'offer'
+      'offer'
     ]);
     const currentPage = computed({
       get: () => parseInt(ctx.root.$route.params.page, 10),
@@ -196,7 +206,7 @@ export default defineComponent({
 .guide__ {
   &container {
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
     display: flex;
     // border: 12px solid #000000;
     background-color: transparent;
@@ -209,12 +219,38 @@ export default defineComponent({
   }
   &page {
     width: 100%;
-    height: fit-content;
-    display: flex;
+    height: 100vh;
+    // display: flex;
     position: relative;
+    border: 12px solid #dedede;
+  }
+  &activities {
+    overflow: scroll;
+    width: 100%;
+    height: 97vh;
+    // margin: none;
+    // justify-content: center !important;
+    // align-items: center !important;
+  }
+
+  &setupbutton {
+    // text-align: center;
+    // padding-left: auto;
+    // padding-right: auto;
+    // justify-content: center !important;
+    // align-items: center !important;
+    // margin: 25px;
+    position: fixed;
+    background-color: transparent;
+    padding-top: 25px;
+    padding-left: 25px;
+    // margin-left: auto !important;
+    // margin-right: auto !important;
+    // margin-right: 300px;
+    z-index: 1;
   }
   &locks {
-    height: 95vh;
+    height: 97vh;
     width: 70px;
     position: absolute;
     display: flex;

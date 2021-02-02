@@ -1,7 +1,13 @@
 <template>
   <v-card hover class="pc-select__card justify-center mx-auto" :max-width="500">
-    <v-icon class="pc-select__template-icon" color="#ae90b0" x-large>mdi-telegram</v-icon>
-    <v-card-title class="pc-select__template-title"> PilotCity Flagship Program</v-card-title>
+    <v-card-text class="">
+      <v-avatar color="blue" size="42"
+        ><v-img
+          src="https://f.hubspotusercontent00.net/hubfs/2480959/P_Cutoff3-Oct-07-2020-10-55-09-87-AM.png"
+        ></v-img
+      ></v-avatar>
+    </v-card-text>
+    <v-card-title class="pc-select__template-title">PilotCity Flagship</v-card-title>
     <v-card-text class="pc-select__template-metadata">
       <div class="pc-select__title-head-left">
         <v-btn x-small depressed rounded dark color="#ae90b0" class="pc-select__spacing"
@@ -16,26 +22,25 @@
       </div>
     </v-card-text>
 
+    <v-card-subtitle class="pc-select__template-description"
+      >Challenge students to build projects for your organization to win internships to execute
+    </v-card-subtitle>
+
     <v-divider></v-divider>
     <v-card-text class="pc-select__title-head">
       <div class="pc-select__title-head-left pc-select__price-tag">
-        $50
-        <span class="pc-select__price-tag-unit">per month</span>
+        $600
+        <span class="pc-select__price-tag-unit">per year</span>
       </div>
 
       <div class="pc-select__title-head-right">
         <v-btn class="" x-large outlined color="grey" rounded depressed @click="$emit('license')"
-          >License</v-btn
+          >Setup</v-btn
         >
       </div>
     </v-card-text>
 
     <v-divider></v-divider>
-
-    <v-card-subtitle class="pc-select__template-description"
-      >Challenge students to build project solutions to your organization's key problems to win
-      internships to further execute on the project
-    </v-card-subtitle>
 
     <!-- <div class="pc-select__title-head"></div> -->
 
@@ -44,32 +49,35 @@
         <v-chip small color="purple" depressed dark class="pc-select__spacing">Employers</v-chip>
       </v-card-text> -->
 
-    <v-card-subtitle class="pc-select__user-type-title">Participants</v-card-subtitle>
-    <v-card-text>
+    <!-- <v-card-subtitle class="pc-select__user-type-title">Participants</v-card-subtitle> -->
+    <v-btn class="ml-4 mt-5" x-small rounded outlined depressed disabled>Participants</v-btn>
+    <v-card-text class="mb-5">
       <v-chip color="#6eba80" depressed dark class="pc-select__spacing">Students</v-chip>
     </v-card-text>
-    <v-card-subtitle class="pc-select__user-type-title">Sponsors and Stakeholders</v-card-subtitle>
-    <v-card-text>
+    <!-- <v-card-subtitle class="pc-select__user-type-title">Sponsors and Stakeholders</v-card-subtitle> -->
+    <v-btn class="ml-4" x-small rounded outlined depressed disabled>Sponsors & Stakeholders</v-btn>
+    <v-card-text class="mb-5">
       <v-chip color="#eda1bf" depressed dark class="pc-select__spacing">Teachers</v-chip>
       <v-chip color="#3c9dcd" depressed dark class="pc-select__spacing">Schools</v-chip>
 
       <v-chip color="#fec34b" depressed dark class="pc-select__spacing">Parents</v-chip>
     </v-card-text>
 
-    <v-card-subtitle class="pc-select__user-type-title">Setup Required</v-card-subtitle>
-    <v-card-text>
-      <v-chip color="#grey" x-small depressed dark class="pc-select__spacing">Use Cases</v-chip>
-      <v-chip color="#grey" x-small depressed dark class="pc-select__spacing">Podcast</v-chip>
-      <v-chip color="#grey" x-small depressed dark class="pc-select__spacing"
-        >Screenshare Training</v-chip
+    <!-- <v-card-subtitle class="pc-select__user-type-title">Setup Required</v-card-subtitle> -->
+
+    <v-btn class="ml-4" x-small rounded outlined depressed disabled>Activity Setup</v-btn>
+    <v-card-text class="mb-5">
+      <v-chip color="grey" small depressed dark class="pc-select__spacing"
+        >Request for Projects (RFP)</v-chip
       >
-      <v-chip color="#grey" x-small depressed dark class="pc-select__spacing"
-        >VideoAsk Account</v-chip
-      >
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Train</v-chip>
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Research</v-chip>
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Offer</v-chip>
     </v-card-text>
 
-    <v-card-subtitle class="pc-select__user-type-title">Licensed By</v-card-subtitle>
-    <v-card-text>
+    <!-- <v-card-subtitle class="pc-select__user-type-title">Licensed By</v-card-subtitle> -->
+    <v-btn class="ml-4" x-small rounded outlined depressed disabled>Licensor</v-btn>
+    <v-card-text class="mb-5">
       <v-avatar color="blue" size="42"
         ><v-img
           src="https://f.hubspotusercontent00.net/hubfs/2480959/P_Cutoff3-Oct-07-2020-10-55-09-87-AM.png"
@@ -91,6 +99,10 @@ export default {
 </script>
 
 <style lang="scss">
+.v-card__subtitle,
+.v-card__text {
+  letter-spacing: 0;
+}
 .pc-select {
   &__entire-body {
     height: 100%;
@@ -158,10 +170,10 @@ export default {
 
   &__template-title {
     font-family: Raleway;
-    font-size: 23px;
+    font-size: 27px;
     color: #000000;
     font-weight: 800;
-    margin-top: 5px;
+    // margin-top: 5px;
     margin-bottom: 5px;
   }
 
@@ -182,15 +194,17 @@ export default {
   &__template-description {
     font-family: Raleway;
     font-size: 18px;
-    font-weight: 700;
-    color: black !important;
+    font-weight: 600;
+    // color: black !important;
+    color: #404142 !important;
     line-height: 25px;
-    margin-top: 10px;
+    // font-style: italic;
+    // margin-top: 10px;
   }
 
   &__template-metadata {
     margin-top: 10px;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
   }
 }
 </style>

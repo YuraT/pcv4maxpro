@@ -60,7 +60,7 @@
         :ripple="false"
         @click="$router.push({ name: 'createprogram' })"
       >
-        <span class="font-weight-black">Create a Program</span>
+        <span class="font-weight-black">Create Program</span>
       </v-btn>
 
       <v-btn
