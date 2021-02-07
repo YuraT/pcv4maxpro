@@ -159,7 +159,7 @@
 
           <!-- ORGANIZER SETUP MODE -->
           <div class="guide-bar__cta1">
-            <v-btn rounded depressed outlined color="grey">Finish Setup to Publish</v-btn>
+            <v-btn disabled rounded depressed outlined>Publish Program</v-btn>
           </div>
           <!-- ORGANIZER SETUP MODE -->
         </div>
