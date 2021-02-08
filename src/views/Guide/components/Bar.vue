@@ -328,7 +328,7 @@ $stepper-step-step-height: 50px;
   border: 1px solid #dedede !important;
   height: 16px;
   min-width: 16px;
-  width: 16px;
+  // width: 16px;
   margin-left: 5px;
 }
 
