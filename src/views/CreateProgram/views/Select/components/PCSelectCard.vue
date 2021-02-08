@@ -7,31 +7,29 @@
         ></v-img
       ></v-avatar>
     </v-card-text>
-    <v-card-title class="pc-select__template-title">PilotCity Flagship</v-card-title>
+    <v-card-title class="pc-select__template-title">Flagship Program</v-card-title>
     <v-card-text class="pc-select__template-metadata">
       <div class="pc-select__title-head-left">
         <v-btn x-small depressed rounded dark color="#ae90b0" class="pc-select__spacing"
           >For Employers</v-btn
         >
-        <v-btn x-small rounded outlined color="grey" class="pc-select__spacing"
-          >4 Hours Setup</v-btn
-        >
-        <v-btn x-small rounded outlined color="grey" class="pc-select__spacing"
-          >Zero Management</v-btn
-        >
+        <v-btn x-small rounded dark depressed class="pc-select__spacing">4 Hours Setup</v-btn>
+        <v-btn x-small rounded dark depressed class="pc-select__spacing">Optional Management</v-btn>
       </div>
     </v-card-text>
 
     <v-card-subtitle class="pc-select__template-description"
-      >Challenge students to build projects for your organization to win internships to execute
+      >Crowdsource projects from students to award internships, contracts & opportunities
     </v-card-subtitle>
 
     <v-divider></v-divider>
     <v-card-text class="pc-select__title-head">
       <div class="pc-select__title-head-left pc-select__price-tag">
-        $600
-        <span class="pc-select__price-tag-unit">per year</span>
+        $0
+        <span class="pc-select__price-tag-unit">per month</span>
       </div>
+
+      <!-- <div class="pc-select__title-head-left pc-select__price-tag">Invite only</div> -->
 
       <div class="pc-select__title-head-right">
         <v-btn class="" x-large outlined color="grey" rounded depressed @click="$emit('license')"
@@ -150,7 +148,7 @@ export default {
     font-family: Raleway;
     font-size: 42px;
     font-weight: 600;
-    color: #dedede;
+    color: #404142;
     // align-items: center;
     // justify-content: center;
     // margin-top: 2vh;
@@ -170,9 +168,9 @@ export default {
 
   &__template-title {
     font-family: Raleway;
-    font-size: 27px;
+    font-size: 30px;
     color: #000000;
-    font-weight: 800;
+    font-weight: 300;
     // margin-top: 5px;
     margin-bottom: 5px;
   }
@@ -193,11 +191,11 @@ export default {
 
   &__template-description {
     font-family: Raleway;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 800;
     // color: black !important;
     color: #404142 !important;
-    line-height: 25px;
+    line-height: 27px;
     // font-style: italic;
     // margin-top: 10px;
   }
