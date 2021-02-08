@@ -63,7 +63,7 @@ import { computed, defineComponent, ref, Ref, watch, watchEffect } from '@vue/co
 // import demo from 'developer-adk-demo/src/Module/Module.vue';
 // import autoapply from 'developer-adk-autoapply/src/Module/Module.vue';
 // import interact from 'developer-adk-interact/src/Module/Module.vue';
-// import rfp from 'developer-adk-rfp/src/Module/Module.vue';
+import rfp from 'developer-adk-rfp/src/Module/Module.vue';
 // import team from 'developer-adk-teamcommunity/src/Module/Module.vue';
 import train from 'developer-adk-train/src/Module/Module.vue';
 import research from 'developer-adk-research/src/Module/Module.vue';
@@ -90,7 +90,7 @@ export default defineComponent({
     // interact
     // demo
     // autoapply,
-    // rfp,
+    rfp,
     // team,
     train,
     research,
@@ -105,7 +105,7 @@ export default defineComponent({
     // ADK navigation Logic
     const adks = ref([
       'setup',
-      // 'rfp',
+      'rfp',
       // 'team',
       'train',
       'research',
