@@ -329,7 +329,7 @@ $stepper-step-step-height: 50px;
   // height: 16px;
   min-width: 16px;
   // width: 16px;
-  margin-left: 5px;
+  // margin-left: 5px;
 }
 
 .mdi-check::before {
