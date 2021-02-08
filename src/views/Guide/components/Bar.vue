@@ -326,7 +326,7 @@ $stepper-step-step-height: 50px;
   // background-color: #ffffff !important;
   // border-color: #4caf50 !important;
   border: 1px solid #dedede !important;
-  height: 16px;
+  // height: 16px;
   min-width: 16px;
   // width: 16px;
   margin-left: 5px;
