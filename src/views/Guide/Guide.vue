@@ -119,26 +119,25 @@ export default defineComponent({
       // 'interview',
       'offer'
     ]);
+    const maxIndex = adks.value.length - 1;
     const currentPage = computed({
       get: () => parseInt(ctx.root.$route.params.page, 10),
       set: newPage => {
-        ctx.root.$router.push({
-          path: ctx.root.$route.path,
-          params: { programId: ctx.root.$route.params.programId, page: newPage.toString() }
-        });
+        if (newPage <= maxIndex && newPage >= 0)
+          ctx.root.$router.replace({
+            params: { programId: ctx.root.$route.params.programId, page: newPage.toString() }
+          });
       }
     });
     const currentUnit = computed(() => adks.value[currentPage.value]);
     function nextPage() {
       currentPage.value += 1;
-      if (currentPage.value > adks.value.length - 1) currentPage.value = 0;
     }
     function prevPage() {
       currentPage.value -= 1;
-      if (currentPage.value < 0) currentPage.value = 0;
     }
     watchEffect(() => {
-      const maxLength = adks.value.length - 1;
+      const maxLength = maxIndex;
       if (currentPage.value >= maxLength) {
         currentPage.value = maxLength;
       }

@@ -9018,10 +9018,10 @@ developer-adk-interview@^1.0.2:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-offer@^1.0.1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/developer-adk-offer/-/developer-adk-offer-1.0.3.tgz#0befdabbe6877ad1784ebf1282c2158f6f31083a"
-  integrity sha512-Uei0UhbNO9YZpur0WCylpBGCcEtVBZkS6JYgcMwBGP0VzxEEEYxQtBoDiaO/XOocaIIJ1iZ7aVfCmnCXiXX25w==
+developer-adk-offer@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/developer-adk-offer/-/developer-adk-offer-1.0.4.tgz#26d3340f2ec5b0fa16c4ed552fb051fad9205e45"
+  integrity sha512-Ld2QoL6B03uZICCUAwai4Ns/S3gsLZlQm4slLSGWmrK/ucdh7+VTHRPWB1ix1Dfzi1jJ5256Jw4v9PjNvgKzCQ==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9139,10 +9139,10 @@ developer-adk-present@^1.0.4:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-research@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.2.tgz#d42ec653ff379d78f189a69a44b424ccfbe67443"
-  integrity sha512-CY+TCkXHe1Lx6j88J5gr3FpbNHvzTDphsxa3rWKMhWSqMX2YzoOdvD0dId8utn+SncxlMdMr3IM6VHpAm/TU4w==
+developer-adk-research@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.3.tgz#aa7d7a9ba4b61c3be2a4608bd064ef506594df92"
+  integrity sha512-JuYKO64CpBXVBgXn2Mx2pebeI1E3X+dT6M/ibAJkw6b2piaM8qUACdGmK18JuEg8f00P9vLgMWDkuQtlok9clQ==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9169,17 +9169,16 @@ developer-adk-research@^1.0.0:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-rfp@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.1.tgz#d81f3fc8e96428ce9c1301daae1288779b73ab15"
-  integrity sha512-YICLAamatqmyZi6FNg7pFr6cuhfZSqMhvFUfNa1Z9Y/FejsUp4o6ugQMLfZ9q/+Y/DwF/qacgz0+5HxY2oWxYg==
+developer-adk-rfp@^1.0.3:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.5.tgz#915db82f0a2c42f390a48a5fe651b1e16f6cc079"
+  integrity sha512-z3260HVvYpqgDcSUNd3wbBVkIhJAMJoWwQ+25ujkXbXaLNe6+tNDrgXTouZTj0iZfyK6ACkafYH0MDugfhx+9g==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-beta.15"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9200,10 +9199,10 @@ developer-adk-rfp@^1.0.0:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-setup@^0.1.2:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-0.1.3.tgz#ab47af3a96113860e793eefc3ef8512f504b5869"
-  integrity sha512-S04yC781K+gdFgPdTyndGtw8AATmVV5c8q35AQ8JjWP4cktXlWJ5p+mqpXEmPilDUhnZMwnqsJ8r5EWFdVXkbQ==
+developer-adk-setup@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-0.1.7.tgz#90d8a608333e0bfb9f07d648ca75195e2e704292"
+  integrity sha512-kNPUSDt5oXwBHgcZPzK0c1C2wQ7iBAekUD4ARf2MdRPF1XTYiTpE7bFWH6uj7NhdfUMek6cISciWUXll310HuQ==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9262,10 +9261,10 @@ developer-adk-teamcommunity@^1.0.3:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-train@^1.0.0:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.3.tgz#6b6f165f703995d15c9fff86d430a7ced73d5d99"
-  integrity sha512-NeFpVOuL4T8PKJFBT1jWnJwjTnEJGelwK+jpkPn0gwuRJ6VKQAlxSgsPehJVvpuhhDOkRJ6Pb0nmSVzEZ3BmNw==
+developer-adk-train@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.4.tgz#8178a100e3152ff4c1de44e42b7cba48d24c6c00"
+  integrity sha512-LpJ1qTXM9XueaOJMX7eQh4WUK2nOx/GcCF3au81sBuXGmn7ZGEe0+Nhn2W6EM3gQI5le5/5CpRuS5sohHjxF+g==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
