@@ -84,8 +84,8 @@ import Bar from './components/Bar.vue';
 export default defineComponent({
   components: {
     'guide-bar': Bar,
-    Loading,
-    setup,
+    Loading
+    setup
     // Forum,
     // interact
     // demo
