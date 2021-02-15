@@ -35,10 +35,10 @@
         <v-btn
           class="profile__mode white--text font-weight-bold"
           depressed
-          color="purple"
+          color="blue"
           small
           @click="currentTab = 'payment'"
-          ><v-icon left>mdi-cash-usd</v-icon>Sponsor</v-btn
+          ><v-icon left>mdi-cash-usd</v-icon>Buy Tokens</v-btn
         >
         <v-btn
           class="profile__mode white--text font-weight-bold"

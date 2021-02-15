@@ -30,14 +30,24 @@
               <v-btn
                 class="balance__main-right-button white--text font-weight-bold"
                 depressed
-                color="purple"
+                color="blue"
                 x-large
                 @click="$emit('changeTab', 'payment')"
               >
-                <v-icon left>mdi-cash-usd</v-icon>Sponsor
+                <v-icon left>mdi-cash-usd</v-icon>Buy Tokens
               </v-btn>
             </div>
-
+            <div>
+              <v-btn
+                class="balance__main-right-button white--text font-weight-bold"
+                depressed
+                color="red"
+                x-large
+                @click="sponsorState = !sponsorState"
+              >
+                <v-icon left>mdi-trophy</v-icon>Sponsor
+              </v-btn>
+            </div>
             <div>
               <v-btn
                 class="balance__main-right-button white--text font-weight-bold"
@@ -52,9 +62,10 @@
           </div>
         </div>
       </div>
-      <div v-show="transferState">
-        <div class="balance__transfer-title">Transfer Tokens</div>
-        <div class="balance__transfer">
+
+      <div v-show="sponsorState">
+        <div class="balance__transfer-title">Sponsor Participants</div>
+        <!-- <div class="balance__transfer">
           <div class="balance__email">
             <validation-provider v-slot="{ errors }" rules="required">
               <v-text-field
@@ -84,6 +95,139 @@
               >Transfer</v-btn
             >
           </div>
+        </div> -->
+        <div class="d-flex justify-center pt-6">
+          <div class="sponsor__details-avatar ml-4 mr-4">
+            <Profile :size="60" />
+          </div>
+          <div class="d-flex justify-center">
+            <v-text-field
+              v-model="sponsorName"
+              :error-messages="errors"
+              height="60"
+              outlined
+              rounded
+              label="Sponsor"
+              class="balance__details-name font-weight-bold"
+              hint="Choose your public display name"
+              :placeholder="`${user.firstName} ${user.lastName}`"
+            ></v-text-field>
+          </div>
+        </div>
+
+        <div class="d-flex justify-center flex-column">
+          <div class="d-flex justify-center">
+            <v-switch v-model="switchOn" color="green" inset label="Automatic approval"></v-switch>
+          </div>
+          <div class="d-flex justify-center">
+            <v-switch v-model="switchOn" color="green" inset label="Rebranding welcomed"></v-switch>
+          </div>
+          <div class="d-flex justify-center">
+            <v-switch
+              v-model="switchOn"
+              color="green"
+              inset
+              label="Redistribution allowed"
+            ></v-switch>
+          </div>
+
+          <div class="d-flex justify-center">
+            <v-switch v-model="switchOn" color="green" inset label="Monitoring Access"></v-switch>
+          </div>
+          <div class="d-flex justify-center">
+            <v-switch v-model="switchOn" color="green" inset label="One time use"></v-switch>
+          </div>
+
+          <div class="d-flex justify-center">
+            <v-switch
+              v-model="switchOn"
+              color="green"
+              inset
+              label="Organizer-allowed use"
+            ></v-switch>
+          </div>
+        </div>
+
+        <div class="d-flex justify-center pt-6">
+          <div class="d-flex justify-center">
+            <v-select
+              v-model="estimatedNumber"
+              placeholder="100 tokens"
+              outlined
+              class="balance__estimated-number font-weight-bold"
+              rounded
+              x-large
+            ></v-select>
+          </div>
+        </div>
+
+        <div class="d-flex justify-center pt-6">
+          <div class="d-flex justify-center">
+            <v-textarea
+              class="balance__welcome-message"
+              rounded
+              outlined
+              value="Welcome aboard! We're rooting for you."
+              label="Personalize your welcome message"
+            ></v-textarea>
+          </div>
+        </div>
+
+        <div class="d-flex justify-center pt-6">
+          <v-btn class="ml-2 mr-2" x-large rounded outlined depressed> Save </v-btn>
+          <v-btn class="ml-2 mr-2" x-large rounded dark depressed>Generate Sponsorship Link</v-btn>
+        </div>
+
+        <div class="d-flex flex-row justify-center mt-12 mb-6">
+          <v-btn class="ml-2 mr-2" dark x-small depressed>Sponsorships</v-btn
+          ><v-btn class="ml-2 mr-2" x-small outlined depressed>Requests</v-btn>
+        </div>
+        <div class="balance__table-view">
+          <BalanceView ref="balanceTable" />
+        </div>
+      </div>
+      <div v-show="transferState">
+        <div class="balance__transfer-title">Transfer Tokens</div>
+        <div class="balance__transfer">
+          <div class="balance__email">
+            <validation-provider v-slot="{ errors }" rules="required">
+              <v-text-field
+                v-model="transferEmail"
+                rounded
+                x-large
+                :error-messages="errors"
+                outlined
+                label="Enter recipient's email"
+              ></v-text-field>
+            </validation-provider>
+          </div>
+
+          <div class="balance__tickets">
+            <validation-provider v-slot="{ errors }" rules="required">
+              <v-text-field
+                v-model="transferQuantity"
+                :error-messages="errors"
+                type="number"
+                min="1"
+                outlined
+                rounded
+                x-large
+                label="# of Tokens"
+              ></v-text-field>
+            </validation-provider>
+          </div>
+
+          <div class="balance__transfer-button">
+            <v-btn
+              x-large
+              rounded
+              :disabled="invalid"
+              :dark="!invalid"
+              depressed
+              @click="processTransfer"
+              >Transfer</v-btn
+            >
+          </div>
         </div>
         <div class="balance__table-view">
           <BalanceView ref="balanceTable" />
@@ -98,11 +242,12 @@ import { computed, ref, Ref } from '@vue/composition-api';
 import { Token, User } from '@/generated/graphql';
 import gql from 'graphql-tag';
 import { useAuthGetters, useDbState } from '@/store';
+import Profile from '@/components/Profile.vue';
 import BalanceView from '../components/BalanceView/BalanceView.vue';
 
 export default {
   name: 'Balance',
-  components: { BalanceView },
+  components: { Profile, BalanceView },
   setup(
     _props,
     {
@@ -114,6 +259,7 @@ export default {
     }
   ) {
     const transferState = ref(false);
+    const sponsorState = ref(false);
     // Token Management
     const tokens: Ref<Token[]> = ref([]);
     const originalOwners: Ref<Pick<User, 'firstName' | 'lastName'>[]> = ref([]);
@@ -188,7 +334,10 @@ export default {
       });
     };
     return {
+      switchOn: true,
+      estimatedNumber: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
       transferState,
+      sponsorState,
       tokens,
       originalOwners,
       modOriginalOwners,
@@ -203,6 +352,17 @@ export default {
 
 <style lang="scss">
 .balance {
+  &__welcome-message {
+    width: 400px;
+  }
+  &__estimated-number {
+    width: 175px;
+  }
+  &__details-name {
+    font-family: Raleway;
+    font-size: 25px;
+    width: 400px;
+  }
   &__container {
     margin-top: 70px;
 
