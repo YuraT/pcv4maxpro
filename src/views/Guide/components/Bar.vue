@@ -111,11 +111,11 @@
           <div class="guide-bar__title">{{ title }}</div>
           <!-- <v-avatar color="grey"></v-avatar> -->
           <!-- ORGANIZER SETUP MODE -->
-          <div class="guide-bar__cta2">
+          <!-- <div class="guide-bar__cta2">
             <v-btn rounded class="guide-bar__cta-button" x-small outlined depressed color="grey"
               ><v-icon x-small left>mdi-file-document-edit</v-icon>Edit Program</v-btn
             >
-          </div>
+          </div> -->
           <!-- ORGANIZER SETUP MODE -->
           <div class="guide-bar__stepper">
             <div class="guide-bar__stepper-content">
@@ -158,9 +158,104 @@
           <!-- STUDENT VIEW -->
 
           <!-- ORGANIZER SETUP MODE -->
-          <div class="guide-bar__cta1">
-            <v-btn disabled rounded depressed outlined>Publish Program</v-btn>
-          </div>
+
+          <!-- DISABLED "FINISH SETUP TO PUBLISH BUTTON" -->
+          <!-- 
+          <div class="d-flex justify-center">
+            <v-btn v-bind="attrs" disabled rounded depressed v-on="on"
+              >Finish Setup to Publish</v-btn
+            >
+          </div> -->
+
+          <!-- READY TO PUBLISH PROGRAM BUTTON -->
+          <v-dialog v-model="dialog" persistent max-width="500px">
+            <template v-slot:activator="{ on, attrs }">
+              <div class="d-flex justify-center">
+                <v-btn
+                  min-width="225px"
+                  v-bind="attrs"
+                  color="green"
+                  dark
+                  rounded
+                  depressed
+                  v-on="on"
+                  >Publish Program</v-btn
+                >
+              </div>
+            </template>
+            <v-card>
+              <v-card-title>
+                <div class="overline font-weight-bold">Ready to publish your program?</div>
+
+                <div class="ml-auto">
+                  <v-btn icon @click="dialog = false"><v-icon>mdi-close</v-icon></v-btn>
+                </div>
+              </v-card-title>
+
+              <v-divider></v-divider>
+
+              <v-container>
+                <div class="d-flex justify-center flex-row">
+                  <v-btn class="ma-2" x-large rounded depressed outlined @click="dialog = false"
+                    >Not yet</v-btn
+                  >
+
+                  <v-dialog v-model="dialog2" persistent max-width="500px">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        v-bind="attrs"
+                        class="ma-2"
+                        x-large
+                        color="green"
+                        rounded
+                        depressed
+                        dark
+                        v-on="on"
+                        >Publish</v-btn
+                      >
+                    </template>
+                    <v-card>
+                      <v-card-title>
+                        <div class="overline font-weight-bold">
+                          Your program will be reviewed for publishing!
+                        </div>
+
+                        <div class="ml-auto">
+                          <v-btn icon @click="dialog2 = false"><v-icon>mdi-close</v-icon></v-btn>
+                        </div>
+                      </v-card-title>
+
+                      <v-divider></v-divider>
+
+                      <v-container>
+                        <div class="d-flex justify-center flex-column">
+                          <v-btn
+                            class="ma-2"
+                            x-large
+                            color="orange"
+                            rounded
+                            depressed
+                            dark
+                            @click="dialog2 = false"
+                            >Continue setting up</v-btn
+                          >
+
+                          <v-btn class="ma-2" x-large rounded depressed outlined
+                            >Goto My Portfolio</v-btn
+                          >
+
+                          <v-btn class="ma-2" x-large disabled rounded depressed
+                            >Explore Programs (Launching soon)</v-btn
+                          >
+                        </div>
+                      </v-container>
+                    </v-card>
+                  </v-dialog>
+                </div>
+              </v-container>
+            </v-card>
+          </v-dialog>
+
           <!-- ORGANIZER SETUP MODE -->
         </div>
       </v-expand-x-transition>
@@ -173,6 +268,7 @@ import { ref, defineComponent, computed } from '@vue/composition-api';
 
 export default defineComponent({
   name: 'Bar',
+
   props: {
     timeline: {
       required: true,
@@ -183,7 +279,7 @@ export default defineComponent({
       type: Number
     },
     title: {
-      default: 'Your New Program'
+      default: 'Enter employer name'
     }
   },
   setup(props, ctx) {
@@ -270,7 +366,17 @@ export default defineComponent({
         ]
       }
     });
-    return { steps, expand, activeStep, sequence, actions, logThis, vertical };
+    return {
+      steps,
+      expand,
+      activeStep,
+      sequence,
+      actions,
+      logThis,
+      vertical,
+      dialog: false,
+      dialog2: false
+    };
   }
 });
 </script>
@@ -425,7 +531,7 @@ $stepper-step-step-height: 50px;
     padding: 22px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     height: 100vh;
     max-height: 100vh;
     background-color: transparent;
@@ -456,10 +562,10 @@ $stepper-step-step-height: 50px;
     font-family: Raleway;
     font-weight: 800;
     margin-top: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
     // margin-top: 25px;
     // margin-bottom: 25px;
-    font-size: 18px;
+    font-size: 20px;
     text-align: left !important;
     // align-items: start;
     // justify-content: start;
