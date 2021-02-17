@@ -1,16 +1,22 @@
 <template>
   <div class="signup__background">
     <div class="signup__body">
-      <div class="signup__title text-h4 font-weight-black">
-        <span>Join the family.</span>
+      <div class="signup__title text-h4 font-weight-bold">
+        <div class="d-flex justify-center text-align">
+          <v-icon color="green" x-large>mdi-heart-flash</v-icon>
+        </div>
+        <span>Join the family</span>
       </div>
     </div>
     <div class="signup__inputs">
       <validation-observer v-slot="{ invalid }" class="signup__firstname">
-        <div class="signup__email text-subtitle-2">Email</div>
+        <!-- <div class="signup__email text-subtitle-2">Email</div> -->
         <validation-provider v-slot="{ errors }" rules="required|email">
           <v-text-field
             v-model="email"
+            rounded
+            placeholder="Email"
+            x-large
             :error-messages="errors"
             color="white"
             label="Email"
@@ -21,10 +27,13 @@
             dark
           ></v-text-field>
         </validation-provider>
-        <div class="signup__confirmpassword text-subtitle-2">Password</div>
+        <!-- <div class="signup__confirmpassword text-subtitle-2">Password</div> -->
         <validation-provider v-slot="{ errors }" rules="required|min:6">
           <v-text-field
             v-model="password"
+            x-large
+            rounded
+            placeholder="Password"
             type="password"
             :error-messages="errors"
             color="white"
@@ -63,7 +72,9 @@
         </v-checkbox>
 
         <v-btn
-          class="signup__signupbuttons text-h6 font-weight-black"
+          width="100%"
+          rounded
+          dark
           depressed
           color="green"
           x-large
@@ -201,8 +212,8 @@ export default {
   }
   &__title {
     color: #6eba7f;
-    margin-top: 144px;
-    margin-bottom: 56.5px;
+    margin-top: 120px;
+    margin-bottom: 30px;
     font-family: Raleway;
   }
 }

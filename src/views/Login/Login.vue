@@ -2,33 +2,42 @@
   <div class="login__background">
     <Loading v-slot="{ loading, process }" :callback="login" linear-loader>
       <div class="login__body">
-        <div class="login__title text-h4 font-weight-black">
-          <span>Welcome back.</span>
+        <div class="login__title text-h4 font-weight-bold">
+          <div class="d-flex justify-center text-align">
+            <v-icon color="blue" x-large>mdi-telegram</v-icon>
+          </div>
+          <span>Welcome back</span>
         </div>
       </div>
       <div class="login__inputs">
         <validation-observer v-slot="{ invalid }" ref="observer" slim class="login__emailalign">
-          <div class="login__email text-subtitle-2">Email</div>
+          <!-- <div class="login__email text-subtitle-2">Email</div> -->
           <validation-provider v-slot="{ errors }" ref="provider" rules="required|email">
             <v-text-field
               ref="emailInput"
               v-model="email"
+              rounded
+              x-large
               class="login__input"
               single-line
               outlined
               full-width
               label="Email"
+              placeholder="Email"
               color="white"
               dark
               :error-messages="errors"
             ></v-text-field>
           </validation-provider>
 
-          <div class="login__password text-subtitle-2">Password</div>
+          <!-- <div class="login__password text-subtitle-2">Password</div> -->
           <validation-provider v-slot="{ errors }" slim rules="required">
             <v-text-field
               ref="passwordInput"
               v-model="password"
+              rounded
+              x-large
+              placeholder="Password"
               class="login__input"
               type="password"
               label="Password"
@@ -41,19 +50,53 @@
               @keyup.enter="process"
             >
             </v-text-field>
+            <!-- <a class="login__forgotlink" href="password-reset"> Forgot Password</a> -->
+            <v-dialog v-model="dialog" width="400">
+              <template v-slot:activator="{ on, attrs }">
+                <div class="login__forgotpassword" v-bind="attrs" v-on="on">
+                  <i>
+                    <a class="login__forgotlink">Forgot Password?</a>
+                  </i>
+                </div>
+              </template>
+              <v-card dark class="login__dialog">
+                <div class="d-flex flex-column">
+                  <div class="headline dark d-flex flex-column">
+                    <v-icon class="d-flex text-align mb-3" color="blue" large
+                      >mdi-face-agent</v-icon
+                    >
+                    Text (510) 330-2810 with your email for password recovery
+                  </div>
+                </div>
+              </v-card>
+            </v-dialog>
 
-            <!-- <div class="login__forgotpassword">
-              <i>
-                <a class="login__forgotlink" href="password-reset"> Forgot Password</a>
-              </i>
-            </div> -->
+            <!-- <v-dialog v-model="dialog" width="400">
+              <template v-slot:activator="{ on, attrs }">
+                <div class="login__forgotpassword" v-bind="attrs" v-on="on">
+                  <i>
+                    <a class="login__forgotlink"> Forgot Password</a>
+
+                  </i>
+                </div>
+              </template>
+              <v-card dark class="login__dialog">
+                <div class="d-flex flex-column">
+                  <v-text-field x-large rounded outlined label="Enter your email"></v-text-field>
+                  <v-btn x-large depressed rounded outlined>Send Reset Password Email</v-btn>
+                </div>
+              </v-card>
+            </v-dialog> -->
           </validation-provider>
 
           <v-btn
             ref="loginBtn"
-            class="login__next text-h5 font-weight-black"
+            class="mt-6"
             depressed
             color="blue"
+            rounded
+            width="100%"
+            dark
             x-large
             :ripple="false"
             :disabled="invalid"
@@ -93,6 +136,7 @@ export default {
     const state = reactive({
       email: '',
       password: '',
+      dialog: false,
       error: ''
     });
     const { loginUser } = useAuthActions([ActionTypes.loginUser]);
@@ -114,6 +158,10 @@ export default {
 
 <style lang="scss">
 .login {
+  &__dialog {
+    text-align: center;
+    padding: 25px;
+  }
   &__background {
     height: 100%;
     background-color: #4f4f4f;
@@ -169,7 +217,7 @@ export default {
   }
   &__title {
     color: #3c9ccc;
-    margin-top: 165px;
+    margin-top: 120px;
     margin-bottom: 30px;
     font-family: Raleway;
   }
