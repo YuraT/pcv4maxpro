@@ -32,9 +32,7 @@
       <!-- <div class="pc-select__title-head-left pc-select__price-tag">Invite only</div> -->
 
       <div class="pc-select__title-head-right">
-        <v-btn class="" x-large outlined color="grey" rounded depressed @click="$emit('license')"
-          >Setup</v-btn
-        >
+        <v-btn class="" x-large outlined rounded depressed @click="$emit('license')">Select</v-btn>
       </div>
     </v-card-text>
 
@@ -52,25 +50,100 @@
     <v-card-text class="mb-5">
       <v-chip color="#6eba80" depressed dark class="pc-select__spacing">Students</v-chip>
     </v-card-text>
+
+    <!-- <v-card-subtitle class="pc-select__user-type-title">Setup Required</v-card-subtitle> -->
+
+    <v-btn class="ml-4" x-small rounded outlined depressed disabled
+      >Activities & Deliverables</v-btn
+    >
+    <v-card-text class="mb-5">
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip
+            v-bind="attrs"
+            color="grey darken-2"
+            small
+            depressed
+            dark
+            class="pc-select__spacing"
+            v-on="on"
+            >Request for Projects</v-chip
+          >
+        </template>
+        <span>Setup Required</span>
+      </v-tooltip>
+
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Team</v-chip>
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Discord</v-chip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip
+            v-bind="attrs"
+            color="grey darken-2"
+            small
+            depressed
+            dark
+            class="pc-select__spacing"
+            v-on="on"
+            >Train</v-chip
+          >
+        </template>
+        <span>Setup Required</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip
+            v-bind="attrs"
+            color="grey darken-2"
+            small
+            depressed
+            dark
+            class="pc-select__spacing"
+            v-on="on"
+            >Research</v-chip
+          >
+        </template>
+        <span>Setup Required</span>
+      </v-tooltip>
+
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Practice</v-chip>
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Ideate</v-chip>
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Pitches</v-chip>
+
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Forum</v-chip>
+
+      <v-chip color="grey" small depressed dark class="pc-select__spacing"
+        >Design & Prototype</v-chip
+      >
+      <v-chip color="grey" small depressed dark class="pc-select__spacing"> Demonstrate</v-chip>
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Present</v-chip>
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Auto-Apply</v-chip>
+      <v-chip color="grey" small depressed dark class="pc-select__spacing">Interview</v-chip>
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip
+            v-bind="attrs"
+            color="grey darken-2"
+            small
+            depressed
+            dark
+            class="pc-select__spacing"
+            v-on="on"
+            >Offer</v-chip
+          >
+        </template>
+        <span>Setup Required</span>
+      </v-tooltip>
+    </v-card-text>
     <!-- <v-card-subtitle class="pc-select__user-type-title">Sponsors and Stakeholders</v-card-subtitle> -->
-    <v-btn class="ml-4" x-small rounded outlined depressed disabled>Sponsors & Stakeholders</v-btn>
+    <v-btn class="ml-4" x-small rounded outlined depressed disabled>Stakeholders & Sponsors</v-btn>
     <v-card-text class="mb-5">
       <v-chip color="#eda1bf" depressed dark class="pc-select__spacing">Teachers</v-chip>
       <v-chip color="#3c9dcd" depressed dark class="pc-select__spacing">Schools</v-chip>
 
       <v-chip color="#fec34b" depressed dark class="pc-select__spacing">Parents</v-chip>
-    </v-card-text>
-
-    <!-- <v-card-subtitle class="pc-select__user-type-title">Setup Required</v-card-subtitle> -->
-
-    <v-btn class="ml-4" x-small rounded outlined depressed disabled>Activity Setup</v-btn>
-    <v-card-text class="mb-5">
-      <v-chip color="grey" small depressed dark class="pc-select__spacing"
-        >Request for Projects (RFP)</v-chip
-      >
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Train</v-chip>
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Research</v-chip>
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Offer</v-chip>
     </v-card-text>
 
     <!-- <v-card-subtitle class="pc-select__user-type-title">Licensed By</v-card-subtitle> -->
@@ -164,6 +237,8 @@ export default {
   &__spacing {
     // margin-left: 5px;
     margin-right: 5px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
   }
 
   &__template-title {
