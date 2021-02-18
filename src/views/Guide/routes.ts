@@ -5,7 +5,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/guide/:programId/:page',
     name: 'guide',
-    component: Guide
+    component: Guide,
+    meta: {
+      layout: 'no-nav'
+    }
   }
 ];
 

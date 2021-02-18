@@ -105,7 +105,7 @@ export default defineComponent({
     // ADK navigation Logic
     const adks = ref([
       'setup',
-      'rfp',
+      // 'rfp',
       // 'team',
       'train',
       'research',

@@ -20,7 +20,7 @@ export default defineComponent({
       default: false
     }
   },
-  setup(props) {
+  setup(props, ctx) {
     const { setLinearLoader } = useToolActions(['setLinearLoader']);
 
     const loading = ref(false);

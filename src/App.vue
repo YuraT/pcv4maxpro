@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <component :is="layout">
-      <Navbar :user="getUser" :loading="loading"></Navbar>
       <router-view />
     </component>
   </v-app>
@@ -39,7 +38,7 @@ window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.h
     return {
       layout,
       getUser: useAuthGetters(['getUser']).getUser,
-      loading
+      loading,
     };
   }
 });
