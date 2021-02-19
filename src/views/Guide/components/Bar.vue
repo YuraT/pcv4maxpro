@@ -395,6 +395,9 @@ export default defineComponent({
 <style lang="scss">
 $stepper-step-step-width: 100px;
 $stepper-step-step-height: 50px;
+.v-application a {
+  color: transparent !important;
+}
 
 .program-card {
   // height: 100%;
