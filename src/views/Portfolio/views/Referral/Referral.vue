@@ -109,7 +109,7 @@
               </template>
               <v-card class="refer__dialog">
                 <v-icon color="green" x-large>mdi-rocket-outline</v-icon>
-                <v-card-title class="refer__dialog-title"> You Invite Has Been Sent</v-card-title>
+                <v-card-title class="refer__dialog-title">Your invite has been sent.</v-card-title>
                 <v-btn
                   class="refer__dialog-button"
                   rounded
@@ -117,7 +117,7 @@
                   large
                   color="primary lighten-3"
                   @click="dialog = false"
-                  >OK</v-btn
+                  >Send more</v-btn
                 >
               </v-card>
             </v-dialog>
