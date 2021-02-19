@@ -4594,7 +4594,7 @@
   dependencies:
     tslib "^2.0.1"
 
-"@vue/composition-api@^1.0.0-beta.15", "@vue/composition-api@^1.0.0-rc.1":
+"@vue/composition-api@^1.0.0-beta.15":
   version "1.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-rc.2.tgz#9d90e507cf71634aad51ab878b141c2a4739d523"
   integrity sha512-R4XEvT+qXiT/lnsLzqhjkR/L/ALuNeeQPZqredpLduGKwZtmt2l5I3kT1W+c/157hrY732eFlsPUGz/q9vFaYg==
@@ -9169,16 +9169,15 @@ developer-adk-present@^1.0.4:
     vuetify "^2.3.14"
 
 developer-adk-research@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.7.tgz#edf5314d724d037c00c904d092ab6328b80b1395"
-  integrity sha512-nN48WXvC9PQuNw5kNhBF1vo/6pU96GSm2ayt8lg+XZvaR7gzJ2xXvgDI7b6Zds56f+ilH08Dve6B88XX3tde1w==
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.8.tgz#dbcd067103adfbd516996a4a2bb56db62a8bb415"
+  integrity sha512-DBTYPVRx0zr2PAXocF81HMV80Ah0OomQIElfbLAfipsD2BeT91LQhEvIRH1MItd9XkGUP6H6GC5I5jv+EAQKVA==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9201,16 +9200,15 @@ developer-adk-research@^1.0.7:
     vuetify "^2.3.14"
 
 developer-adk-rfp@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.8.tgz#8c8c78caaa62f2ff2c983388d008755fde1411d3"
-  integrity sha512-SzQqruV04yv0STYUOYeZzzNblImnn9YByVUpSVowxYvLgrSzXZ+PrwK2E6omR8834zgbWbvU4mKcQJHjfzFR1Q==
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.9.tgz#488aa847e825cb5b31571d10f10f1d15170966ee"
+  integrity sha512-OL0CLgCwanvuMT2XISmrJ0MaxTLbtnbKO7rrppai4XUO/v7mIfFRTYNiE6DrB9WAvoVI4W0MGbbykK21gFlszw==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9233,9 +9231,9 @@ developer-adk-rfp@^1.0.8:
     vuetify "^2.3.14"
 
 developer-adk-setup@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-1.0.3.tgz#fa6516537e1711629d5961b4fe8b4b6960cebbdc"
-  integrity sha512-vBjvieDbZn+BFi8wJ6zsdzA5Kf67hyk9IgeIN9QGrcOEWJAWtU46YS9Nnx8ASUTrRimNvVns80zZvn6uW7YD3Q==
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-1.0.4.tgz#ac795123001d9f30a1829bb6ccc59ea732591d96"
+  integrity sha512-POLjRnAl75pQsQqdwS5GPtCZAc/II5BJq9o8ZLuBuJEBM5BYAVfA6PYGLA/0uJ1nMxcvcT/1kdrVWhiYPz8iMA==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9243,7 +9241,6 @@ developer-adk-setup@^1.0.3:
     "@types/lodash" "^4.14.168"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9296,16 +9293,15 @@ developer-adk-teamcommunity@^1.0.3:
     vuetify "^2.3.14"
 
 developer-adk-train@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.9.tgz#1e2d189c4c7d9a82f9a5bd09d74384f08beb193e"
-  integrity sha512-mQH3lnZN6ygZKwOZk6ki5HUAYonX79DSeX65EOqjTmb3w3e9+qRAo2bdq9hSmgKOZNhI0vOdW9pQ4ZhfluxRLw==
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.10.tgz#a9221ae11baa46cf52946da4ecd7549c2bacb155"
+  integrity sha512-3QM2mUsBTDy3jNCmgOc40HN676OyS9Nayktw6GsZhlEbQfoeBvPzVSwPZQLNz9NKpvNAWTjYAf7ggSXcOXdZsw==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9652,10 +9648,15 @@ ejs@^3.1.2:
   dependencies:
     jake "^10.6.1"
 
-electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.649:
+electron-to-chromium@^1.3.378:
   version "1.3.669"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.669.tgz#ef9b63187b3f9821e2a064e04f616ea092282b41"
   integrity sha512-VNj10fmGC6SbE7s4tKG7y2OopVXYoTIfjE1MetflPd77KmeRuHtkl+HYsfF00BGg5hyaorTUn6lTToEHaciOSw==
+
+electron-to-chromium@^1.3.649:
+  version "1.3.670"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.670.tgz#b1560b9ab212ff77fc8197002e735b72882c31be"
+  integrity sha512-iiHQa72+3wbkPR0O8InsNbRwKcV6gBEKiUqPaJ4+TOwQkJQY4ku1sBNC+0ZSfANQ0nqr0SyRO3/Qr6S7Lct/IA==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
