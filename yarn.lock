@@ -9025,16 +9025,17 @@ developer-adk-interview@^1.0.2:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-offer@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/developer-adk-offer/-/developer-adk-offer-1.0.4.tgz#26d3340f2ec5b0fa16c4ed552fb051fad9205e45"
-  integrity sha512-Ld2QoL6B03uZICCUAwai4Ns/S3gsLZlQm4slLSGWmrK/ucdh7+VTHRPWB1ix1Dfzi1jJ5256Jw4v9PjNvgKzCQ==
+developer-adk-offer@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/developer-adk-offer/-/developer-adk-offer-1.0.5.tgz#bdacfab65b019b1193c1c6988cf5e2a46ed7190f"
+  integrity sha512-l9ujSn9hAD5ZGXn586/lVHmBtf/cnHrxMnOhv7sh36qzemw+jIsng1aBsoWYew5xMcHbQKmrD4/qK16mr5pXJw==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
+    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9046,6 +9047,7 @@ developer-adk-offer@^1.0.4:
     graphql-tag "^2.9.0"
     mongodb "^3.6.2"
     mongodb-stitch-browser-sdk "^4.8.0"
+    pcv4lib "^1.0.10"
     realm-web "^0.7.0"
     register-service-worker "^1.7.1"
     roboto-fontface "*"
@@ -9178,10 +9180,10 @@ developer-adk-research@^1.0.6:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-rfp@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.6.tgz#49a8b924586594b28f5c34f4e8cecc2fb8ae76a0"
-  integrity sha512-1TlDi9zuPuG5gfC0R5l3yr8eZLiADsz4aIK3nsn4J85lNON2VFMRBo3ROz1ifGqG9EmGX2kHzg7fldZnXcAy5Q==
+developer-adk-rfp@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.7.tgz#633429fb81c09626c25027bc307c0549f1e629e7"
+  integrity sha512-uMg+zaP2e9QttyQNY3TDsNyng8DPPegPMl5triu7OoH6kjRS0Vm1ZVl2odEKufOiXFzpuKfV0bpXi7DIqy+wCQ==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9273,10 +9275,10 @@ developer-adk-teamcommunity@^1.0.3:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-train@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.7.tgz#264c088b1a6c0e3a8b67b18e15491ef1fd75419d"
-  integrity sha512-uDj3oRuierphm7L9xcUbhpl6DA0NqdWpGVxOBHf64Z2ExE/9WF5GlGmOlgVhihndiGumc5j9TzHxqC3iRftvqA==
+developer-adk-train@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.8.tgz#f54e94776332eb0a6e01dfe2e4af1ae6bc3c067a"
+  integrity sha512-yiM2Lde+DLegD2ngg8IylNqYgqL3OczbjNv5uGlWxNHR3QAEraYSVP1g57UK85Wd5nZSsuc+MvBLB/lQWMHBXQ==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
