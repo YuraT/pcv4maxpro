@@ -172,14 +172,7 @@
           <v-dialog v-model="dialog" persistent max-width="500px">
             <template v-slot:activator="{ on, attrs }">
               <div class="d-flex justify-center">
-                <v-btn
-                  min-width="225px"
-                  v-bind="attrs"
-                  color="green"
-                  dark
-                  rounded
-                  depressed
-                  v-on="on"
+                <v-btn min-width="225px" v-bind="attrs" disabled rounded depressed v-on="on"
                   >Publish Program</v-btn
                 >
               </div>
@@ -283,7 +276,7 @@ export default defineComponent({
       type: Number
     },
     title: {
-      default: 'Enter employer name'
+      default: 'Setup'
     }
   },
   setup(props, ctx) {
@@ -395,6 +388,9 @@ export default defineComponent({
 <style lang="scss">
 $stepper-step-step-width: 100px;
 $stepper-step-step-height: 50px;
+.v-application a {
+  color: transparent !important;
+}
 
 .program-card {
   // height: 100%;
