@@ -9046,17 +9046,16 @@ developer-adk-interview@^1.0.2:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-offer@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/developer-adk-offer/-/developer-adk-offer-1.0.5.tgz#bdacfab65b019b1193c1c6988cf5e2a46ed7190f"
-  integrity sha512-l9ujSn9hAD5ZGXn586/lVHmBtf/cnHrxMnOhv7sh36qzemw+jIsng1aBsoWYew5xMcHbQKmrD4/qK16mr5pXJw==
+developer-adk-offer@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/developer-adk-offer/-/developer-adk-offer-1.0.6.tgz#e6ffe1ab86af1cad7047a86a9714c845a2de10e1"
+  integrity sha512-DrhSyp+hMJ0TbkJjEbE3ih55o9diKJDgL7dVTtErC1DRP+eckPUQcrfXxreEgSso22fBItnR3J62TFP6OOuhxQ==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9169,42 +9168,10 @@ developer-adk-present@^1.0.4:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-research@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.6.tgz#3da7934cd8f7025080ae4d0e7516633675af01f0"
-  integrity sha512-o+ysr+Qalk7TkpIrhrOjmHlJ2APwBC33ACiHZ9v0b8xIct2RNaYtgca6fP2RAVyGyr2l+NY1NLCm+IV8R3/IOg==
-  dependencies:
-    "@mdi/font" "^3.6.95"
-    "@rollup/plugin-buble" "^0.21.3"
-    "@rollup/plugin-commonjs" "^16.0.0"
-    "@types/mongodb" "^3.5.31"
-    "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-rc.1"
-    apollo-boost "^0.4.9"
-    apollo-cache-inmemory "^1.6.6"
-    apollo-link-context "^1.0.20"
-    apollo-link-http "^1.5.17"
-    core-js "^3.6.5"
-    eslint "^7.11.0"
-    eslint-loader "^4.0.2"
-    fork-ts-checker-webpack-plugin "^5.2.0"
-    graphql-tag "^2.9.0"
-    mongodb "^3.6.2"
-    mongodb-stitch-browser-sdk "^4.8.0"
-    pcv4lib "^1.0.10"
-    realm-web "^0.7.0"
-    register-service-worker "^1.7.1"
-    roboto-fontface "*"
-    rollup-plugin-vue "^6.0.0-beta.11"
-    vee-validate "^3.4.1"
-    vue "^2.6.12"
-    vue-apollo "^3.0.4y"
-    vuetify "^2.3.14"
-
-developer-adk-rfp@^1.0.7:
+developer-adk-research@^1.0.7:
   version "1.0.7"
-  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.7.tgz#633429fb81c09626c25027bc307c0549f1e629e7"
-  integrity sha512-uMg+zaP2e9QttyQNY3TDsNyng8DPPegPMl5triu7OoH6kjRS0Vm1ZVl2odEKufOiXFzpuKfV0bpXi7DIqy+wCQ==
+  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.7.tgz#edf5314d724d037c00c904d092ab6328b80b1395"
+  integrity sha512-nN48WXvC9PQuNw5kNhBF1vo/6pU96GSm2ayt8lg+XZvaR7gzJ2xXvgDI7b6Zds56f+ilH08Dve6B88XX3tde1w==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9233,10 +9200,42 @@ developer-adk-rfp@^1.0.7:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-setup@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-1.0.2.tgz#9f645f91f2c922deea722f0731ca1eee0124537f"
-  integrity sha512-IOveAhUBZ6RyqyM75wZ3AqAt0j/6JMx8IxOQPqSNfRA0mGGRj9vt7WjCf57X6lYXqO83mtLTDWAYORLsnURIqg==
+developer-adk-rfp@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.8.tgz#8c8c78caaa62f2ff2c983388d008755fde1411d3"
+  integrity sha512-SzQqruV04yv0STYUOYeZzzNblImnn9YByVUpSVowxYvLgrSzXZ+PrwK2E6omR8834zgbWbvU4mKcQJHjfzFR1Q==
+  dependencies:
+    "@mdi/font" "^3.6.95"
+    "@rollup/plugin-buble" "^0.21.3"
+    "@rollup/plugin-commonjs" "^16.0.0"
+    "@types/mongodb" "^3.5.31"
+    "@vue/cli" "^4.4.6"
+    "@vue/composition-api" "^1.0.0-rc.1"
+    apollo-boost "^0.4.9"
+    apollo-cache-inmemory "^1.6.6"
+    apollo-link-context "^1.0.20"
+    apollo-link-http "^1.5.17"
+    core-js "^3.6.5"
+    eslint "^7.11.0"
+    eslint-loader "^4.0.2"
+    fork-ts-checker-webpack-plugin "^5.2.0"
+    graphql-tag "^2.9.0"
+    mongodb "^3.6.2"
+    mongodb-stitch-browser-sdk "^4.8.0"
+    pcv4lib "^1.0.10"
+    realm-web "^0.7.0"
+    register-service-worker "^1.7.1"
+    roboto-fontface "*"
+    rollup-plugin-vue "^6.0.0-beta.11"
+    vee-validate "^3.4.1"
+    vue "^2.6.12"
+    vue-apollo "^3.0.4y"
+    vuetify "^2.3.14"
+
+developer-adk-setup@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-1.0.3.tgz#fa6516537e1711629d5961b4fe8b4b6960cebbdc"
+  integrity sha512-vBjvieDbZn+BFi8wJ6zsdzA5Kf67hyk9IgeIN9QGrcOEWJAWtU46YS9Nnx8ASUTrRimNvVns80zZvn6uW7YD3Q==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9296,10 +9295,10 @@ developer-adk-teamcommunity@^1.0.3:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-train@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.8.tgz#f54e94776332eb0a6e01dfe2e4af1ae6bc3c067a"
-  integrity sha512-yiM2Lde+DLegD2ngg8IylNqYgqL3OczbjNv5uGlWxNHR3QAEraYSVP1g57UK85Wd5nZSsuc+MvBLB/lQWMHBXQ==
+developer-adk-train@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.9.tgz#1e2d189c4c7d9a82f9a5bd09d74384f08beb193e"
+  integrity sha512-mQH3lnZN6ygZKwOZk6ki5HUAYonX79DSeX65EOqjTmb3w3e9+qRAo2bdq9hSmgKOZNhI0vOdW9pQ4ZhfluxRLw==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
