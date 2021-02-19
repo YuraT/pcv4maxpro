@@ -4554,6 +4554,13 @@
   dependencies:
     tslib "^2.0.3"
 
+"@vue/composition-api@^1.0.0-rc.1":
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-rc.2.tgz#9d90e507cf71634aad51ab878b141c2a4739d523"
+  integrity sha512-R4XEvT+qXiT/lnsLzqhjkR/L/ALuNeeQPZqredpLduGKwZtmt2l5I3kT1W+c/157hrY732eFlsPUGz/q9vFaYg==
+  dependencies:
+    tslib "^2.1.0"
+
 "@vue/eslint-config-airbnb@^5.0.2":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@vue/eslint-config-airbnb/-/eslint-config-airbnb-5.3.0.tgz#896551d600816a06dff13fdd7d04fd5153379817"
@@ -9139,16 +9146,17 @@ developer-adk-present@^1.0.4:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-research@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.3.tgz#aa7d7a9ba4b61c3be2a4608bd064ef506594df92"
-  integrity sha512-JuYKO64CpBXVBgXn2Mx2pebeI1E3X+dT6M/ibAJkw6b2piaM8qUACdGmK18JuEg8f00P9vLgMWDkuQtlok9clQ==
+developer-adk-research@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.6.tgz#3da7934cd8f7025080ae4d0e7516633675af01f0"
+  integrity sha512-o+ysr+Qalk7TkpIrhrOjmHlJ2APwBC33ACiHZ9v0b8xIct2RNaYtgca6fP2RAVyGyr2l+NY1NLCm+IV8R3/IOg==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
+    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9160,6 +9168,7 @@ developer-adk-research@^1.0.3:
     graphql-tag "^2.9.0"
     mongodb "^3.6.2"
     mongodb-stitch-browser-sdk "^4.8.0"
+    pcv4lib "^1.0.10"
     realm-web "^0.7.0"
     register-service-worker "^1.7.1"
     roboto-fontface "*"
@@ -9169,16 +9178,17 @@ developer-adk-research@^1.0.3:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-rfp@^1.0.3:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.5.tgz#915db82f0a2c42f390a48a5fe651b1e16f6cc079"
-  integrity sha512-z3260HVvYpqgDcSUNd3wbBVkIhJAMJoWwQ+25ujkXbXaLNe6+tNDrgXTouZTj0iZfyK6ACkafYH0MDugfhx+9g==
+developer-adk-rfp@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.6.tgz#49a8b924586594b28f5c34f4e8cecc2fb8ae76a0"
+  integrity sha512-1TlDi9zuPuG5gfC0R5l3yr8eZLiADsz4aIK3nsn4J85lNON2VFMRBo3ROz1ifGqG9EmGX2kHzg7fldZnXcAy5Q==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
+    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9190,6 +9200,7 @@ developer-adk-rfp@^1.0.3:
     graphql-tag "^2.9.0"
     mongodb "^3.6.2"
     mongodb-stitch-browser-sdk "^4.8.0"
+    pcv4lib "^1.0.10"
     realm-web "^0.7.0"
     register-service-worker "^1.7.1"
     roboto-fontface "*"
@@ -9199,10 +9210,10 @@ developer-adk-rfp@^1.0.3:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-setup@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-0.1.7.tgz#90d8a608333e0bfb9f07d648ca75195e2e704292"
-  integrity sha512-kNPUSDt5oXwBHgcZPzK0c1C2wQ7iBAekUD4ARf2MdRPF1XTYiTpE7bFWH6uj7NhdfUMek6cISciWUXll310HuQ==
+developer-adk-setup@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-1.0.2.tgz#9f645f91f2c922deea722f0731ca1eee0124537f"
+  integrity sha512-IOveAhUBZ6RyqyM75wZ3AqAt0j/6JMx8IxOQPqSNfRA0mGGRj9vt7WjCf57X6lYXqO83mtLTDWAYORLsnURIqg==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9210,6 +9221,7 @@ developer-adk-setup@^0.1.7:
     "@types/lodash" "^4.14.168"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
+    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9261,16 +9273,17 @@ developer-adk-teamcommunity@^1.0.3:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-train@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.4.tgz#8178a100e3152ff4c1de44e42b7cba48d24c6c00"
-  integrity sha512-LpJ1qTXM9XueaOJMX7eQh4WUK2nOx/GcCF3au81sBuXGmn7ZGEe0+Nhn2W6EM3gQI5le5/5CpRuS5sohHjxF+g==
+developer-adk-train@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.7.tgz#264c088b1a6c0e3a8b67b18e15491ef1fd75419d"
+  integrity sha512-uDj3oRuierphm7L9xcUbhpl6DA0NqdWpGVxOBHf64Z2ExE/9WF5GlGmOlgVhihndiGumc5j9TzHxqC3iRftvqA==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
+    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9282,6 +9295,7 @@ developer-adk-train@^1.0.4:
     graphql-tag "^2.9.0"
     mongodb "^3.6.2"
     mongodb-stitch-browser-sdk "^4.8.0"
+    pcv4lib "^1.0.8"
     realm-web "^0.7.0"
     register-service-worker "^1.7.1"
     roboto-fontface "*"
@@ -17251,6 +17265,11 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+pcv4lib@^1.0.10, pcv4lib@^1.0.8:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/pcv4lib/-/pcv4lib-1.0.10.tgz#001c1786a0d30fa9db9964ed3f3e451c7599de7d"
+  integrity sha512-JXhcZ5hRknT+rz/j+GebadnNliPXWZSB7unFzGWA8lhJcwsfEFmTuWh8t5Zu9BfxpceSb+5M9X4WOK2schpx2A==
+
 pend@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
@@ -21235,7 +21254,7 @@ tslib@^1, tslib@^1.10.0, tslib@^1.14.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2, tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@~2.1.0:
+tslib@^2, tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0, tslib@~2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
