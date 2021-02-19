@@ -142,7 +142,7 @@ export default defineComponent({
         {
           _id: new ObjectId(ctx.root.$route.params.programId)
         },
-        programDoc.value.data
+        { ...programDoc.value.data, lastSaved: new Date() }
       );
     };
     async function fetchProgram() {
