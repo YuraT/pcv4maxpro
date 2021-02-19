@@ -9,10 +9,10 @@
         <guide-bar
           v-if="programDoc && programDoc.title"
           v-model="currentPage"
-          :timeline="adks"
+          :timeline="timeline"
           :title="programDoc.title"
         />
-        <guide-bar v-else v-model="currentPage" :timeline="adks" />
+        <guide-bar v-else v-model="currentPage" :timeline="timeline" />
       </div>
 
       <div class="guide__page">
@@ -20,7 +20,7 @@
           <v-btn small depressed dark color="orange">Setup Mode</v-btn>
         </div>
 
-        <div class="guide__locks guide__locks--left unlocked">
+        <div v-if="currentPage != 0" class="guide__locks guide__locks--left unlocked">
           <v-icon large color="grey lighten-1" class="guide__lock">mdi-chevron-left</v-icon>
           <!-- STUDENT VIEW -->
           <!-- <v-icon large color="green" class="guide__lock">mdi-lock-open</v-icon> -->
@@ -44,7 +44,12 @@
         <div class="guide__locks guide__locks--right locked">
           <!-- STUDENT VIEW -->
           <!-- <v-icon large color="red" class="guide__lock">mdi-lock</v-icon> -->
-          <v-icon large color="orange" class="guide__lock" @click="nextPage"
+          <v-icon
+            large
+            color="orange"
+            class="guide__lock"
+            :disabled="!isNextUnlocked"
+            @click="nextPage"
             >mdi-progress-wrench</v-icon
           >
           <!-- <v-icon large color="grey lighten-1" class="guide__lock" @click="nextPage"
@@ -58,7 +63,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, Ref, watch, watchEffect } from '@vue/composition-api';
+import { computed, defineComponent, ref, Ref, watchEffect } from '@vue/composition-api';
 // import Forum from 'developer-adk-interact';
 // import demo from 'developer-adk-demo/src/Module/Module.vue';
 // import autoapply from 'developer-adk-autoapply/src/Module/Module.vue';
@@ -119,32 +124,7 @@ export default defineComponent({
       // 'interview',
       'offer'
     ]);
-    const maxIndex = adks.value.length - 1;
-    const currentPage = computed({
-      get: () => parseInt(ctx.root.$route.params.page, 10),
-      set: newPage => {
-        if (newPage <= maxIndex && newPage >= 0)
-          ctx.root.$router.replace({
-            params: { programId: ctx.root.$route.params.programId, page: newPage.toString() }
-          });
-      }
-    });
-    const currentUnit = computed(() => adks.value[currentPage.value]);
-    function nextPage() {
-      currentPage.value += 1;
-    }
-    function prevPage() {
-      currentPage.value -= 1;
-    }
-    watchEffect(() => {
-      const maxLength = maxIndex;
-      if (currentPage.value >= maxLength) {
-        currentPage.value = maxLength;
-      }
-      if (currentPage.value < 0) {
-        currentPage.value = 0;
-      }
-    });
+
     // Layout
     // Program Data Logic
     const { collection } = useDbGetters(['collection']);
@@ -175,30 +155,70 @@ export default defineComponent({
         ...programDoc.value.data
       };
     }
+    const timeline = computed(() =>
+      adks.value.map(adk => ({
+        step: adk,
+        unlocked:
+          programDoc.value.data.adks?.some(adkObject => adkObject.name === adk) || adk === 'setup'
+            ? programDoc.value.data.licensed
+            : false
+      }))
+    );
     // Checkout Session Logic
-    const { createCheckoutSession } = useStripeActions(['createCheckoutSession']);
-    const licensePriceId = 'price_1IENzxLnkQGEgDQncNKPhwPr';
-    const cancelUrl = window.location.href; // Bring them back to the setupprogram
+    // const { createCheckoutSession } = useStripeActions(['createCheckoutSession']);
+    // const licensePriceId = 'price_1IENzxLnkQGEgDQncNKPhwPr';
+    // const cancelUrl = window.location.href; // Bring them back to the setupprogram
+    // Nav logic
+    const maxIndex = adks.value.length - 1;
+    const currentPage = computed({
+      get: () => parseInt(ctx.root.$route.params.page, 10),
+      set: newPage => {
+        if (newPage <= maxIndex && newPage >= 0)
+          ctx.root.$router.replace({
+            params: { programId: ctx.root.$route.params.programId, page: newPage.toString() }
+          });
+      }
+    });
+    const currentUnit = computed(() => adks.value[currentPage.value]);
+    const isNextUnlocked = computed(() => timeline.value[currentPage.value].unlocked);
+    function nextPage() {
+      if (isNextUnlocked.value) currentPage.value += 1;
+    }
+    function prevPage() {
+      currentPage.value -= 1;
+    }
+    watchEffect(() => {
+      const maxLength = maxIndex;
+      if (currentPage.value >= maxLength) {
+        currentPage.value = maxLength;
+      }
+      if (currentPage.value < 0) {
+        currentPage.value = 0;
+      }
+    });
     async function licenseProgram() {
+      programDoc.value.data.licensed = new Date();
       await programDoc.value.update();
-      return createCheckoutSession({
-        lineItems: [{ priceId: licensePriceId, quantity: 1 }],
-        cancelUrl,
-        successUrl: window.location.href.replace(/.$/, '1'), // change page to 1 i.e. setup
-        metadata: {
-          programId: ctx.root.$route.params.programId
-        }
-      });
+      nextPage();
+      // return createCheckoutSession({
+      //   lineItems: [{ priceId: licensePriceId, quantity: 1 }],
+      //   cancelUrl,
+      //   successUrl: window.location.href.replace(/.$/, '1'), // change page to 1 i.e. setup
+      //   metadata: {
+      //     programId: ctx.root.$route.params.programId
+      //   }
+      // });
     }
     return {
       currentUnit,
       currentPage,
       nextPage,
       prevPage,
-      adks,
+      timeline,
       fetchProgram,
       programDoc,
-      licenseProgram
+      licenseProgram,
+      isNextUnlocked
     };
   }
 });

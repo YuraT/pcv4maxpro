@@ -25,7 +25,7 @@
       </div> -->
 
       <v-divider />
-      <div>
+      <div @click="activeStep = unlockedStep">
         <v-tooltip right color="black">
           <template v-slot:activator="{ on, attrs }"
             ><v-icon v-bind="attrs" color="orange" class="guide-bar__sidebar-icon" v-on="on"
@@ -82,7 +82,7 @@
         </v-tooltip>
       </div> -->
 
-      <div>
+      <router-link :to="{ name: 'portfolio' }">
         <v-tooltip right color="black">
           <template v-slot:activator="{ on, attrs }"
             ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
@@ -91,7 +91,7 @@
           </template>
           <span>My Portfolio</span>
         </v-tooltip>
-      </div>
+      </router-link>
 
       <!-- <div>
         <v-tooltip right color="black">
@@ -126,10 +126,10 @@
                     color="green"
                     :step="''"
                     :complete="activeStep > n"
-                    @click="activeStep = n + 1"
+                    @click="activeStep = timeline[n - 1].unlocked ? n + 1 : activeStep"
                   >
                     <div class="guide-bar__timeline-item">
-                      {{ timeline[n - 1] }}
+                      {{ timeline[n - 1].step }}
                       <div>
                         <v-btn
                           class="guide-bar__timeline-item-setup"
@@ -137,6 +137,7 @@
                           outlined
                           x-small
                           depressed
+                          :disabled="!timeline[n - 1].unlocked"
                           >Setup</v-btn
                         >
                       </div>
@@ -160,7 +161,7 @@
           <!-- ORGANIZER SETUP MODE -->
 
           <!-- DISABLED "FINISH SETUP TO PUBLISH BUTTON" -->
-          <!-- 
+          <!--
           <div class="d-flex justify-center">
             <v-btn v-bind="attrs" disabled rounded depressed v-on="on"
               >Finish Setup to Publish</v-btn
@@ -171,14 +172,7 @@
           <v-dialog v-model="dialog" persistent max-width="500px">
             <template v-slot:activator="{ on, attrs }">
               <div class="d-flex justify-center">
-                <v-btn
-                  min-width="225px"
-                  v-bind="attrs"
-                  color="green"
-                  dark
-                  rounded
-                  depressed
-                  v-on="on"
+                <v-btn min-width="225px" v-bind="attrs" disabled rounded depressed v-on="on"
                   >Publish Program</v-btn
                 >
               </div>
@@ -272,20 +266,20 @@ export default defineComponent({
   props: {
     timeline: {
       required: true,
-      type: Array
+      type: Array as () => {
+        step: string;
+        unlocked: boolean;
+      }[]
     },
     value: {
       required: true,
       type: Number
     },
     title: {
-      default: 'Enter employer name'
+      default: 'Setup'
     }
   },
   setup(props, ctx) {
-    function logThis(val: string) {
-      console.log(val);
-    }
     const vertical = ref(true);
     const expand = ref(true); // open or closed sidebar
     const steps = ref(props.timeline.length); // number of lines
@@ -366,16 +360,26 @@ export default defineComponent({
         ]
       }
     });
+    const unlockedStep = computed(() => {
+      let whichStep = 0;
+      for (let i = props.timeline.length - 1; i > 0; i--) {
+        if (props.timeline[i].unlocked) {
+          whichStep = i;
+          break;
+        }
+      }
+      return whichStep;
+    });
     return {
       steps,
       expand,
       activeStep,
       sequence,
       actions,
-      logThis,
       vertical,
-      dialog: false,
-      dialog2: false
+      dialog: ref(false),
+      dialog2: ref(false),
+      unlockedStep
     };
   }
 });
@@ -384,6 +388,9 @@ export default defineComponent({
 <style lang="scss">
 $stepper-step-step-width: 100px;
 $stepper-step-step-height: 50px;
+.v-application a {
+  color: transparent !important;
+}
 
 .program-card {
   // height: 100%;

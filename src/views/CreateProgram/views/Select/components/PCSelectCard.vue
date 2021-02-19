@@ -22,12 +22,12 @@
       >Crowdsource projects from students to award internships, contracts & opportunities
     </v-card-subtitle>
 
-    <v-divider></v-divider>
+    <!-- <v-divider></v-divider> -->
     <v-card-text class="pc-select__title-head">
-      <div class="pc-select__title-head-left pc-select__price-tag">
+      <!-- <div class="pc-select__title-head-left pc-select__price-tag">
         $0
         <span class="pc-select__price-tag-unit">per month</span>
-      </div>
+      </div> -->
 
       <!-- <div class="pc-select__title-head-left pc-select__price-tag">Invite only</div> -->
 

@@ -72,7 +72,7 @@
                 </div>
               </div>
             </div>
-            <div v-else class="pc-program-card">
+            <!-- <div v-else class="pc-program-card">
               <div class="pc-program-card__image">
                 <v-img
                   src="https://picsum.photos/510/300?random"
@@ -81,54 +81,54 @@
               </div>
               <div class="pc-program-card__content">
                 <h5 class="pc-program-card__title">Program Name</h5>
-                <!-- <h4 class="pc-program-card__progress">75%</h4> -->
+                <h4 class="pc-program-card__progress">75%</h4>
                 <div class="pc-program-card__actions">
-                  <!-- <div class="pc-program-card__progress-bar"> -->
+                  <div class="pc-program-card__progress-bar">
 
-                  <!-- <v-progress-linear
+                  <v-progress-linear
                     class="green lighten-1"
                     rounded
                     green
                     height="9"
-                  ></v-progress-linear> -->
-                  <!-- </div> -->
+                  ></v-progress-linear>
+                  </div>
                   <div class="pc-program-card__outline">
                     <v-btn outlined light class="pc-program-card__button w-button"
                       >Continue Program</v-btn
                     >
                   </div>
-                  <!-- <a href="#" class="pc-program-card__button w-button">Checkout</a> -->
+                  <a href="#" class="pc-program-card__button w-button">Checkout</a>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <!-- STUDENT PROGRAM CARD END -->
 
           <!-- STAKEHOLDER PROGRAM CARD START -->
-          <div class="mt-5 mb-5" style="width: 100%">
+          <!-- <div class="mt-5 mb-5" style="width: 100%">
             <div v-if="tile" class="tile">
               <div class="pc-program-card">
                 <div class="pc-program-card__image">
-                  <!-- <v-img
+                  <v-img
             src="https://picsum.photos/510/300?random"
             class="pc-program-card__completed"
-          ></v-img> -->
+          ></v-img>
                 </div>
                 <div class="pc-program-card__content">
                   <h5 class="pc-program-card__title">Program Name</h5>
-                  <!-- <a href="#" class="pc-program-card__button w-button">Results</a> -->
+                  <a href="#" class="pc-program-card__button w-button">Results</a>
 
                   <v-btn outlined light class="pc-program-card__button w-button">Setup</v-btn>
                 </div>
               </div>
             </div>
             <div v-else class="pc-program-card">
-              <!-- <div class="pc-program-card__image">
+              <div class="pc-program-card__image">
                 <v-img
                   src="https://picsum.photos/510/300?random"
                   class="pc-program-card__image"
                 ></v-img>
-              </div> -->
+              </div>
               <div class="pc-program-card__content">
                 <div class="d-flex">
                   <h5 class="pc-program-card__title">Flagship Program</h5>
@@ -477,17 +477,17 @@
                     <span>Derick Lee</span>
                   </v-tooltip>
                 </div>
-                <!-- <h4 class="pc-program-card__progress">75%</h4> -->
+                <h4 class="pc-program-card__progress">75%</h4>
                 <div class="pc-program-card__actions">
-                  <!-- <div class="pc-program-card__progress-bar"> -->
+                  <div class="pc-program-card__progress-bar">
 
-                  <!-- <v-progress-linear
+                  <v-progress-linear
                     class="green lighten-1"
                     rounded
                     green
                     height="9"
-                  ></v-progress-linear> -->
-                  <!-- </div> -->
+                  ></v-progress-linear>
+                  </div>
                   <div class="pc-program-card__outline">
                     <div
                       class="pc-program-card__button-sidekick d-flex justify-center align-center w-button mb-10"
@@ -498,11 +498,11 @@
                       >Monitor Progress</v-btn
                     >
                   </div>
-                  <!-- <a href="#" class="pc-program-card__button w-button">Checkout</a> -->
+                  <a href="#" class="pc-program-card__button w-button">Checkout</a>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- STAKEHOLDER PROGRAM CARD END -->
 
           <v-hover v-slot:default="{ hover }">
