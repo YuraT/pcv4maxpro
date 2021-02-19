@@ -37,7 +37,7 @@
                 <v-icon left>mdi-cash-usd</v-icon>Buy Tokens
               </v-btn>
             </div>
-            <div>
+            <!-- <div>
               <v-btn
                 class="balance__main-right-button white--text font-weight-bold"
                 depressed
@@ -47,7 +47,7 @@
               >
                 <v-icon left>mdi-trophy</v-icon>Sponsor
               </v-btn>
-            </div>
+            </div> -->
             <div>
               <v-btn
                 class="balance__main-right-button white--text font-weight-bold"
