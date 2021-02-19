@@ -6,7 +6,7 @@
           <h4 class="my-programs__programs-title">My Programs</h4>
           <!-- EMPLOYER PROGRAM CARD START -->
           <div class="mt-5 mb-5" style="width: 100%">
-            <div v-if="tile" class="tile">
+            <div v-if="tile">
               <div class="pc-program-card">
                 <div class="pc-program-card__image">
                   <!-- <v-img
@@ -22,7 +22,7 @@
                 </div>
               </div>
             </div>
-            <div v-else class="pc-program-card">
+            <div v-for="program in myPrograms" v-else :key="program._id" class="pc-program-card">
               <div class="pc-program-card__image">
                 <v-img
                   src="https://picsum.photos/510/300?random"
@@ -30,7 +30,9 @@
                 ></v-img>
               </div>
               <div class="pc-program-card__content">
-                <h5 class="pc-program-card__title">Program Name</h5>
+                <h5 class="pc-program-card__title">
+                  {{ program.programName || 'Setup up your program now' }}
+                </h5>
                 <!-- <h4 class="pc-program-card__progress">75%</h4> -->
                 <div class="pc-program-card__actions">
                   <!-- <div class="pc-program-card__progress-bar"> -->
@@ -42,11 +44,14 @@
                     height="9"
                   ></v-progress-linear> -->
                   <!-- </div> -->
-                  <div class="pc-program-card__outline">
+                  <router-link
+                    class="pc-program-card__outline"
+                    :to="{ name: 'guide', params: { programId: program._id, page: '0' } }"
+                  >
                     <v-btn outlined light class="pc-program-card__button w-button"
                       >Finish Setup</v-btn
                     >
-                  </div>
+                  </router-link>
                   <!-- <a href="#" class="pc-program-card__button w-button">Checkout</a> -->
                 </div>
               </div>
@@ -540,83 +545,6 @@
             </div>
           </v-hover>
         </div>
-
-        <!-- <div v-if="role !== 'none'" class="my-programs__wrapper">
-          <h4 class="my-programs__programs-title">{{ role }}</h4>
-          <v-hover v-slot:default="{ hover }">
-            <div class="my-programs__card1-border">
-              <v-card
-                class="my-programs__card1 text-h5 font-weight-black"
-                :elevation="hover ? 6 : 0"
-              >
-                <v-dialog v-model="dialog" width="500">
-                  <template v-slot:activator="{ on, attrs }">
-                    <div class="my-programs__card2">
-                      <v-btn x-large icon color="gray" v-bind="attrs" v-on="on">
-                        <v-icon x-large>mdi-plus</v-icon>
-                      </v-btn>
-                    </div>
-                  </template>
-
-                  <v-card class="my-programs__dialog">
-                    <v-icon x-large>mdi-rocket-outline</v-icon>
-                    <v-card-title class="my-programs__dialog-title">
-                      Programs launching Fri, Feb 26th, 2021.<br />Get your rockets
-                      ready.</v-card-title
-                    >
-                    <v-btn
-                      class="my-programs__dialog-button"
-                      rounded
-                      outlined
-                      large
-                      color="primary lighten-3"
-                      @click="dialog = false"
-                      >Back to Portfolio</v-btn
-                    >
-                  </v-card>
-                </v-dialog>
-              </v-card>
-            </div>
-          </v-hover>
-        </div> -->
-        <!-- <div class="my-programs__wrapper">
-          <h4 class="my-programs__programs-title">Completed</h4>
-          <div class="my-programs__wrapper-col">
-            <v-hover v-slot:default="{ hover }">
-              <v-card
-                class="my-programs__card1 text-h5 font-weight-black"
-                :elevation="hover ? 12 : 2"
-                outlined
-              >
-                <v-dialog v-model="dialog" width="500">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn icon color="gray" v-bind="attrs" v-on="on">
-                      <v-icon x-large>mdi-plus</v-icon>
-                    </v-btn>
-                  </template>
-
-                  <v-card>
-                    <v-card-title class="headline grey lighten-2"> Coming Soon </v-card-title>
-
-                    <v-divider></v-divider>
-
-                    <v-card-text>
-                      The Programs section of the platform is at the end of development and will be
-                      released soon.
-                    </v-card-text>
-
-                    <v-divider></v-divider>
-
-                    <v-card-actions>
-                      <v-spacer></v-spacer>
-                      <v-btn color="primary" text @click="dialog = false"> Close </v-btn>
-                    </v-card-actions>
-                  </v-card>
-                </v-dialog>
-              </v-card>
-            </v-hover>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
@@ -937,8 +865,8 @@
 }
 </style>
 <script lang="ts">
-import { computed, ref } from '@vue/composition-api';
-import { useDbState } from '@/store';
+import { computed, onMounted, Ref, ref } from '@vue/composition-api';
+import { useAuthGetters, useDbGetters, useDbState } from '@/store';
 // import ProgramCard from '../components/PCProgramCard.vue';
 
 export default {
@@ -955,9 +883,23 @@ export default {
       if (types?.includes('Employer')) return 'Manage';
       return 'none';
     });
+    const { getObjectId } = useAuthGetters(['getObjectId']);
+    const { collection } = useDbGetters(['collection']);
+    const myPrograms = ref([]) as Ref<any[]>;
+    const getPrograms = async () => {
+      myPrograms.value = await collection.value!('Program').find({
+        organizers: getObjectId.value,
+        lastSaved: { $exists: true }
+      });
+    };
+    onMounted(() => {
+      getPrograms();
+    });
     return {
       role,
-      dialog
+      dialog,
+      getPrograms,
+      myPrograms
     };
   }
 };
