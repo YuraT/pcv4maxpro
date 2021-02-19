@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <component :is="layout">
-      <Navbar :user="getUser" :loading="loading"></Navbar>
       <router-view />
     </component>
   </v-app>
@@ -9,6 +8,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+// import Navbar from '@/components/Navbar.vue';
 import Navbar from '@/components/Navbar.vue';
 import '@/styles/main.scss';
 import { computed } from '@vue/composition-api';
@@ -38,7 +38,7 @@ window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.h
     return {
       layout,
       getUser: useAuthGetters(['getUser']).getUser,
-      loading
+      loading,
     };
   }
 });

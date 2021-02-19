@@ -100,7 +100,7 @@
     align-items: center;
   }
   &__button {
-    width: 200px;
+    min-width: 200px;
     min-height: 40px;
     margin-top: 18px;
     padding-right: 40px;

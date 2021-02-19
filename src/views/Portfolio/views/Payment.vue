@@ -133,7 +133,17 @@ export default {
       'Per Class': 'blue',
       'Per Teacher': 'pink'
     };
-    const purchaseOptions: Ref<any[]> = ref([]);
+    const purchaseOptions: Ref<
+      {
+        title: string;
+        desc: string | null;
+        priceId: string;
+        price: number | null;
+        color: any;
+        quantity: number;
+        unitLabel: string | null;
+      }[]
+    > = ref([]);
     getProductInfos({ priceId: PRICE_IDS }).then(result => {
       purchaseOptions.value = result.body.map(res => ({
         title: res.product.name,

@@ -13,11 +13,11 @@ services:
     - .env
     volumes: 
     - ./:/usr/src/app:cached
-    - usr/src/app/node_modules
+    - /usr/src/app/node_modules
     ports:
     - 8080:8080
     stdin_open: true
-    tty: true
+    tty: true 
     command: ["yarn","serve"]
   storybook:
     build: .

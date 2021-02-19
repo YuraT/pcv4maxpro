@@ -2843,7 +2843,6 @@ export default {
     );
     watch(pass, newpass => {
       if (newpass === invitePages[getInvitee.value].password) {
-        console.log('mounting');
         (window as any).videoask.loadEmbed({
           kind: 'widget',
           url: 'https://www.videoask.com/fntxxoz2y',

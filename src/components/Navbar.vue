@@ -49,8 +49,8 @@
         ><v-icon color="white" size="40">mdi-plus</v-icon></v-btn
       > -->
 
-      <!-- <v-btn
-        v-if="user"
+      <v-btn
+        v-if="user && user.userTypes.includes('Employer')"
         class="mr-3 ml-3 pr-10 pl-10"
         large
         depressed
@@ -58,10 +58,10 @@
         outlined
         color="white"
         :ripple="false"
-        @click="logout"
-      >
-        <span class="font-weight-black">Explore</span>
-      </v-btn> -->
+        @click="$router.push({ name: 'createprogram' })"
+        ><v-icon left>mdi-plus</v-icon>
+        <span class="font-weight-black">Create Program</span>
+      </v-btn>
 
       <v-btn
         v-if="user"
@@ -73,7 +73,7 @@
         color="white"
         :ripple="false"
         @click="$router.push({ name: 'portfolio' })"
-      >
+        ><v-icon left>mdi-telegram</v-icon>
         <span class="font-weight-black">My Portfolio</span>
       </v-btn>
 
@@ -82,7 +82,7 @@
           class="ml-1 mr-1"
           :content="10"
           :value="10"
-          color="purple lighten-2"
+          color="purple"
           overlap
           offset-x="15"
           offset-y="20"
@@ -191,6 +191,7 @@ export default {
       await onLogout();
       ctx.root.$router.push({ name: 'login' });
     }
+    // Navigation options
     // Global Tooling for linear progression
     return {
       logout,
@@ -199,3 +200,5 @@ export default {
   }
 };
 </script>
+
+<style lang="scss"></style>

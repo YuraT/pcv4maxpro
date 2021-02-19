@@ -1,4 +1,4 @@
-import BSON from 'bson';
+import * as BSON from 'bson';
 
 export enum UserTypes {
   student,

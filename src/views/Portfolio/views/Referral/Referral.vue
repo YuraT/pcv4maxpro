@@ -236,24 +236,22 @@ export default defineComponent({
     }
 
     const processTransfer = async () => {
-      console.log(
-        await mutate({
-          mutation: gql`
-            mutation sendInvite($input: SendReferalInput!) {
-              sendRefferal(input: $input) {
-                status
-              }
+      await mutate({
+        mutation: gql`
+          mutation sendInvite($input: SendReferalInput!) {
+            sendRefferal(input: $input) {
+              status
             }
-          `,
-          variables: {
-            input: {
-              id: getObjectId,
-              email: email.value,
-              name: useDbState(['user']).user.value!.firstName
-            } as SendReferalInput
           }
-        })
-      );
+        `,
+        variables: {
+          input: {
+            id: getObjectId,
+            email: email.value,
+            name: useDbState(['user']).user.value!.firstName
+          } as SendReferalInput
+        }
+      });
     };
     onMounted(async () => {
       await loader.value?.data?.process();

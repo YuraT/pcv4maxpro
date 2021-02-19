@@ -2,6 +2,8 @@ import gql from 'graphql-tag';
 import Login from '@/views/Login';
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
+import { GuideRoutes } from '@/views/Guide';
+
 import { routes as PortfolioRoutes } from '@/views/Portfolio';
 import Signup from '@/views/Signup';
 import Invite from '@/views/Invite.vue';
@@ -13,11 +15,16 @@ import { useAuthGetters } from '@/store';
 import ErrorLogin from '@/views/ErrorLogin.vue';
 import apolloProvider from '@/vue-apollo';
 import Landing from '@/views/Landing.vue';
+import { CreateProgramRoutes } from '../views/CreateProgram';
+import { routes as ManageProgramRoutes } from '../views/ManageProgram';
 import { UserQueryInput, User } from '../generated/graphql';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
+  ...CreateProgramRoutes,
+  ...GuideRoutes,
+  ...ManageProgramRoutes,
   ...PortfolioRoutes,
   {
     path: '/timeline',
