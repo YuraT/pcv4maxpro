@@ -4594,7 +4594,7 @@
   dependencies:
     tslib "^2.0.1"
 
-"@vue/composition-api@^1.0.0-beta.15", "@vue/composition-api@^1.0.0-rc.1":
+"@vue/composition-api@^1.0.0-beta.15":
   version "1.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-rc.2.tgz#9d90e507cf71634aad51ab878b141c2a4739d523"
   integrity sha512-R4XEvT+qXiT/lnsLzqhjkR/L/ALuNeeQPZqredpLduGKwZtmt2l5I3kT1W+c/157hrY732eFlsPUGz/q9vFaYg==
@@ -5869,9 +5869,9 @@ await-to-js@^2.0.1:
   integrity sha512-CHBC6gQGCIzjZ09tJ+XmpQoZOn4GdWePB4qUweCaKNJ0D3f115YdhmYVTZ4rMVpiJ3cFzZcTYK1VMYEICV4YXw==
 
 aws-sdk@^2.747.0:
-  version "2.847.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.847.0.tgz#099a1087ca6ad5f9a059bf6fbcf9d4dddbd996d1"
-  integrity sha512-1iWlJiMoiFJVIVPrnUZ+E3h9YqmzgLn/Etv2XsupQY4QvFHWnZHEGXsWS2bEkC9+Ovg8TTwAQIRvqYWlKQjkVg==
+  version "2.848.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.848.0.tgz#5e7706ddd30a55a2d5a5b64c29682a757607ee64"
+  integrity sha512-c/e5kaEFl+9aYkrYDkmu5mSZlL+EfP6DnBOMD06fH12gIsaFSMBGtbsDTHABhvSu++LxeI1dJAD148O17MuZvg==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -7162,10 +7162,15 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001181:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001109:
   version "1.0.30001189"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001189.tgz#f8547299b9db78d3882b0dea1cae891fed1651e8"
   integrity sha512-BSfxClP/UWCD0RX1h1L+vLDexNSJY7SfOtbJtW10bcnatfj3BcoietUFYNwWreOCk+SNvGUaNapGqUNPiGAiSA==
+
+caniuse-lite@^1.0.30001181:
+  version "1.0.30001191"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001191.tgz#bacb432b6701f690c8c5f7c680166b9a9f0843d9"
+  integrity sha512-xJJqzyd+7GCJXkcoBiQ1GuxEiOBCLQ0aVW9HMekifZsAVGdj5eJ4mFB9fEhSHipq9IOk/QXFJUiIr9lZT+EsGw==
 
 capital-case@^1.0.4:
   version "1.0.4"
@@ -9047,9 +9052,9 @@ developer-adk-interview@^1.0.2:
     vuetify "^2.3.14"
 
 developer-adk-offer@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/developer-adk-offer/-/developer-adk-offer-1.0.6.tgz#e6ffe1ab86af1cad7047a86a9714c845a2de10e1"
-  integrity sha512-DrhSyp+hMJ0TbkJjEbE3ih55o9diKJDgL7dVTtErC1DRP+eckPUQcrfXxreEgSso22fBItnR3J62TFP6OOuhxQ==
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/developer-adk-offer/-/developer-adk-offer-1.0.9.tgz#7f1b51c96cae4e4b1cabbfccce57da2212b4a6e7"
+  integrity sha512-GAmciSlFVa1VTSk2gvvjz3AuOdtoE72dDnI60tzv/aVnOtrSiBjzqOFj62q18bWPft30F9iUKx1gEjGsCQLYPg==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9169,16 +9174,15 @@ developer-adk-present@^1.0.4:
     vuetify "^2.3.14"
 
 developer-adk-research@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.7.tgz#edf5314d724d037c00c904d092ab6328b80b1395"
-  integrity sha512-nN48WXvC9PQuNw5kNhBF1vo/6pU96GSm2ayt8lg+XZvaR7gzJ2xXvgDI7b6Zds56f+ilH08Dve6B88XX3tde1w==
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.9.tgz#d373f05aca011ae1895bbe03a10ad5d642fcf004"
+  integrity sha512-ZCG/03dc5iolope1ny9eUliG+u+QcuBTD0aHWC/2P9GMdt/lXwJY9cjX43D0I5WnfeE8EQ4e/pYJ0RC6EKmC8w==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9201,16 +9205,15 @@ developer-adk-research@^1.0.7:
     vuetify "^2.3.14"
 
 developer-adk-rfp@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.8.tgz#8c8c78caaa62f2ff2c983388d008755fde1411d3"
-  integrity sha512-SzQqruV04yv0STYUOYeZzzNblImnn9YByVUpSVowxYvLgrSzXZ+PrwK2E6omR8834zgbWbvU4mKcQJHjfzFR1Q==
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.13.tgz#280679df726d3d80ca2660c51b0028751938885d"
+  integrity sha512-YmPmW1zfcyoo3bGGNpwmDvSQL7nzTuZi5UDLp191XqDy1wgJ4CRj7c1ZTW5jVFbOIgKWc4V3LwqQTN+RsPh7TA==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9233,9 +9236,9 @@ developer-adk-rfp@^1.0.8:
     vuetify "^2.3.14"
 
 developer-adk-setup@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-1.0.3.tgz#fa6516537e1711629d5961b4fe8b4b6960cebbdc"
-  integrity sha512-vBjvieDbZn+BFi8wJ6zsdzA5Kf67hyk9IgeIN9QGrcOEWJAWtU46YS9Nnx8ASUTrRimNvVns80zZvn6uW7YD3Q==
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-1.0.4.tgz#ac795123001d9f30a1829bb6ccc59ea732591d96"
+  integrity sha512-POLjRnAl75pQsQqdwS5GPtCZAc/II5BJq9o8ZLuBuJEBM5BYAVfA6PYGLA/0uJ1nMxcvcT/1kdrVWhiYPz8iMA==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9243,7 +9246,6 @@ developer-adk-setup@^1.0.3:
     "@types/lodash" "^4.14.168"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9296,16 +9298,15 @@ developer-adk-teamcommunity@^1.0.3:
     vuetify "^2.3.14"
 
 developer-adk-train@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.9.tgz#1e2d189c4c7d9a82f9a5bd09d74384f08beb193e"
-  integrity sha512-mQH3lnZN6ygZKwOZk6ki5HUAYonX79DSeX65EOqjTmb3w3e9+qRAo2bdq9hSmgKOZNhI0vOdW9pQ4ZhfluxRLw==
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.11.tgz#39e066ff02aa49413e4965ca8c10ba7006bedb1a"
+  integrity sha512-/SafIgDNGEI87b0jgHPVi1pVwfqBPBriD4ycuMWja/k0TJnp7SUOpo6BjlLllwgP2KbQPML/Lhk7RK9v6ymxVA==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^16.0.0"
     "@types/mongodb" "^3.5.31"
     "@vue/cli" "^4.4.6"
-    "@vue/composition-api" "^1.0.0-rc.1"
     apollo-boost "^0.4.9"
     apollo-cache-inmemory "^1.6.6"
     apollo-link-context "^1.0.20"
@@ -9652,10 +9653,15 @@ ejs@^3.1.2:
   dependencies:
     jake "^10.6.1"
 
-electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.649:
+electron-to-chromium@^1.3.378:
   version "1.3.669"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.669.tgz#ef9b63187b3f9821e2a064e04f616ea092282b41"
   integrity sha512-VNj10fmGC6SbE7s4tKG7y2OopVXYoTIfjE1MetflPd77KmeRuHtkl+HYsfF00BGg5hyaorTUn6lTToEHaciOSw==
+
+electron-to-chromium@^1.3.649:
+  version "1.3.672"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.672.tgz#3a6e335016dab4bc584d5292adc4f98f54541f6a"
+  integrity sha512-gFQe7HBb0lbOMqK2GAS5/1F+B0IMdYiAgB9OT/w1F4M7lgJK2aNOMNOM622aEax+nS1cTMytkiT0uMOkbtFmHw==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -10731,9 +10737,9 @@ file-entry-cache@^5.0.1:
     flat-cache "^2.0.1"
 
 file-entry-cache@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/file-entry-cache/-/file-entry-cache-6.0.0.tgz#7921a89c391c6d93efec2169ac6bf300c527ea0a"
-  integrity sha512-fqoO76jZ3ZnYrXLDRxBR1YvOvc0k844kcOg40bgsPrE25LAb/PDqTY+ho64Xh2c8ZXgIKldchCFHczG2UVRcWA==
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/file-entry-cache/-/file-entry-cache-6.0.1.tgz#211b2dd9659cb0394b073e7323ac3c933d522027"
+  integrity sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==
   dependencies:
     flat-cache "^3.0.4"
 
@@ -11642,10 +11648,17 @@ globals@^9.18.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-9.18.0.tgz#aa3896b3e69b487f17e31ed2143d69a8e30c2d8a"
   integrity sha512-S0nG3CLEQiY/ILxqtztTWH/3iRRdyBLw6KMDxnKMchrtbj2OFmehVh0WUCfW3DUrIgx/qFrJPICrq4Z4sTR9UQ==
 
-globalthis@^1.0.0, globalthis@^1.0.1:
+globalthis@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/globalthis/-/globalthis-1.0.1.tgz#40116f5d9c071f9e8fb0037654df1ab3a83b7ef9"
   integrity sha512-mJPRTc/P39NH/iNG4mXa9aIhNymaQikTrnspeCa2ZuJ+mH2QN/rXwtX3XwKrHqWgUQFbNZKtHM105aHzJalElw==
+  dependencies:
+    define-properties "^1.1.3"
+
+globalthis@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/globalthis/-/globalthis-1.0.2.tgz#2a235d34f4d8036219f7e34929b5de9e18166b8b"
+  integrity sha512-ZQnSFO1la8P7auIOQECnm0sSuoMeaSq0EEdXMBFF2QJO4uNcwbyhSgG3MruWNbFTqCLmxVwGOl7LZ9kASvHdeQ==
   dependencies:
     define-properties "^1.1.3"
 
@@ -15281,7 +15294,12 @@ lodash.xorby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.xorby/-/lodash.xorby-4.7.0.tgz#9c19a6f9f063a6eb53dd03c1b6871799801463d7"
   integrity sha1-nBmm+fBjputT3QPBtocXmYAUY9c=
 
-lodash@4, lodash@4.17.20, lodash@4.x, lodash@^4.0.0, lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.3, lodash@^4.17.4, lodash@~4.17.10, lodash@~4.17.20:
+lodash@4, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.19, lodash@^4.17.20, lodash@~4.17.10:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+lodash@4.17.20, lodash@4.x, lodash@^4.0.0, lodash@^4.0.1, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.4, lodash@~4.17.20:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -16577,7 +16595,7 @@ object.entries@^1.1.0, object.entries@^1.1.2:
     es-abstract "^1.18.0-next.1"
     has "^1.0.3"
 
-object.getownpropertydescriptors@^2.0.3, object.getownpropertydescriptors@^2.1.0, object.getownpropertydescriptors@^2.1.1:
+object.getownpropertydescriptors@^2.0.3:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/object.getownpropertydescriptors/-/object.getownpropertydescriptors-2.1.1.tgz#0dfda8d108074d9c563e80490c883b6661091544"
   integrity sha512-6DtXgZ/lIZ9hqx4GtZETobXLR/ZLaa0aqV0kzbn80Rf8Z2e/XFnhA0I7p07N2wH8bBBltr2xQPi6sbKWAY2Eng==
@@ -16585,6 +16603,15 @@ object.getownpropertydescriptors@^2.0.3, object.getownpropertydescriptors@^2.1.0
     call-bind "^1.0.0"
     define-properties "^1.1.3"
     es-abstract "^1.18.0-next.1"
+
+object.getownpropertydescriptors@^2.1.0, object.getownpropertydescriptors@^2.1.1:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/object.getownpropertydescriptors/-/object.getownpropertydescriptors-2.1.2.tgz#1bd63aeacf0d5d2d2f31b5e393b03a7c601a23f7"
+  integrity sha512-WtxeKSzfBjlzL+F9b7M7hewDzMwy+C8NRssHd1YrNlzHzIDrXcXiNOMrezdAEM4UXixgV+vvnyBeN7Rygl2ttQ==
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.2"
 
 object.pick@^1.3.0:
   version "1.3.0"
@@ -19330,9 +19357,9 @@ rollup-pluginutils@^2.8.2:
     estree-walker "^0.6.1"
 
 rss-parser@^3.8.0:
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/rss-parser/-/rss-parser-3.11.0.tgz#d885ea2ee12758377397648ac20582182379bbf6"
-  integrity sha512-oTLoYW+bNqNwkz8OpGinBU9s3As0sdczQjETIZFgyAdi7AopyhoVFGPIyFMYXXEY8hayKzD5CH+4CtmiPtJ89g==
+  version "3.12.0"
+  resolved "https://registry.yarnpkg.com/rss-parser/-/rss-parser-3.12.0.tgz#b8888699ea46304a74363fbd8144671b2997984c"
+  integrity sha512-aqD3E8iavcCdkhVxNDIdg1nkBI17jgqF+9OqPS1orwNaOgySdpvq6B+DoONLhzjzwV8mWg37sb60e4bmLK117A==
   dependencies:
     entities "^2.0.3"
     xml2js "^0.4.19"

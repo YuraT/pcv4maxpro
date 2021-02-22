@@ -36,7 +36,7 @@
         <div class="guide__activities">
           <component
             :is="currentUnit"
-            v-if="programDoc"
+            v-if="programDoc.data.dateCreated"
             v-model="programDoc"
             :license-program="licenseProgram"
           />
