@@ -82,7 +82,7 @@ import offer from 'developer-adk-offer/src/Module/Module.vue';
 import setup from 'developer-adk-setup/src/Module/Module.vue';
 // import JoinForm from 'developer-adk-joinform/src/App.vue';
 import Loading from '@/components/Loading.vue';
-import { useDbGetters, useStripeActions } from '@/store';
+import { useDbGetters } from '@/store';
 import { ObjectId } from 'bson';
 import Bar from './components/Bar.vue';
 
