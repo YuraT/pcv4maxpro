@@ -22,7 +22,12 @@
                 </div>
               </div>
             </div>
-            <div v-for="program in myPrograms" v-else :key="program._id" class="pc-program-card">
+            <div
+              v-for="program in myPrograms"
+              v-else
+              :key="program._id"
+              class="pc-program-card mt-5"
+            >
               <div class="pc-program-card__image">
                 <v-img
                   src="https://picsum.photos/510/300?random"
