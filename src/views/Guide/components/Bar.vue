@@ -385,11 +385,11 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 $stepper-step-step-width: 100px;
 $stepper-step-step-height: 50px;
 .v-application a {
-  color: transparent !important;
+  color: transparent;
 }
 
 .program-card {
