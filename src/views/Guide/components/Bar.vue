@@ -107,6 +107,7 @@
     <v-card class="program-card">
       <v-expand-x-transition>
         <div v-show="expand" class="guide-bar__container">
+          <div><v-btn rounded disabled x-small outlined depressed>PilotCity Flagship</v-btn></div>
           <!-- <div class="guide-bar__highlight" /> -->
           <div class="guide-bar__title">{{ title }}</div>
           <!-- <v-avatar color="grey"></v-avatar> -->
@@ -276,7 +277,7 @@ export default defineComponent({
       type: Number
     },
     title: {
-      default: 'Setup'
+      default: 'Program Setup'
     }
   },
   setup(props, ctx) {
@@ -535,7 +536,10 @@ $stepper-step-step-height: 50px;
     }
   }
   &__container {
-    padding: 22px;
+    padding-left: 22px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    padding-right: 22px;
     display: flex;
     flex-direction: column;
     // align-items: center;

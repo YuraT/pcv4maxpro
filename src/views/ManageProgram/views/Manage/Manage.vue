@@ -223,7 +223,7 @@ export default {
     margin-left: 56px;
     margin-top: 25px;
     display: grid;
-    grid-template-columns: repeat(3, 350px);
+    grid-template-columns: repeat(2, 350px);
     grid-template-rows: repeat(2, 275px);
     grid-column-gap: 17px;
     grid-row-gap: 42px;

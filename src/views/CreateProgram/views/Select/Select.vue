@@ -1,11 +1,9 @@
 <template>
   <div class="select__entire-body">
     <!-- <v-subheader class="select__title mx-auto">Choose program template</v-subheader> -->
-    <div class="select__cards">
-      <pc-select-card class="mx-auto" @license="createProgram">
-        <template v-slot:title>{{ item.title }}</template>
-      </pc-select-card>
-    </div>
+    <pc-select-card class="mt-6 ml-auto mr-auto mb-6" @license="createProgram">
+      <template v-slot:title>{{ item.title }}</template>
+    </pc-select-card>
   </div>
 </template>
 
