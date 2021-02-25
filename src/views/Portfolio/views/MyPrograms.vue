@@ -521,7 +521,7 @@
                 class="my-programs__card1 text-h5 font-weight-black"
                 :elevation="hover ? 6 : 0"
               >
-                <v-dialog v-model="dialog" width="500">
+                <v-dialog v-model="dialog" width="650">
                   <template v-slot:activator="{ on, attrs }">
                     <div class="my-programs__card2">
                       <v-btn x-large icon color="gray" v-bind="attrs" v-on="on">
@@ -530,10 +530,10 @@
                     </div>
                   </template>
                   <v-card class="my-programs__dialog">
-                    <v-icon color="yellow" x-large>mdi-rocket-outline</v-icon>
+                    <v-icon color="green" x-large>mdi-rocket-outline</v-icon>
                     <v-card-title class="my-programs__dialog-title">
-                      Programs launching Fri, Feb 26th, 2021.<br />Get your rockets
-                      ready.</v-card-title
+                      We're experiencing program delays. <br />Programs will now be launching Mon,
+                      March 8th, 2021. <br />Thank you for your patience.</v-card-title
                     >
                     <v-btn
                       class="my-programs__dialog-button"
