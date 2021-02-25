@@ -62,7 +62,7 @@
           top
         >
           <span class="font-weight-bold">Announcement:</span>
-          Our flagship program will now launch on Mon, March 8th, 2021
+          Our flagship program will now launch on Monday, March 8th, 2021
           <template v-slot:action="{ attrs }">
             <v-btn v-bind="attrs" icon @click="snackbar = false"><v-icon>mdi-close</v-icon></v-btn>
           </template>
