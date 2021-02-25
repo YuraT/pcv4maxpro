@@ -6,23 +6,7 @@
           <h4 class="my-programs__programs-title">My Programs</h4>
           <!-- EMPLOYER PROGRAM CARD START -->
           <div class="mt-5 mb-5" style="width: 100%">
-            <div v-if="tile">
-              <div class="pc-program-card">
-                <div class="pc-program-card__image">
-                  <!-- <v-img
-            src="https://picsum.photos/510/300?random"
-            class="pc-program-card__completed"
-          ></v-img> -->
-                </div>
-                <div class="pc-program-card__content">
-                  <h5 class="pc-program-card__title">Program Name</h5>
-                  <!-- <a href="#" class="pc-program-card__button w-button">Results</a> -->
-
-                  <v-btn outlined light class="pc-program-card__button w-button">Setup</v-btn>
-                </div>
-              </div>
-            </div>
-            <div v-for="program in myPrograms" v-else :key="program._id" class="pc-program-card">
+            <div v-for="(program, index) in myPrograms" :key="index" class="pc-program-card">
               <div class="pc-program-card__image">
                 <v-img
                   src="https://picsum.photos/510/300?random"
@@ -61,22 +45,6 @@
 
           <!-- STUDENT PROGRAM CARD START -->
           <div class="mt-5 mb-5" style="width: 100%">
-            <div v-if="tile" class="tile">
-              <div class="pc-program-card">
-                <div class="pc-program-card__image">
-                  <!-- <v-img
-            src="https://picsum.photos/510/300?random"
-            class="pc-program-card__completed"
-          ></v-img> -->
-                </div>
-                <div class="pc-program-card__content">
-                  <h5 class="pc-program-card__title">Program Name</h5>
-                  <!-- <a href="#" class="pc-program-card__button w-button">Results</a> -->
-
-                  <v-btn outlined light class="pc-program-card__button w-button">Setup</v-btn>
-                </div>
-              </div>
-            </div>
             <!-- <div v-else class="pc-program-card">
               <div class="pc-program-card__image">
                 <v-img

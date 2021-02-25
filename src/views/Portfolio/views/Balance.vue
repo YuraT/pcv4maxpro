@@ -102,8 +102,6 @@
           </div>
           <div class="d-flex justify-center">
             <v-text-field
-              v-model="sponsorName"
-              :error-messages="errors"
               height="60"
               outlined
               rounded
@@ -275,6 +273,7 @@ export default {
       `,
       variables: { id: id.value }
     }).then(async ({ data }) => {
+      tokens.value = data.tokens;
       const tokenOwners = data.tokens.map(token => ({ _id: token.owner_id }));
       if (tokenOwners.length)
         originalOwners.value = (
