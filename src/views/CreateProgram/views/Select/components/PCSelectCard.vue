@@ -10,11 +10,12 @@
     <v-card-title class="pc-select__template-title">Flagship Program</v-card-title>
     <v-card-text class="pc-select__template-metadata">
       <div class="pc-select__title-head-left">
-        <v-btn x-small depressed rounded dark color="#ae90b0" class="pc-select__spacing"
+        <v-btn small depressed rounded dark color="#ae90b0" class="pc-select__spacing"
           >For Employers</v-btn
         >
-        <v-btn x-small rounded dark depressed class="pc-select__spacing">4 Hours Setup</v-btn>
-        <v-btn x-small rounded dark depressed class="pc-select__spacing">Optional Management</v-btn>
+        <v-btn small rounded dark depressed color="orange" class="pc-select__spacing"
+          >4 Hours Setup</v-btn
+        >
       </div>
     </v-card-text>
 
@@ -54,87 +55,142 @@
     <!-- <v-card-subtitle class="pc-select__user-type-title">Setup Required</v-card-subtitle> -->
 
     <v-btn class="ml-4" x-small rounded outlined depressed disabled
-      >Activities & Deliverables</v-btn
+      >Student Activities & Deliverables</v-btn
     >
     <v-card-text class="mb-5">
       <v-tooltip top color="black">
         <template v-slot:activator="{ on, attrs }">
-          <v-chip
-            v-bind="attrs"
-            color="grey darken-2"
-            small
-            depressed
-            dark
-            class="pc-select__spacing"
-            v-on="on"
+          <v-chip v-bind="attrs" color="purple" depressed dark class="pc-select__spacing" v-on="on"
             >Request for Projects</v-chip
           >
         </template>
-        <span>Setup Required</span>
+        <span>Create a project scope for students (Setup Required)</span>
       </v-tooltip>
-
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Team</v-chip>
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Discord</v-chip>
 
       <v-tooltip top color="black">
         <template v-slot:activator="{ on, attrs }">
-          <v-chip
-            v-bind="attrs"
-            color="grey darken-2"
-            small
-            depressed
-            dark
-            class="pc-select__spacing"
-            v-on="on"
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Team</v-chip
+          >
+        </template>
+        <span>Students join, create & manage teams</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Discord</v-chip
+          >
+        </template>
+        <span>Students join PilotCity student community</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="purple" depressed dark class="pc-select__spacing" v-on="on"
             >Train</v-chip
           >
         </template>
-        <span>Setup Required</span>
+        <span>Insert podcast, vlogs & videos for students to watch (Setup Required)</span>
       </v-tooltip>
 
       <v-tooltip top color="black">
         <template v-slot:activator="{ on, attrs }">
-          <v-chip
-            v-bind="attrs"
-            color="grey darken-2"
-            small
-            depressed
-            dark
-            class="pc-select__spacing"
-            v-on="on"
+          <v-chip v-bind="attrs" color="purple" depressed dark class="pc-select__spacing" v-on="on"
             >Research</v-chip
           >
         </template>
-        <span>Setup Required</span>
+        <span>Insert useful links for project resources (Setup Required)</span>
       </v-tooltip>
 
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Practice</v-chip>
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Ideate</v-chip>
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Pitches</v-chip>
-
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Forum</v-chip>
-
-      <v-chip color="grey" small depressed dark class="pc-select__spacing"
-        >Design & Prototype</v-chip
-      >
-      <v-chip color="grey" small depressed dark class="pc-select__spacing"> Demonstrate</v-chip>
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Present</v-chip>
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Auto-Apply</v-chip>
-      <v-chip color="grey" small depressed dark class="pc-select__spacing">Interview</v-chip>
       <v-tooltip top color="black">
         <template v-slot:activator="{ on, attrs }">
-          <v-chip
-            v-bind="attrs"
-            color="grey darken-2"
-            small
-            depressed
-            dark
-            class="pc-select__spacing"
-            v-on="on"
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Practice</v-chip
+          >
+        </template>
+        <span>Students log time they're spending on the project</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Ideate</v-chip
+          >
+        </template>
+        <span> Students brainstorm ideas for their projects</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Pitch</v-chip
+          >
+        </template>
+        <span>Students write their one sentence and elevator pitches</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Forum</v-chip
+          >
+        </template>
+        <span>Students ask & answer each others questions (employers can too)</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Design & Prototype</v-chip
+          >
+        </template>
+        <span>Students log milestones in their creation process</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Demonstrate</v-chip
+          >
+        </template>
+        <span>Students record a demonstration of their projects</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Present</v-chip
+          >
+        </template>
+        <span>Students record a presentation of their project</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Auto-Application</v-chip
+          >
+        </template>
+        <span>Students review and auto-apply for your internship</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="green" depressed dark class="pc-select__spacing" v-on="on"
+            >Interview</v-chip
+          >
+        </template>
+        <span>Students asynchronously interview with employers & preset video questions</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip v-bind="attrs" color="purple" depressed dark class="pc-select__spacing" v-on="on"
             >Offer</v-chip
           >
         </template>
-        <span>Setup Required</span>
+        <span>Design your position offer to winning students (Setup Required)</span>
       </v-tooltip>
     </v-card-text>
     <!-- <v-card-subtitle class="pc-select__user-type-title">Sponsors and Stakeholders</v-card-subtitle> -->

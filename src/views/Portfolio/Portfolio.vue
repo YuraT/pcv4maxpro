@@ -8,6 +8,19 @@
         type="heading, list-item-two-line, list-item-two-line, list-item-three-line"
       > -->
       <div class="profile__mode-container pc-container">
+        <v-snackbar
+          v-model="snackbar"
+          class="snackbar-announcement"
+          color="#3C9CCC"
+          rounded
+          timeout="-1"
+        >
+          <span class="font-weight-bold">Announcement:</span> Our flagship program will now launch
+          on Monday, March 8th, 2021
+          <template v-slot:action="{ attrs }">
+            <v-btn v-bind="attrs" icon @click="snackbar = false"><v-icon>mdi-close</v-icon></v-btn>
+          </template>
+        </v-snackbar>
         <!-- <v-btn class="profile__mode" depressed outlined color="grey" small>View</v-btn> -->
         <!-- <v-btn class="profile__mode" depressed outlined color="grey" small>Public</v-btn> -->
         <v-btn
@@ -189,7 +202,8 @@ export default {
       tickets,
       loader,
       processQuery,
-      user
+      user,
+      snackbar: true
     };
   }
 };

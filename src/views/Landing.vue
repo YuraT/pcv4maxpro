@@ -51,8 +51,23 @@
       </v-app-bar>
 
       <!-- APP BAR END -->
+
       <div class="landing__hero-body">
-        <div class="landing__hero-logo">
+        <v-snackbar
+          v-model="snackbar"
+          class="snackbar-announcement"
+          color="#3C9CCC"
+          rounded
+          timeout="-1"
+          top
+        >
+          <span class="font-weight-bold">Announcement:</span>
+          Our flagship program will now launch on Monday, March 8th, 2021
+          <template v-slot:action="{ attrs }">
+            <v-btn v-bind="attrs" icon @click="snackbar = false"><v-icon>mdi-close</v-icon></v-btn>
+          </template>
+        </v-snackbar>
+        <div class="landing__hero-logo mt-6">
           <v-img
             src="https://f.hubspotusercontent00.net/hubfs/2480959/PilotCity_Wireframe_White.svg"
           ></v-img>
@@ -1174,13 +1189,17 @@ export default {
   },
   data() {
     return {
-      e6: 1
+      e6: 1,
+      snackbar: true
     };
   }
 };
 </script>
 
 <style lang="scss">
+.snackbar-announcement {
+  // border-radius: 25px !important;
+}
 html {
   scroll-behavior: smooth;
 }

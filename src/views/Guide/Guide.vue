@@ -21,15 +21,30 @@
         </div>
 
         <div v-if="currentPage != 0" class="guide__locks guide__locks--left unlocked">
-          <v-icon large color="grey lighten-1" class="guide__lock">mdi-chevron-left</v-icon>
+          <v-icon large color="grey lighten-1" class="guide__lock" @click="prevPage"
+            >mdi-chevron-left</v-icon
+          >
           <!-- STUDENT VIEW -->
           <!-- <v-icon large color="green" class="guide__lock">mdi-lock-open</v-icon> -->
           <!-- <v-icon large color="grey lighten-1" class="guide__lock" @click="prevPage"
             >mdi-lock-open</v-icon
           > -->
-          <v-icon large color="green" class="guide__lock" @click="prevPage"
-            >mdi-check-circle</v-icon
-          >
+
+          <v-tooltip dark right>
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon
+                v-bind="attrs"
+                large
+                color="green"
+                class="guide__lock"
+                v-on="on"
+                @click="prevPage"
+                >mdi-check-circle</v-icon
+              >
+            </template>
+
+            <span>Last Activity Setup</span>
+          </v-tooltip>
         </div>
 
         <!-- <component :is="currentUnit" v-if="programDoc" v-model="programDoc" @save="updateProgram" /> -->
@@ -44,18 +59,33 @@
         <div class="guide__locks guide__locks--right locked">
           <!-- STUDENT VIEW -->
           <!-- <v-icon large color="red" class="guide__lock">mdi-lock</v-icon> -->
-          <v-icon
-            large
-            color="orange"
-            class="guide__lock"
-            :disabled="!isNextUnlocked"
-            @click="nextPage"
-            >mdi-progress-wrench</v-icon
-          >
+          <v-tooltip dark left>
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon
+                v-bind="attrs"
+                large
+                color="orange"
+                class="guide__lock"
+                :disabled="!isNextUnlocked"
+                v-on="on"
+                @click="nextPage"
+                >mdi-progress-wrench</v-icon
+              >
+            </template>
+            <span>Setup Next Activity</span>
+          </v-tooltip>
+
           <!-- <v-icon large color="grey lighten-1" class="guide__lock" @click="nextPage"
             >mdi-lock-open</v-icon
           > -->
-          <v-icon large color="grey lighten-1" class="guide__lock">mdi-chevron-right</v-icon>
+          <v-icon
+            :disabled="!isNextUnlocked"
+            large
+            color="grey lighten-1"
+            class="guide__lock"
+            @click="nextPage"
+            >mdi-chevron-right</v-icon
+          >
         </div>
       </div>
     </v-skeleton-loader>

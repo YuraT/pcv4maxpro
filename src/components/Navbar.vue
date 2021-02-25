@@ -55,11 +55,11 @@
         large
         depressed
         rounded
-        outlined
-        color="white"
+        dark
+        color="purple"
         :ripple="false"
         @click="$router.push({ name: 'createprogram' })"
-        ><v-icon left>mdi-plus</v-icon>
+        ><v-icon left>mdi-plus-outline</v-icon>
         <span class="font-weight-black">Create Program</span>
       </v-btn>
 
@@ -73,7 +73,7 @@
         color="white"
         :ripple="false"
         @click="$router.push({ name: 'portfolio' })"
-        ><v-icon left>mdi-telegram</v-icon>
+        ><v-icon left>mdi-fingerprint</v-icon>
         <span class="font-weight-black">My Portfolio</span>
       </v-btn>
 
