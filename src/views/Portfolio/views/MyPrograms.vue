@@ -6,7 +6,7 @@
           <h4 class="my-programs__programs-title">My Programs</h4>
           <!-- EMPLOYER PROGRAM CARD START -->
           <div class="mt-5 mb-5" style="width: 100%">
-            <div v-for="(program, index) in myPrograms" :key="index" class="pc-program-card">
+            <div v-for="(program, index) in myPrograms" :key="index" class="pc-program-card mt-5">
               <div class="pc-program-card__image">
                 <v-img
                   src="https://picsum.photos/510/300?random"
