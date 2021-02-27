@@ -21,7 +21,7 @@
         </div>
 
         <div v-if="currentPage != 0" class="guide__locks guide__locks--left unlocked">
-          <v-icon large color="grey lighten-1" class="guide__lock" @click="prevPage"
+          <v-icon x-large color="grey lighten-1" class="guide__lock" @click="prevPage"
             >mdi-chevron-left</v-icon
           >
           <!-- STUDENT VIEW -->
@@ -34,7 +34,7 @@
             <template v-slot:activator="{ on, attrs }">
               <v-icon
                 v-bind="attrs"
-                large
+                x-large
                 color="green"
                 class="guide__lock"
                 v-on="on"
@@ -63,7 +63,7 @@
             <template v-slot:activator="{ on, attrs }">
               <v-icon
                 v-bind="attrs"
-                large
+                x-large
                 color="orange"
                 class="guide__lock"
                 :disabled="!isNextUnlocked"
@@ -80,7 +80,7 @@
           > -->
           <v-icon
             :disabled="!isNextUnlocked"
-            large
+            x-large
             color="grey lighten-1"
             class="guide__lock"
             @click="nextPage"

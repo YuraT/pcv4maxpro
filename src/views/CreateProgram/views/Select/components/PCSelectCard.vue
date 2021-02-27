@@ -11,11 +11,12 @@
     <v-card-text class="pc-select__template-metadata">
       <div class="pc-select__title-head-left">
         <v-btn small depressed rounded dark color="#ae90b0" class="pc-select__spacing"
-          >For Employers</v-btn
+          >By Employers</v-btn
         >
-        <v-btn small rounded dark depressed color="orange" class="pc-select__spacing"
-          >4 Hours Setup</v-btn
+        <v-btn small depressed rounded dark color="#6eba80" class="pc-select__spacing"
+          >For Students</v-btn
         >
+        <v-btn small rounded outlined depressed class="pc-select__spacing">4 Hours Setup</v-btn>
       </div>
     </v-card-text>
 
@@ -33,7 +34,16 @@
       <!-- <div class="pc-select__title-head-left pc-select__price-tag">Invite only</div> -->
 
       <div class="pc-select__title-head-right">
-        <v-btn class="" x-large outlined rounded depressed @click="$emit('license')">Select</v-btn>
+        <v-btn
+          color="grey lighten-1"
+          x-large
+          dark
+          class="font-weight-black"
+          rounded
+          depressed
+          @click="$emit('license')"
+          >Select</v-btn
+        >
       </div>
     </v-card-text>
 
@@ -47,20 +57,41 @@
       </v-card-text> -->
 
     <!-- <v-card-subtitle class="pc-select__user-type-title">Participants</v-card-subtitle> -->
-    <v-btn class="ml-4 mt-5" x-small rounded outlined depressed disabled>Participants</v-btn>
+    <!-- <v-btn class="ml-4 mt-5" x-small rounded outlined depressed disabled>Participants</v-btn>
     <v-card-text class="mb-5">
       <v-chip color="#6eba80" depressed dark class="pc-select__spacing">Students</v-chip>
-    </v-card-text>
+    </v-card-text> -->
 
     <!-- <v-card-subtitle class="pc-select__user-type-title">Setup Required</v-card-subtitle> -->
 
-    <v-btn class="ml-4" x-small rounded outlined depressed disabled
+    <v-btn class="ml-4 mt-6" x-small rounded outlined depressed disabled
       >Student Activities & Deliverables</v-btn
     >
     <v-card-text class="mb-5">
       <v-tooltip top color="black">
         <template v-slot:activator="{ on, attrs }">
-          <v-chip v-bind="attrs" color="purple" depressed dark class="pc-select__spacing" v-on="on"
+          <v-chip
+            v-bind="attrs"
+            color="green"
+            depressed
+            outlined
+            class="pc-select__spacing"
+            v-on="on"
+            >Setup Program</v-chip
+          >
+        </template>
+        <span>Enter general information, preferences & qualifications (Setup Required)</span>
+      </v-tooltip>
+
+      <v-tooltip top color="black">
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip
+            v-bind="attrs"
+            color="green"
+            depressed
+            outlined
+            class="pc-select__spacing"
+            v-on="on"
             >Request for Projects</v-chip
           >
         </template>
@@ -87,7 +118,13 @@
 
       <v-tooltip top color="black">
         <template v-slot:activator="{ on, attrs }">
-          <v-chip v-bind="attrs" color="purple" depressed dark class="pc-select__spacing" v-on="on"
+          <v-chip
+            v-bind="attrs"
+            color="green"
+            depressed
+            outlined
+            class="pc-select__spacing"
+            v-on="on"
             >Train</v-chip
           >
         </template>
@@ -96,7 +133,13 @@
 
       <v-tooltip top color="black">
         <template v-slot:activator="{ on, attrs }">
-          <v-chip v-bind="attrs" color="purple" depressed dark class="pc-select__spacing" v-on="on"
+          <v-chip
+            v-bind="attrs"
+            color="green"
+            depressed
+            outlined
+            class="pc-select__spacing"
+            v-on="on"
             >Research</v-chip
           >
         </template>
@@ -186,7 +229,13 @@
 
       <v-tooltip top color="black">
         <template v-slot:activator="{ on, attrs }">
-          <v-chip v-bind="attrs" color="purple" depressed dark class="pc-select__spacing" v-on="on"
+          <v-chip
+            v-bind="attrs"
+            color="green"
+            depressed
+            outlined
+            class="pc-select__spacing"
+            v-on="on"
             >Offer</v-chip
           >
         </template>
