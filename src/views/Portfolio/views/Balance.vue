@@ -281,6 +281,7 @@ export default {
             query: gql`
               query Users($userQueryInputs: [UserQueryInput!]) {
                 users(query: { OR: $userQueryInputs }) {
+                  _id
                   firstName
                   lastName
                 }
