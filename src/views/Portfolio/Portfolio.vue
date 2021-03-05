@@ -1,6 +1,6 @@
 <template>
   <!--  TODO: make the inputs into actual components -->
-  <Loading ref="loader" :callback="processQuery">
+  <Loading ref="loader" :callback="processQuery" :process-now="true">
     <div class="profile__wrapper">
       <!-- v-slot="{ loading }"-->
       <!-- <v-skeleton-loader
