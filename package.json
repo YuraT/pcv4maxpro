@@ -36,7 +36,7 @@
     "core-js": "^3.6.5",
     "css-loader": "^4.2.2",
     "developer-adk-autoapply": "^1.0.0",
-    "developer-adk-demo": "^1.0.0",
+    "developer-adk-demo": "^1.0.8",
     "developer-adk-ideate": "^1.0.0",
     "developer-adk-interact": "^1.1.10",
     "developer-adk-interview": "^1.0.2",

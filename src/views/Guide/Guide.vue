@@ -53,6 +53,7 @@
             :is="currentUnit"
             v-if="programDoc.data.dateCreated"
             v-model="programDoc"
+            :current-user="currentUser"
             :license-program="licenseProgram"
           />
         </div>
@@ -94,8 +95,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, Ref, watchEffect } from '@vue/composition-api';
-// import Forum from 'developer-adk-interact';
-// import demo from 'developer-adk-demo/src/Module/Module.vue';
+// import Forum from 'developer-adk-interact';s
+import demo from 'developer-adk-demo/src/Module/Module.vue';
 // import autoapply from 'developer-adk-autoapply/src/Module/Module.vue';
 // import interact from 'developer-adk-interact/src/Module/Module.vue';
 import rfp from 'developer-adk-rfp/src/Module/Module.vue';
@@ -112,7 +113,7 @@ import offer from 'developer-adk-offer/src/Module/Module.vue';
 import setup from 'developer-adk-setup/src/Module/Module.vue';
 // import JoinForm from 'developer-adk-joinform/src/App.vue';
 import Loading from '@/components/Loading.vue';
-import { useDbGetters } from '@/store';
+import { useAuthGetters, useDbGetters } from '@/store';
 import { ObjectId } from 'bson';
 import Bar from './components/Bar.vue';
 
@@ -123,7 +124,7 @@ export default defineComponent({
     setup,
     // Forum,
     // interact
-    // demo
+    demo,
     // autoapply,
     rfp,
     // team,
@@ -148,7 +149,7 @@ export default defineComponent({
       // 'ideate',
       // 'pitches',
       // 'interact'
-      // 'demo',
+      'demo',
       // 'present',
       // 'autoapply',
       // 'interview',
@@ -239,6 +240,8 @@ export default defineComponent({
       //   }
       // });
     }
+    const { getUser } = useAuthGetters(['getUser']);
+    const currentUser = ref(getUser.value);
     return {
       currentUnit,
       currentPage,
@@ -248,7 +251,8 @@ export default defineComponent({
       fetchProgram,
       programDoc,
       licenseProgram,
-      isNextUnlocked
+      isNextUnlocked,
+      currentUser
     };
   }
 });
