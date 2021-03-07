@@ -50,6 +50,14 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
+    path: '/sponsor/:shareCode',
+    name: 'landing',
+    component: Landing, // ! change this explore programs!!
+    meta: {
+      layout: 'no-nav'
+    }
+  },
+  {
     path: '/invite/:schoolName',
     name: 'invite',
     component: Invite,

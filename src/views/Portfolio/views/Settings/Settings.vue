@@ -24,6 +24,8 @@
     <div class="my-settings__content">
       <!-- General -->
       <Name />
+      <v-divider class="my-settings__divider"></v-divider>
+      <Notifications />
 
       <v-divider class="my-settings__divider"></v-divider>
 
@@ -93,14 +95,14 @@
 
 <script lang="ts">
 import { ref } from '@vue/composition-api';
-import { Name } from './Views';
+import { Name, Notifications } from './Views';
 
 export default {
   name: 'Settings',
   components: {
     // Delete,
-    Name
-    // Notifications,
+    Name,
+    Notifications
     // Password
     // Program
   },

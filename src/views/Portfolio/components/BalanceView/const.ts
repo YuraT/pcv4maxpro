@@ -7,7 +7,7 @@ export const HEADER = [
     width: '5%'
   },
   { text: 'Name', value: 'name', width: '25%' },
-  { text: 'date', value: 'date', width: '25%' },
+  { text: 'Date', value: 'date', width: '25%' },
   { text: 'Amount', value: 'amount', width: '25%' }
 ];
 
