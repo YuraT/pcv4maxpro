@@ -1145,6 +1145,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.13.9":
+  version "7.13.9"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.13.9.tgz#97dbe2116e2630c489f22e0656decd60aaa1fcee"
+  integrity sha512-aY2kU+xgJ3dJ1eU6FMB9EH8dIe8dmusF1xEku52joLvw6eAFN0AI+WxCLDnpev2LEejWBAy2sBvBOBAjI3zmvA==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.0.0", "@babel/template@^7.12.13", "@babel/template@^7.12.7", "@babel/template@^7.3.3", "@babel/template@^7.4.0":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.12.13.tgz#530265be8a2589dbb37523844c5bcb55947fb327"
@@ -9046,10 +9053,10 @@ developer-adk-interview@^1.0.2:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-offer@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/developer-adk-offer/-/developer-adk-offer-1.0.8.tgz#2705fac157a6d64197fa8dad863d4df59af6d38d"
-  integrity sha512-/Sos8uEHMUt2JJAVe53Ha3/OClIoOa/4J/rFqoXS48Z/D7UyPTt/dntF4gF2o1l9D/PlHbbQWiayFscCdiLG/w==
+developer-adk-offer@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/developer-adk-offer/-/developer-adk-offer-1.0.12.tgz#e0defbd35ae7826c76e611853e0f6ce7d6bf7b3d"
+  integrity sha512-uz9+rJh1vwwnuFiPT+yAX3uIPMAJgFnzKVthmNRA7wIXpGR9PC3v6k+R+pqjo5EemaPF4uRwzBCSFAfJjulDuQ==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9168,10 +9175,10 @@ developer-adk-present@^1.0.4:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-research@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.8.tgz#dbcd067103adfbd516996a4a2bb56db62a8bb415"
-  integrity sha512-DBTYPVRx0zr2PAXocF81HMV80Ah0OomQIElfbLAfipsD2BeT91LQhEvIRH1MItd9XkGUP6H6GC5I5jv+EAQKVA==
+developer-adk-research@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/developer-adk-research/-/developer-adk-research-1.0.13.tgz#90146ca5c3d7d4ed89d104f2a84a2a0aa2f1e67e"
+  integrity sha512-ULVlcF1dcDekLOlamH4hYHsE0KuW7RCjsGK/ENfRNQNOe3sTkAhLm3UNQIcrHJkV2FGVrZnrnkXuuppJMuvJRA==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9199,10 +9206,10 @@ developer-adk-research@^1.0.8:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-rfp@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.12.tgz#2a799eb29441bb62bc80973c12ee5e4ab8472b60"
-  integrity sha512-JJfhYaDdbgAWcPPUZeVl5tp4dOLKpoPamKGhjx26oVI6zARZ5cinDbq5QEYdBBBSqK81DmW7vczg0oP/pM/DFQ==
+developer-adk-rfp@^1.0.26:
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/developer-adk-rfp/-/developer-adk-rfp-1.0.26.tgz#63aae5c85dbd13f63c56c1bc3bc806cd5fd7bec5"
+  integrity sha512-tl/S2jBlEXerh437JlAPSICmTqZ/+h0Bm7RHsggNzt9k2Iu4PKq25NZNtWgaJYUpuMBgVSbr5eHXsWTYPcNa0A==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9230,10 +9237,10 @@ developer-adk-rfp@^1.0.12:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-setup@^1.0.3:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-1.0.4.tgz#ac795123001d9f30a1829bb6ccc59ea732591d96"
-  integrity sha512-POLjRnAl75pQsQqdwS5GPtCZAc/II5BJq9o8ZLuBuJEBM5BYAVfA6PYGLA/0uJ1nMxcvcT/1kdrVWhiYPz8iMA==
+developer-adk-setup@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/developer-adk-setup/-/developer-adk-setup-1.0.9.tgz#acd863ef7c7bdb1db3b49f65479b2d10980fb6bf"
+  integrity sha512-+SKmrx6P1Z25JEzdvz6JV7P3feFj8THgmvz3cQlQl+A4/c2+2yIWSyLkOik1Ini9I+HQ4OUu2rax7WvUPtLD1g==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"
@@ -9292,10 +9299,10 @@ developer-adk-teamcommunity@^1.0.3:
     vue-apollo "^3.0.4y"
     vuetify "^2.3.14"
 
-developer-adk-train@^1.0.9:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.10.tgz#a9221ae11baa46cf52946da4ecd7549c2bacb155"
-  integrity sha512-3QM2mUsBTDy3jNCmgOc40HN676OyS9Nayktw6GsZhlEbQfoeBvPzVSwPZQLNz9NKpvNAWTjYAf7ggSXcOXdZsw==
+developer-adk-train@^1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/developer-adk-train/-/developer-adk-train-1.0.19.tgz#edbf8f233634b2b1fd65aad539b8c1ecfe522eb7"
+  integrity sha512-+9atd9gmY1S4VP07O5ziKa2MFBzaI4vF2yWtgK8q9iMxtWo9NKMN/NBF/B7bRGOK+7nHajFq4fvraH+AlamPyA==
   dependencies:
     "@mdi/font" "^3.6.95"
     "@rollup/plugin-buble" "^0.21.3"

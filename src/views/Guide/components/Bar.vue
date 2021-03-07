@@ -9,20 +9,8 @@
             >
           </template>
           <span>Collapse</span>
-          <!-- <span>Expand</span> -->
         </v-tooltip>
       </div>
-
-      <!-- <div>
-        <v-tooltip right color="black">
-          <template v-slot:activator="{ on, attrs }"
-            ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
-              >mdi-bell-outline</v-icon
-            >
-          </template>
-          <span>Notifications </span>
-        </v-tooltip>
-      </div> -->
 
       <v-divider />
       <div @click="activeStep = unlockedStep">
@@ -36,51 +24,7 @@
         </v-tooltip>
       </div>
 
-      <!-- <div>
-        <v-tooltip right color="black">
-          <template v-slot:activator="{ on, attrs }"
-            ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
-              >mdi-monitor-dashboard</v-icon
-            >
-          </template>
-          <span>Monitor Program</span>
-        </v-tooltip>
-      </div> -->
-
-      <!-- <div>
-        <v-tooltip right color="black">
-          <template v-slot:activator="{ on, attrs }"
-            ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
-              >mdi-human-edit</v-icon
-            >
-          </template>
-          <span>Manage Participants</span>
-        </v-tooltip>
-      </div> -->
-
-      <!-- <div>
-        <v-tooltip right color="black">
-          <template v-slot:activator="{ on, attrs }"
-            ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
-              >mdi-account-group</v-icon
-            >
-          </template>
-          <span>Manage Stakeholders</span>
-        </v-tooltip>
-      </div> -->
-
       <v-divider />
-
-      <!-- <div>
-        <v-tooltip right color="black">
-          <template v-slot:activator="{ on, attrs }"
-            ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
-              >mdi-close</v-icon
-            >
-          </template>
-          <span>Close</span>
-        </v-tooltip>
-      </div> -->
 
       <router-link :to="{ name: 'portfolio' }">
         <v-tooltip right color="black">
@@ -92,31 +36,13 @@
           <span>My Portfolio</span>
         </v-tooltip>
       </router-link>
-
-      <!-- <div>
-        <v-tooltip right color="black">
-          <template v-slot:activator="{ on, attrs }"
-            ><v-icon v-bind="attrs" color="#404142" class="guide-bar__sidebar-icon" v-on="on"
-              >mdi-telegram</v-icon
-            >
-          </template>
-          <span>Explore Programs</span>
-        </v-tooltip>
-      </div> -->
     </div>
     <v-card class="program-card">
       <v-expand-x-transition>
         <div v-show="expand" class="guide-bar__container">
           <div><v-btn rounded disabled x-small outlined depressed>PilotCity Flagship</v-btn></div>
-          <!-- <div class="guide-bar__highlight" /> -->
           <div class="guide-bar__title">{{ title }}</div>
-          <!-- <v-avatar color="grey"></v-avatar> -->
-          <!-- ORGANIZER SETUP MODE -->
-          <!-- <div class="guide-bar__cta2">
-            <v-btn rounded class="guide-bar__cta-button" x-small outlined depressed color="grey"
-              ><v-icon x-small left>mdi-file-document-edit</v-icon>Edit Program</v-btn
-            >
-          </div> -->
+
           <!-- ORGANIZER SETUP MODE -->
           <div class="guide-bar__stepper">
             <div class="guide-bar__stepper-content">
@@ -149,25 +75,6 @@
               </v-stepper>
             </div>
           </div>
-          <!-- STUDENT VIEW -->
-          <!-- <div class="guide-bar__actions">
-            <div class="guide-bar__actions-list">
-              <v-icon v-for="action in actions" :key="action.icon" dark @click="logThis(action.fn)">
-                {{ 'mdi-' + action.icon }}
-              </v-icon>
-            </div>
-          </div> -->
-          <!-- STUDENT VIEW -->
-
-          <!-- ORGANIZER SETUP MODE -->
-
-          <!-- DISABLED "FINISH SETUP TO PUBLISH BUTTON" -->
-          <!--
-          <div class="d-flex justify-center">
-            <v-btn v-bind="attrs" disabled rounded depressed v-on="on"
-              >Finish Setup to Publish</v-btn
-            >
-          </div> -->
 
           <!-- READY TO PUBLISH PROGRAM BUTTON -->
           <v-dialog v-model="dialog" persistent max-width="500px">
