@@ -339,7 +339,18 @@
             </validation-provider>
           </div>
 
-          <v-dialog v-model="dialog6" persistent max-width="500px">
+          <v-btn
+            x-large
+            rounded
+            :disabled="invalid"
+            :dark="!invalid"
+            depressed
+            class="mt-3"
+            @click="processTransfer"
+            >Transfer</v-btn
+          >
+
+          <!-- <v-dialog v-model="dialog6" persistent max-width="500px">
             <template v-slot:activator="{ on, attrs }">
               <div class="balance__transfer-button">
                 <v-btn
@@ -350,6 +361,7 @@
                   :dark="!invalid"
                   depressed
                   v-on="on"
+                  @click="processTransfer"
                   >Transfer</v-btn
                 >
               </div>
@@ -364,19 +376,15 @@
                 <div class="headline font-weight-bold">Are you sure you want to transfer?</div>
               </v-card-title>
 
-              <!-- <v-divider></v-divider> -->
-
               <div class="d-flex flex-row justify-center pa-5">
                 <v-btn class="ma-2" x-large rounded outlined depressed @click="dialog6 = false"
                   >Cancel</v-btn
                 >
 
-                <v-btn class="ma-2" x-large dark rounded depressed @click="processTransfer"
-                  >Transfer</v-btn
-                >
+                <v-btn class="ma-2" x-large dark rounded depressed>Transfer</v-btn>
               </div>
             </v-card>
-          </v-dialog>
+          </v-dialog> -->
         </div>
         <div class="balance__table-view">
           <BalanceView ref="balanceTable" />
