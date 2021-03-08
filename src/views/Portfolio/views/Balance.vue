@@ -48,7 +48,7 @@
                 <v-icon left>mdi-trophy</v-icon>Sponsor
               </v-btn>
             </div>
-            <div>
+            <!-- <div>
               <v-btn
                 class="balance__main-right-button white--text font-weight-bold"
                 depressed
@@ -58,7 +58,7 @@
                 @click="transferState = !transferState"
                 ><v-icon left>mdi-bank-transfer</v-icon>Transfer</v-btn
               >
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -339,7 +339,7 @@
             </validation-provider>
           </div>
 
-          <v-btn
+          <!-- <v-btn
             x-large
             rounded
             :disabled="invalid"
@@ -348,9 +348,9 @@
             class="mt-3"
             @click="processTransfer"
             >Transfer</v-btn
-          >
+          > -->
 
-          <!-- <v-dialog v-model="dialog6" persistent max-width="500px">
+          <v-dialog v-model="dialog6" persistent max-width="450px">
             <template v-slot:activator="{ on, attrs }">
               <div class="balance__transfer-button">
                 <v-btn
@@ -370,21 +370,21 @@
             <v-card>
               <v-card-title class="d-flex flex-column">
                 <div class="d-flex justify-center">
-                  <v-btn class="mb-8"><v-icon color="yellow" x-large>mdi-alert</v-icon></v-btn>
+                  <v-icon class="mb-6 mt-6" color="green" x-large>mdi-check-all</v-icon>
                 </div>
 
-                <div class="headline font-weight-bold">Are you sure you want to transfer?</div>
+                <div class="headline font-weight-bold">Your token has been transferred</div>
               </v-card-title>
 
-              <div class="d-flex flex-row justify-center pa-5">
+              <div class="d-flex flex-row justify-center pa-3">
                 <v-btn class="ma-2" x-large rounded outlined depressed @click="dialog6 = false"
-                  >Cancel</v-btn
+                  >Done</v-btn
                 >
 
-                <v-btn class="ma-2" x-large dark rounded depressed>Transfer</v-btn>
+                <!-- <v-btn class="ma-2" x-large dark rounded depressed>Transfer</v-btn> -->
               </div>
             </v-card>
-          </v-dialog> -->
+          </v-dialog>
         </div>
         <div class="balance__table-view">
           <BalanceView ref="balanceTable" />
