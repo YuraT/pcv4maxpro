@@ -51,7 +51,7 @@
             >
             </v-text-field>
             <!-- <a class="login__forgotlink" href="password-reset"> Forgot Password</a> -->
-            <v-dialog v-model="dialog" width="400">
+            <!-- <v-dialog v-model="dialog" width="400">
               <template v-slot:activator="{ on, attrs }">
                 <div class="login__forgotpassword" v-bind="attrs" v-on="on">
                   <i>
@@ -69,26 +69,33 @@
                   </div>
                 </div>
               </v-card>
-            </v-dialog>
-
-            <!-- <v-dialog v-model="dialog" width="400">
+            </v-dialog> -->
+            <v-dialog v-model="dialog" width="400">
               <template v-slot:activator="{ on, attrs }">
                 <div class="login__forgotpassword" v-bind="attrs" v-on="on">
                   <i>
                     <a class="login__forgotlink"> Forgot Password</a>
-
                   </i>
                 </div>
               </template>
               <v-card dark class="login__dialog">
                 <div class="d-flex flex-column">
-                  <v-text-field x-large rounded outlined label="Enter your email"></v-text-field>
-                  <v-btn x-large depressed rounded outlined>Send Reset Password Email</v-btn>
+                  <v-text-field
+                    v-model="resetEmail"
+                    x-large
+                    rounded
+                    outlined
+                    label="Enter your email"
+                  >
+                  </v-text-field>
+                  <v-btn x-large depressed rounded outlined @click="sendResetPasswordEmail">
+                    Send Reset Password Email
+                  </v-btn>
+                  <v-alert v-if="msg" class="login__alert" :type="type">{{ msg }}</v-alert>
                 </div>
               </v-card>
-            </v-dialog> -->
+            </v-dialog>
           </validation-provider>
-
           <v-btn
             ref="loginBtn"
             class="mt-6"
@@ -136,10 +143,29 @@ export default {
     const state = reactive({
       email: '',
       password: '',
+      resetEmail: '',
       dialog: false,
-      error: ''
+      error: '',
+    });
+    const ui = reactive({
+      msg: ''
+      type: 'success',
+      loading: false
     });
     const { loginUser } = useAuthActions([ActionTypes.loginUser]);
+    const { sendResetPassword } = useAuthActions(['sendResetPassword']);
+    const sendResetPasswordEmail = async () => {
+      ui.loading = true;
+      try {
+        await sendResetPassword({ email: state.resetEmail });
+        ui.type = 'success';
+        ui.msg = 'Email has been Sent';
+      } catch (err) {
+        ui.msg = 'Email could not be Sent';
+        ui.type = 'error';
+      }
+      ui.loading = false;
+    };
     async function login() {
       try {
         const user = await loginUser({ email: state.email, password: state.password });
@@ -151,7 +177,7 @@ export default {
         else state.error = err;
       }
     }
-    return { ...toRefs(state), login };
+    return { ...toRefs(state), login, ...toRefs(ui), sendResetPasswordEmail };
   }
 };
 </script>

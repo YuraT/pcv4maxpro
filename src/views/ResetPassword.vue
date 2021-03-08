@@ -53,7 +53,7 @@ export default {
       default: ''
     }
   },
-  setup(props) {
+  setup(props, { root: { $router } }) {
     // reset password logic
     const state = reactive({
       password: '',
@@ -72,6 +72,7 @@ export default {
         });
         state.msg = 'Your password has been changed';
         state.type = 'success';
+        $router.push({ name: 'login' });
       } catch (err) {
         state.msg = err;
         state.type = 'error';
