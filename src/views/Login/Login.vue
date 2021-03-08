@@ -148,7 +148,7 @@ export default {
       error: '',
     });
     const ui = reactive({
-      msg: ''
+      msg: '',
       type: 'success',
       loading: false
     });
