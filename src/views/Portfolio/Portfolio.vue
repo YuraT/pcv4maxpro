@@ -15,8 +15,8 @@
           rounded
           timeout="-1"
         >
-          <span class="font-weight-bold">Announcement:</span> We are in continued delay and will
-          release as soon as possible. Thank you for your patience.
+          <span class="font-weight-bold">Update:</span> We are experiencing further delays & will
+          release ASAP. Thank you for your patience.
           <template v-slot:action="{ attrs }">
             <v-btn v-bind="attrs" icon @click="snackbar = false"><v-icon>mdi-close</v-icon></v-btn>
           </template>

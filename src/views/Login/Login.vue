@@ -145,7 +145,7 @@ export default {
       password: '',
       resetEmail: '',
       dialog: false,
-      error: '',
+      error: ''
     });
     const ui = reactive({
       msg: '',
@@ -159,9 +159,9 @@ export default {
       try {
         await sendResetPassword({ email: state.resetEmail });
         ui.type = 'success';
-        ui.msg = 'Email has been Sent';
+        ui.msg = 'Reset password email has been sent';
       } catch (err) {
-        ui.msg = 'Email could not be Sent';
+        ui.msg = 'Reset password email could not be sent';
         ui.type = 'error';
       }
       ui.loading = false;
