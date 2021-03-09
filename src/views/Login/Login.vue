@@ -137,7 +137,7 @@ export default {
   beforeRouteEnter(to, from, next) {
     const { user } = useDbState(['user']);
     if (!user.value) next();
-    else next({ name: 'portfolio' });
+    else next({ name: 'login' });
   },
   setup(_props, { root: { $router } }) {
     const state = reactive({
