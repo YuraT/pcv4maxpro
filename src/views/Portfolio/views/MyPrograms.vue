@@ -31,6 +31,7 @@
                   <router-link
                     class="pc-program-card__outline"
                     :to="{ name: 'guide', params: { programId: program._id, page: '0' } }"
+                    style="text-decoration: none"
                   >
                     <v-btn outlined light class="pc-program-card__button w-button"
                       >Finish Setup</v-btn
