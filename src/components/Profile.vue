@@ -2,7 +2,6 @@
   <div v-if="user" class="filepond-container">
     <v-img v-if="editable" class="rounded-circle" :width="size" :height="size">
       <file-pond
-        ref="pond"
         name="test"
         label-idle="<span class='filepond--label-action'>Upload Picture</span>"
         accepted-file-types="image/jpeg, image/png"
@@ -38,9 +37,8 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import FilePondPluginImageCrop from 'filepond-plugin-image-crop';
 import FilePondPluginImageResize from 'filepond-plugin-image-resize';
 import FilePondPluginImageTransform from 'filepond-plugin-image-transform';
-import { useFileStorageState, useAuthGetters, useDbActions, useDbState } from '@/store';
+import { useAuthGetters, useDbState, useDbGetters } from '@/store';
 import { computed, ref, watchEffect } from '@vue/composition-api';
-import { User } from '@/generated/graphql';
 
 const FilePond = vueFilePond(
   FilePondPluginFileValidateType,
@@ -51,7 +49,6 @@ const FilePond = vueFilePond(
   FilePondPluginImageResize,
   FilePondPluginImageTransform
 );
-const { bucket } = useFileStorageState(['bucket']);
 interface FileType {
   source: string | null | undefined;
   options: {
@@ -74,13 +71,13 @@ export default {
   },
   setup() {
     // init data
-    // const pond = ref(null);
+    const { functions } = useDbGetters(['functions']);
     const { user } = useDbState(['user']);
     const myFiles = computed(() => {
       const files: FileType[] = [];
-      if (user.value?.profileImg)
+      if (user.value?.profile)
         files.push({
-          source: user.value?.profileImg,
+          source: user.value?.profile.medium,
           options: {
             type: 'local'
           }
@@ -88,75 +85,64 @@ export default {
       return files;
     });
     // mongo setup
+    const userId = useAuthGetters(['getId']).getId;
     const {
       getObjectId: { value: getObjectId }
     } = useAuthGetters(['getObjectId']);
-    const { update } = useDbActions(['update']);
+    const { collection } = useDbGetters(['collection']);
     const server = ref({
-      process(fieldName, file, metadata, load, error) {
-        bucket.value.upload(
-          {
-            Bucket: 'pilotcity',
-            Key: `${Date.now()}_${file.name}`,
-            Body: file,
-            ContentType: file.type,
-            ACL: 'public-read'
-          },
-          (err, data) => {
-            if (err) {
+      process(fieldName, file, metadata, load, error, progress, abort) {
+        const reader = new FileReader();
+        reader.onload = (fileEvent: Event) => {
+          const base64Encoded = fileEvent.target!.result;
+          functions.value
+            .callFunction('uploadProfileImage', userId.value, base64Encoded)
+            .then(data => {
+              load(data.medium); // load image to filepond from key
+            })
+            .catch(err => {
               // handle error
               error('Something went wrong');
-              return;
-            }
-            update({
-              // update db with data.key
-              collection: 'User',
-              payload: {
-                profileImg: data.key
-              } as Pick<User, 'profileImg'>,
-              filter: { _id: getObjectId }
             });
-            load(data.Key); // load image to filepond from key
-          }
-        );
-      },
-      load(source, load, error, progress, abort) {
-        // Should request a file object from the server here
-        const myRequest = new Request(`https://pilotcity.s3.us-west-1.amazonaws.com/${source}`); // this request can also be used as a URL
-        fetch(myRequest, {
-          method: 'GET',
-          headers: {
-            origin: 'http://localhost:8080'
-          }
-        }).then(response => {
-          response.blob().then(myBlob => {
-            load(myBlob);
-          });
-        });
+        };
+        reader.readAsDataURL(file);
         return {
           abort: () => {
-            // User tapped cancel, abort our ongoing actions here
-
-            // Let FilePond know the request has been cancelled
             abort();
           }
         };
+      },
+      load(source, load, error, progress, abort) {
+        // Should request a file object from the server here
+        const myRequest = new Request(source);
+        fetch(myRequest)
+          .then(response => {
+            response.blob().then(myBlob => {
+              const blob = myBlob.slice(0, myBlob.size, 'image/jpeg');
+              load(blob);
+            });
+          })
+          .catch(err => error('Something went wrong'));
+        return {
+          abort: () => {
+            abort();
+          }
+        };
+      },
+      remove(source, load) {
+        // delete profile images from user doc
+        collection.value!('User').findOneAndUpdate(
+          {
+            _id: getObjectId
+          },
+          { $unset: { profile: '' } }
+        );
+        load();
       }
     });
     const src = ref('');
     watchEffect(() => {
-      if (user.value?.profileImg)
-        fetch(new Request(user.value.profileImg), {
-          method: 'GET'
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        }).then(response => {
-          src.value = `https://pilotcity.s3.us-west-1.amazonaws.com/${user.value!.profileImg}`;
-          // response.blob().then(blob => {
-          //   const url = URL.createObjectURL(blob);
-          //   src.value = url.substring(5);
-          //   console.log(src.value);
-          // });
-        });
+      if (user.value?.profile) src.value = user.value?.profile.medium;
     });
     const initials = computed(
       () =>

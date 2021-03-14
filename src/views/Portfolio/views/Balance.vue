@@ -4,11 +4,7 @@
       <div class="balance__container">
         <div class="balance__main">
           <div class="balance__main-left">
-            <v-avatar size="70">
-              <v-img
-                :src="'https://pilotcity.s3.us-west-1.amazonaws.com/' + user.profileImg"
-              ></v-img>
-            </v-avatar>
+            <Profile size="70" />
             <div class="balance__main-left-title">BALANCE</div>
             <div class="balance__main-left-header">{{ tokens.length }} Tokens</div>
             <div>

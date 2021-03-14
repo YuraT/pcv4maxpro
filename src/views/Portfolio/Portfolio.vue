@@ -73,7 +73,7 @@
           class="profile__sub-container text-center mt-12"
         >
           <div>
-            <!-- <profile :size="150" editable /> -->
+            <profile :size="150" editable />
             <span class="profile__name">{{ user.firstName }} {{ user.lastName }}</span>
           </div>
 
