@@ -9,6 +9,7 @@ services:
     - CHOKIDAR_USEPOLLING=true
     - MEMORY_LIMIT=2048
     - MAX_THREADS=4
+    - COMPOSE_HTTP_TIMEOUT=200
     env_file:
     - .env
     volumes: 

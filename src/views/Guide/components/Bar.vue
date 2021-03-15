@@ -77,17 +77,36 @@
           </div>
 
           <!-- READY TO PUBLISH PROGRAM BUTTON -->
-          <v-dialog v-model="dialog" persistent max-width="500px">
+          <v-dialog v-model="dialog" persistent max-width="350px">
             <template v-slot:activator="{ on, attrs }">
               <div class="d-flex justify-center">
-                <v-btn min-width="225px" v-bind="attrs" disabled rounded depressed v-on="on"
-                  >Publish Program</v-btn
-                >
+                <div v-if="isPublished">
+                  <v-btn min-width="225px" v-bind="attrs" rounded outlined depressed v-on="on"
+                    >UnPublish Program</v-btn
+                  >
+                </div>
+                <div v-else>
+                  <!-- <v-btn
+                    min-width="225px"
+                    v-bind="attrs"
+                    :disabled="!timeline.slice(0, timeline.length).every(adk => adk.unlocked)"
+                    rounded
+                    outlined
+                    depressed
+                    v-on="on"
+                    >Publish Program</v-btn
+                  > -->
+                  <v-btn min-width="225px" v-bind="attrs" rounded outlined depressed v-on="on"
+                    >Publish Program</v-btn
+                  >
+                </div>
               </div>
             </template>
             <v-card>
               <v-card-title>
-                <div class="overline font-weight-bold">Ready to publish your program?</div>
+                <div class="overline font-weight-bold">
+                  {{ isPublished ? 'unpublish' : 'publish' }} your program?
+                </div>
 
                 <div class="ml-auto">
                   <v-btn icon @click="dialog = false"><v-icon>mdi-close</v-icon></v-btn>
@@ -102,7 +121,7 @@
                     >Not yet</v-btn
                   >
 
-                  <v-dialog v-model="dialog2" persistent max-width="500px">
+                  <v-dialog v-model="dialog2" persistent max-width="400px">
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn
                         v-bind="attrs"
@@ -113,13 +132,18 @@
                         depressed
                         dark
                         v-on="on"
-                        >Publish</v-btn
+                        @click="changePublishStatus"
+                        >{{ isPublished ? 'Unpublish' : 'Publish' }}</v-btn
                       >
                     </template>
                     <v-card>
                       <v-card-title>
                         <div class="overline font-weight-bold">
-                          Your program will be reviewed for publishing!
+                          {{
+                            isPublished
+                              ? 'Your program will be published!'
+                              : 'Your program has been unpublished'
+                          }}
                         </div>
 
                         <div class="ml-auto">
@@ -136,19 +160,26 @@
                             x-large
                             color="orange"
                             rounded
+                            outlined
                             depressed
-                            dark
-                            @click="dialog2 = false"
+                            @click="
+                              () => {
+                                dialog2 = false;
+                                dialog = false;
+                              }
+                            "
                             >Continue setting up</v-btn
                           >
-
-                          <v-btn class="ma-2" x-large rounded depressed outlined
-                            >Goto My Portfolio</v-btn
+                          <v-btn
+                            class="ma-2"
+                            x-large
+                            rounded
+                            dark
+                            depressed
+                            @click="$router.push({ name: 'portfolio' })"
                           >
-
-                          <v-btn class="ma-2" x-large disabled rounded depressed
-                            >Explore Programs (Launching soon)</v-btn
-                          >
+                            <span>Goto My Portfolio</span>
+                          </v-btn>
                         </div>
                       </v-container>
                     </v-card>
@@ -166,6 +197,8 @@
 </template>
 
 <script lang="ts">
+import { useDbGetters } from '@/store';
+import { ObjectId } from 'bson';
 import { ref, defineComponent, computed } from '@vue/composition-api';
 
 export default defineComponent({
@@ -191,6 +224,31 @@ export default defineComponent({
     const vertical = ref(true);
     const expand = ref(true); // open or closed sidebar
     const steps = ref(props.timeline.length); // number of lines
+    const { collection } = useDbGetters(['collection']);
+
+    // get publish status of program
+    const isPublished = ref(false);
+    collection.value!('Program')
+      .findOne(
+        {
+          _id: new ObjectId(ctx.root.$route.params.programId)
+        },
+        {
+          projection: {
+            _id: 0,
+            published: 1
+          }
+        }
+      )
+      .then(res => {
+        isPublished.value = res.published;
+      })
+      .catch(e => {
+        // most likely this key doesn't exist in the db
+        // TODO: send error report
+        console.log(e);
+      });
+
     const activeStep = computed({
       get: () => props.value + 1,
       set: newPage => {
@@ -278,6 +336,18 @@ export default defineComponent({
       }
       return whichStep;
     });
+    const changePublishStatus = () => {
+      collection.value!('Program')
+        .findOneAndUpdate(
+          {
+            _id: new ObjectId(ctx.root.$route.params.programId)
+          },
+          { $set: { published: !isPublished.value } }
+        )
+        .then(() => {
+          isPublished.value = !isPublished.value;
+        });
+    };
     return {
       steps,
       expand,
@@ -287,7 +357,9 @@ export default defineComponent({
       vertical,
       dialog: ref(false),
       dialog2: ref(false),
-      unlockedStep
+      unlockedStep,
+      isPublished,
+      changePublishStatus
     };
   }
 });

@@ -33,9 +33,9 @@
                     :to="{ name: 'guide', params: { programId: program._id, page: '0' } }"
                     style="text-decoration: none"
                   >
-                    <v-btn outlined light class="pc-program-card__button w-button"
-                      >Finish Setup</v-btn
-                    >
+                    <v-btn outlined light class="pc-program-card__button w-button">{{
+                      program.published ? 'Edit Program' : 'Finish Setup'
+                    }}</v-btn>
                   </router-link>
                   <!-- <a href="#" class="pc-program-card__button w-button">Checkout</a> -->
                 </div>
