@@ -155,7 +155,7 @@ export default {
         unitLabel: res.product.unit_label
       }));
     });
-    const selectedProduct = computed(() => purchaseOptions.value.filter(opt => opt.quantity));
+    const selectedProduct = computed(() => purchaseOptions.value.filter(opt => opt.quantity > 0));
     const { createCheckoutSession, createInvoice } = useStripeActions([
       'createCheckoutSession',
       'createInvoice'
