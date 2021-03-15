@@ -4,7 +4,7 @@
       <div class="balance__container">
         <div class="balance__main">
           <div class="balance__main-left">
-            <Profile size="70" />
+            <Profile :size="70" />
             <div class="balance__main-left-title">BALANCE</div>
             <div class="balance__main-left-header">{{ tokens.length }} Tokens</div>
             <div>
@@ -44,7 +44,7 @@
                 <v-icon left>mdi-trophy</v-icon>Sponsor
               </v-btn>
             </div>
-            <!-- <div>
+            <div>
               <v-btn
                 class="balance__main-right-button white--text font-weight-bold"
                 depressed
@@ -54,7 +54,7 @@
                 @click="transferState = !transferState"
                 ><v-icon left>mdi-bank-transfer</v-icon>Transfer</v-btn
               >
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -301,7 +301,7 @@
         </div>
       </div>
       <div v-show="transferState">
-        <div class="balance__transfer-title">Transfer Tokens</div>
+        <div class="balance__transfer-title">Transfer Tokens (Internal testing)</div>
         <div class="balance__transfer">
           <div class="balance__email">
             <validation-provider v-slot="{ errors }" rules="required">
@@ -335,17 +335,6 @@
             </validation-provider>
           </div>
 
-          <!-- <v-btn
-            x-large
-            rounded
-            :disabled="invalid"
-            :dark="!invalid"
-            depressed
-            class="mt-3"
-            @click="processTransfer"
-            >Transfer</v-btn
-          > -->
-
           <v-dialog v-model="dialog6" persistent max-width="450px">
             <template v-slot:activator="{ on, attrs }">
               <div class="balance__transfer-button">
@@ -358,7 +347,7 @@
                   depressed
                   v-on="on"
                   @click="processTransfer"
-                  >Transfer</v-btn
+                  >Transfer (Internal testing)</v-btn
                 >
               </div>
             </template>
@@ -373,8 +362,19 @@
               </v-card-title>
 
               <div class="d-flex flex-row justify-center pa-3">
-                <v-btn class="ma-2" x-large rounded outlined depressed @click="dialog6 = false"
-                  >Done</v-btn
+                <v-btn
+                  class="ma-2"
+                  x-large
+                  rounded
+                  outlined
+                  depressed
+                  @click="
+                    () => {
+                      dialog6 = false;
+                      $router.go(0);
+                    }
+                  "
+                  >Refresh Page</v-btn
                 >
 
                 <!-- <v-btn class="ma-2" x-large dark rounded depressed>Transfer</v-btn> -->
@@ -559,6 +559,7 @@ export default {
         }
       });
     };
+    const errors = '';
     return {
       sponsorshipLink,
       sponsorWelcomeMessage,
@@ -586,7 +587,8 @@ export default {
       transferQuantity,
       user: useDbState(['user']).user,
       sponsorId,
-      sponsorNameExamples: ['Arroyo High School', 'San Lorenzo Unified School District']
+      sponsorNameExamples: ['Arroyo High School', 'San Lorenzo Unified School District'],
+      errors
     };
   }
 };

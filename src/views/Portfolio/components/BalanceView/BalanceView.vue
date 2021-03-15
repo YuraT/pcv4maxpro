@@ -77,6 +77,9 @@ export default {
             const keyedUsers = keyBy(users, '_id');
             tableItems.value = transaction.tokenLog!.map(log => {
               const userAccess = keyedUsers[log?.sentTo || log?.receivedFrom];
+              if (!userAccess) {
+                return {};
+              }
               return {
                 name: `${userAccess.firstName} ${userAccess.lastName}`,
                 date: moment(log!.timestamp).fromNow(),
